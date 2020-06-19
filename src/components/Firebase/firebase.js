@@ -33,6 +33,11 @@ class Firebase {
  
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
+
+  doSendEmailVerification = () =>
+    this.auth.currentUser.sendEmailVerification({
+      url: "http://localhost:3000",
+    });
   
   onAuthUserListener = (next, fallback) =>
     this.auth.onAuthStateChanged(authUser => {
@@ -51,6 +56,8 @@ class Firebase {
             authUser = {
               uid: authUser.uid,
               email: authUser.email,
+              emailVerified: authUser.emailVerified,
+              providerData: authUser.providerData,
               ...dbUser,
             };
  
