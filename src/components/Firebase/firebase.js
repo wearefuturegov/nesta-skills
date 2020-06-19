@@ -12,15 +12,18 @@ const config = {
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
- 
+
 class Firebase {
   constructor() {
     app.initializeApp(config);
+
+    this.emailAuthProvider = app.auth.EmailAuthProvider;
     this.auth = app.auth();
     this.db = app.database();
   }
 
   // *** Auth API ***
+
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
 
@@ -28,17 +31,19 @@ class Firebase {
     this.auth.signInWithEmailAndPassword(email, password);
 
   doSignOut = () => this.auth.signOut();
-  
+
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
- 
-  doPasswordUpdate = password =>
-    this.auth.currentUser.updatePassword(password);
 
   doSendEmailVerification = () =>
     this.auth.currentUser.sendEmailVerification({
       url: "http://localhost:3000",
     });
-  
+
+  doPasswordUpdate = password =>
+    this.auth.currentUser.updatePassword(password);
+
+  // *** Merge Auth and DB User API *** //
+
   onAuthUserListener = (next, fallback) =>
     this.auth.onAuthStateChanged(authUser => {
       if (authUser) {
@@ -46,12 +51,12 @@ class Firebase {
           .once('value')
           .then(snapshot => {
             const dbUser = snapshot.val();
- 
+
             // default empty roles
             if (!dbUser.roles) {
-              dbUser.roles = {};
+              dbUser.roles = [];
             }
- 
+
             // merge auth and db user
             authUser = {
               uid: authUser.uid,
@@ -60,18 +65,19 @@ class Firebase {
               providerData: authUser.providerData,
               ...dbUser,
             };
- 
+
             next(authUser);
           });
       } else {
         fallback();
       }
-  });
+    });
 
   // *** User API ***
+
   user = uid => this.db.ref(`users/${uid}`);
- 
+
   users = () => this.db.ref('users');
 }
- 
+
 export default Firebase;

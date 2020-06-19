@@ -5,7 +5,7 @@ import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
- 
+
 const Navigation = () => (
   <AuthUserContext.Consumer>
     {authUser =>
@@ -17,7 +17,7 @@ const Navigation = () => (
     }
   </AuthUserContext.Consumer>
 );
- 
+
 const NavigationAuth = ({ authUser }) => (
   <ul>
     <li>
@@ -29,7 +29,7 @@ const NavigationAuth = ({ authUser }) => (
     <li>
       <Link to={ROUTES.ACCOUNT}>Account</Link>
     </li>
-    {!!authUser.roles[0] === ROLES.ADMIN && (
+    {authUser.roles.includes(ROLES.ADMIN) && (
       <li>
         <Link to={ROUTES.ADMIN}>Admin</Link>
       </li>
@@ -39,7 +39,7 @@ const NavigationAuth = ({ authUser }) => (
     </li>
   </ul>
 );
- 
+
 const NavigationNonAuth = () => (
   <ul>
     <li>
@@ -50,5 +50,5 @@ const NavigationNonAuth = () => (
     </li>
   </ul>
 );
- 
+
 export default Navigation;
