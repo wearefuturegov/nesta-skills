@@ -42,7 +42,8 @@ class Firebase {
 
   doSendEmailVerification = () =>
     this.auth.currentUser.sendEmailVerification({
-      url: "http://localhost:3000",
+      // url: "http://localhost:3000",
+      url: "https://nesta-skills.web.app/",
     });
 
   doPasswordUpdate = password =>
