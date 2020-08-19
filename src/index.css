@@ -8,6 +8,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  margin-top: 0;
+}
+
+body.landing_page {
+  background: #3C1252;
+  color: #FFF;
+}
+body.step_1 {
+  background: #F9F9F9;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
