@@ -47,6 +47,15 @@ const SkillTitle = styled.p`
 const SkillText = styled.p`
 
 `
+const ModalTitle = styled.h2`
+    margin-top: 0;
+`
+const ModalLead = styled.p`
+    font-size 1.5rem;
+`
+const ModalContent = styled.div`
+
+`
 const ReadMore = styled.button`
     display: block;
     margin-top: auto;
@@ -79,12 +88,16 @@ export const SkillCard = ({skill}) => {
                             right: 'auto',
                             bottom: 'auto',
                             width: '100%',
-                            maxWidth: '600px'
+                            maxWidth: '600px',
+                            border: `5px solid ${skill.brand === "working_together" ? theme.orange : (skill.brand === "leading_change" ? theme.purple : (skill.brand === "learning" ? theme.red : theme.darkPurple))}`,
+                            borderRadius: '0'
                         }
                     }}
                 >
                     <RemoveScrollBar />
-                    {parse(skill.content)}
+                    <ModalTitle>{skill.title}</ModalTitle>
+                    <ModalLead>{skill.text}</ModalLead>
+                    <ModalContent>{parse(skill.content)}</ModalContent>
                     <button onClick={() => setShowModal(false)}>Close Modal</button>
                 </Modal>
             }
