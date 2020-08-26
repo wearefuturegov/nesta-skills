@@ -37,7 +37,7 @@ const RestartLink = styled(Link)`
 `
 
 const Landing = () => {
-  const [startedTest, setStartedTest] = useLocalStorage("nesta_test_started");
+  const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
 
   return(
     <BodyClassName className="landing_page">
@@ -50,11 +50,11 @@ const Landing = () => {
         <Section>
           <h2>Nesta’s Competency Framework</h2>
           <LeadP>Innovation in the public sector often focuses on learning new methods. These are of course valuable, but we’ve found that on their own they are not enough. We also need to understand the core set of attitudes and skills that underpin and support these methods.</LeadP>
-          {startedTest > 0 ? 
+          {currentStep > 0 ? 
             <>
               <p>It looks like you have already started</p>
-              <RestartLink to={ROUTES.START}>Start again</RestartLink>
-              <Button to={`/step_${startedTest}`} background={theme.red}>Continue</Button>
+              <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
+              <Button to={`/step_${currentStep}`} background={theme.red}>Continue</Button>
             </>
             :
             <Button to={ROUTES.START} background={theme.red}>Get started</Button>

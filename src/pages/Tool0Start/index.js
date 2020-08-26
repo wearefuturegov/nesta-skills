@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styled from "styled-components"
+import styled from "styled-components";
 import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import theme from "../../_theme"
@@ -38,12 +38,18 @@ const BlockText = styled.div`
   
 `
 
-const StartPage = () => {
-  const [startedTest, setStartedTest] = useLocalStorage("nesta_test_started");
+const StartPage = ({restart}) => {
+  const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   
   useEffect(() => {
-    setStartedTest(0);
-  }, [startedTest]);
+    if (restart) {
+      window.localStorage.setItem("nesta_pro_skills", "");
+      window.localStorage.setItem("nesta_con_skills", "");
+      window.localStorage.setItem("nesta_pro_attributes", "");
+      window.localStorage.setItem("nesta_con_attributes", "");
+    }
+    setCurrentStep(0);
+  }, [currentStep]);
   
   return(
     <div>

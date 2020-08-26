@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from "styled-components"
-import { Link } from 'react-router-dom';
 import theme from "../../_theme"
 import Modal from 'react-modal';
 import parse from 'html-react-parser';
@@ -25,7 +24,7 @@ const Outer = styled.li`
     &.active {
         background: ${props => props.bg};
         color: ${theme.white};
-        a {
+        a, button {
             color: ${theme.white};
         }
     }
@@ -96,6 +95,7 @@ const ReadMore = styled.button`
         background-color: ${theme.focus};
         box-shadow: 0 -2px ${theme.focus}, 0 4px ${theme.black};
         text-decoration: none;
+        color: ${theme.black} !important;
     }
 `
 const ModalActions = styled.div`
@@ -124,7 +124,7 @@ const AddButton = styled.button`
         box-shadow: 0px 0px 0px 3px ${theme.black};
     }
 `
-export const SkillCard = ({skill, selectSkill, chosenSkills}) => {
+export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) => {
     Modal.setAppElement('body')
     const [showModal, setShowModal] = useState(false)
     const [isActive, setIsActive] = useState(chosenSkills.includes(skill.id))
@@ -133,7 +133,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills}) => {
     }, [chosenSkills]);
 
     function getBranding(brand) {
-        return brand === "working_together" ? theme.orange : (skill.brand === "leading_change" ? theme.purple : (skill.brand === "learning" ? theme.red : theme.darkPurple))
+        return brand === "working_together" ? theme.orange : (brand === "leading_change" ? theme.purple : (brand === "learning" ? theme.red : theme.darkPurple))
     }
     
     function openModal(event) {
@@ -189,12 +189,16 @@ export const SkillCard = ({skill, selectSkill, chosenSkills}) => {
                     <ModalContent>{parse(skill.content)}</ModalContent>
                     <ModalActions>
                         <CloseModal onClick={() => setShowModal(false)}>Close Modal</CloseModal>
-                        <AddButton 
-                            bg={getBranding(skill.brand)} 
-                            onClick={() => { selectSkill(skill); setShowModal(false);}}
-                        >
+                        {chosenSkills.length === maxSelectionNo && !isActive ? 
+                            <span>You cannot select more than {maxSelectionNo} skills</span>
+                            :
+                            <AddButton 
+                                bg={getBranding(skill.brand)} 
+                                onClick={() => { selectSkill(skill); setShowModal(false);}}
+                            >
                                 { isActive ? "Remove" : "Select"} this skill
                             </AddButton>
+                        }
                     </ModalActions>
                 </Modal>
             }

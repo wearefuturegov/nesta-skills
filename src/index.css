@@ -16,7 +16,7 @@ body.landing_page {
   background: #3C1252;
   color: #FFF;
 }
-body.step_1 {
+body.step_1, body.step_2, body.step_3, body.step_4 {
   background: #F9F9F9;
 }
 

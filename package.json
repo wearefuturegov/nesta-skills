@@ -15,6 +15,7 @@
     "react-remove-scroll-bar": "^2.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-toast-notifications": "^2.4.0",
     "recompose": "^0.30.0",
     "styled-components": "^5.1.1"
   },

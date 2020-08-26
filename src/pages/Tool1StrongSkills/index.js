@@ -3,11 +3,14 @@ import styled from "styled-components"
 import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import theme from "../../_theme"
+import { useToasts } from 'react-toast-notifications'
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
 import skills from "../../data/skills.js"
 
 import { SkillCard } from "../../components/SkillCard";
+import { SkillDot } from "../../components/SkillDot";
+import { TrackingBar } from "../../components/TrackingBar";
 
 const SkillsContainer = styled.ul`
   list-style-type: none;
@@ -23,8 +26,11 @@ const SkillsContainer = styled.ul`
 `
 
 const Tool1 = () => {
-  const [startedTest, setStartedTest] = useLocalStorage("nesta_test_started");
-  const [chosenSkills, setChosenSkills] = useState([]);
+  const maxSelectionNo = 5;
+  const [startedTest, setStartedTest] = useLocalStorage("nesta_progress");
+  const [storedSkills, setStoredSkills] = useLocalStorage("nesta_pro_skills");
+  const [chosenSkills, setChosenSkills] = useState(storedSkills ? JSON.parse(storedSkills) : []);
+  const { addToast } = useToasts()
 
   useEffect(() => {
     setStartedTest(1);
@@ -34,16 +40,22 @@ const Tool1 = () => {
     if(chosenSkills.includes(skill.id)) {
         setChosenSkills(chosenSkills => chosenSkills.filter(item => item !== skill.id));
     } else {
-      if(chosenSkills.length < 5) {
+      if(chosenSkills.length < maxSelectionNo) {
         setChosenSkills([
             ...chosenSkills,
             skill.id
         ]);
+      } else {
+        addToast(`You can only select ${maxSelectionNo} skills`, {
+          appearance: 'warning',
+          autoDismiss: true,
+          autoDismissTimeout: 2500
+        })
       }
     }
   }
   useEffect(() => {
-    console.log(chosenSkills)
+    setStoredSkills(JSON.stringify(chosenSkills))
   }, [chosenSkills]);
 
 
@@ -60,10 +72,32 @@ const Tool1 = () => {
 
         <SkillsContainer>
           {skills.map((skill) =>
-            <SkillCard key={skill.id} skill={skill} chosenSkills={chosenSkills} selectSkill={selectSkill} />
+            <SkillCard 
+              key={skill.id} 
+              skill={skill} 
+              chosenSkills={chosenSkills} 
+              selectSkill={selectSkill} 
+              maxSelectionNo={maxSelectionNo} 
+            />
           )}
         </SkillsContainer>
-      </>  
+
+        <TrackingBar 
+          maxSelectionNo={maxSelectionNo}
+          chosenSkills={chosenSkills} 
+          type="strongest skills"
+          previousLink={ROUTES.START}
+          nextLink={ROUTES.STEP2}
+        >
+          {chosenSkills.map((skillID) =>
+            <SkillDot 
+              key={skillID} 
+              skillID={skillID} 
+              skills={skills} 
+            />
+          )}
+        </TrackingBar>
+      </>
     </BodyClassName>
   )
 };

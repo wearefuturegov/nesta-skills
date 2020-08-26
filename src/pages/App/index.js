@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ToastProvider } from 'react-toast-notifications'
 
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
@@ -20,6 +21,7 @@ import Tool1 from '../Tool1StrongSkills';
 import Tool2 from '../Tool2WeakSkills';
 import Tool3 from '../Tool3StrongAttributes';
 import Tool4 from '../Tool4WeakAttributes';
+import Tool5 from '../Tool5SignUp';
 
 const PageWrapper = styled.div`
   padding: 0 15px;
@@ -37,19 +39,23 @@ const App = () => {
       <Navigation />
 
       <PageWrapper>
-        <Route exact path={ROUTES.LANDING} component={LandingPage} />
-        <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-        <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-        <Route path={ROUTES.HOME} component={HomePage} />
-        <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-        <Route path={ROUTES.ADMIN} component={AdminPage} />
+        <ToastProvider>
+          <Route exact path={ROUTES.LANDING} component={LandingPage} />
+          <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+          <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+          <Route path={ROUTES.HOME} component={HomePage} />
+          <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+          <Route path={ROUTES.ADMIN} component={AdminPage} />
 
-        <Route path={ROUTES.START} component={StartPage} />
-        <Route path={ROUTES.STEP1} component={Tool1} />
-        <Route path={ROUTES.STEP2} component={Tool2} />
-        <Route path={ROUTES.STEP3} component={Tool3} />
-        <Route path={ROUTES.STEP4} component={Tool4} />
+          <Route path={ROUTES.START} component={StartPage} />
+          <Route path={ROUTES.RESTART} component={() => <StartPage restart={true} />} />
+          <Route path={ROUTES.STEP1} component={Tool1} />
+          <Route path={ROUTES.STEP2} component={Tool2} />
+          <Route path={ROUTES.STEP3} component={Tool3} />
+          <Route path={ROUTES.STEP4} component={Tool4} />
+          <Route path={ROUTES.STEP5} component={Tool5} />
+        </ToastProvider>
       </PageWrapper>
     </Router>
   )
