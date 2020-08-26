@@ -6,6 +6,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
 import { AuthUserContext } from '../Session';
 import { Link } from 'react-router-dom';
+import { withFirebase } from '../Firebase';
 
 const Tool5 = () => {
   const currentStepNo = 5;
@@ -30,7 +31,9 @@ const Tool5 = () => {
         <AuthUserContext.Consumer>
           {authUser =>
             authUser ? (
-              <strong>If logged in skip this step? as we already have the data? then just save the data we have to finish the test</strong>
+              <>
+                <strong>If logged in skip this step? as we already have the data? then just save the data we have to finish the test</strong>
+              </>
             ) : (
               <strong>If not logged in then replace this page with a sign up form and increase the data captured at sign up. conditionally add this extra text to the top of the sign up form too.</strong>
             )

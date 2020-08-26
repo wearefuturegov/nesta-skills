@@ -7,7 +7,7 @@ import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
-import HomePage from '../Home';
+import ResultsPage from '../Results';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
@@ -22,6 +22,7 @@ import Tool2 from '../Tool2WeakSkills';
 import Tool3 from '../Tool3StrongAttributes';
 import Tool4 from '../Tool4WeakAttributes';
 import Tool5 from '../Tool5SignUp';
+import Tool6 from '../Tool6SaveResults';
 
 const PageWrapper = styled.div`
   padding: 0 15px;
@@ -44,7 +45,7 @@ const App = () => {
           <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />
           <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-          <Route path={ROUTES.HOME} component={HomePage} />
+          <Route path={ROUTES.RESULTS} component={ResultsPage} />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Route path={ROUTES.ADMIN} component={AdminPage} />
 
@@ -55,6 +56,7 @@ const App = () => {
           <Route path={ROUTES.STEP3} component={Tool3} />
           <Route path={ROUTES.STEP4} component={Tool4} />
           <Route path={ROUTES.STEP5} component={Tool5} />
+          <Route path={ROUTES.SAVERESULTS} component={Tool6} />
         </ToastProvider>
       </PageWrapper>
     </Router>

@@ -61,7 +61,7 @@ const NavigationAuth = ({ authUser }) => (
       <Nav>
         <NavList>
           <NavItem>
-            <Link to={ROUTES.HOME}>Home</Link>
+            <Link to={ROUTES.RESULTS}>Results</Link>
           </NavItem>
           <NavItem>
             <Link to={ROUTES.ACCOUNT}>Account</Link>
