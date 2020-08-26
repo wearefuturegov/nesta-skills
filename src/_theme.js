@@ -3,7 +3,7 @@ export default {
     bodyFont: "\"Open Sans\", \"HelveticaNeue\", \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
 
     // colour scheme
-    black: "#000000",
+    black: "#0b0c0c",
     white: "#ffffff",
     lightGrey: "#F9F9F9",
     grey: "#C4C4C4",
@@ -12,6 +12,7 @@ export default {
     orange: "#FF5A00",
     red: "#FF0041",
     purple: "#9B00C3",
+    focus: "#FFF71A",
 
     // breakpoints
     s: "550px",

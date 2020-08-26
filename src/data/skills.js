@@ -1,5 +1,6 @@
 export default [
     {
+        id: "1",
         brand: "working_together",
         title: "Citizen and stakeholder engagement",
         text: "Actively involving citizens, stakeholders and unusual suspects",
@@ -17,6 +18,7 @@ export default [
         `
     },
     {
+        id: "2",
         brand: "working_together",
         title: "Creative facilitation",
         text: "Creatively processing different perspectives and deliberating multiple options",
@@ -27,6 +29,7 @@ export default [
         `
     },
     {
+        id: "3",
         brand: "working_together",
         title: "Building bridges",
         text: "Orchestrating interaction to find common ground and create shared ownership",
@@ -39,6 +42,7 @@ export default [
         `
     },
     {
+        id: "4",
         brand: "working_together",
         title: "Brokering",
         text: "Mediating contrasting interests and reducing friction between multiple stakeholders",
@@ -47,6 +51,7 @@ export default [
         `
     },
     {
+        id: "5",
         brand: "leading_change",
         title: "Future acumen",
         text: "Connecting long-term vision with short-term actions",
@@ -55,6 +60,7 @@ export default [
         `
     },
     {
+        id: "6",
         brand: "leading_change",
         title: "Prototyping and iterating",
         text: "Testing ideas and systematically improving them",
@@ -63,6 +69,7 @@ export default [
         `
     },
     {
+        id: "7",
         brand: "leading_change",
         title: "Data literacy and evidence",
         text: "Using different kinds of data effectively to accelerate sense-making",
@@ -71,6 +78,7 @@ export default [
         `
     },
     {
+        id: "8",
         brand: "leading_change",
         title: "Systems thinking",
         text: "Combining micro and macro perspectives to grasp complexity",
@@ -79,6 +87,7 @@ export default [
         `
     },
     {
+        id: "9",
         brand: "leading_change",
         title: "Tech literacy",
         text: "Testing ideas and systematically improving them",
@@ -87,6 +96,7 @@ export default [
         `
     },
     {
+        id: "10",
         brand: "learning",
         title: "Political and bureaucratic awareness",
         text: "Ensuring strategic support through political dynamics and bureaucratic procedures",
@@ -95,6 +105,7 @@ export default [
         `
     },
     {
+        id: "11",
         brand: "learning",
         title: "Financing change",
         text: "Understanding the many ways to liberate, mobilise and use financial resources",
@@ -103,6 +114,7 @@ export default [
         `
     },
     {
+        id: "12",
         brand: "learning",
         title: "Intrapreneurship",
         text: "Being entrepreneurial within an organisation to create new opportunities",
@@ -111,6 +123,7 @@ export default [
         `
     },
     {
+        id: "13",
         brand: "learning",
         title: "Demonstrating value",
         text: "Making the case for change by articulating the value of it",

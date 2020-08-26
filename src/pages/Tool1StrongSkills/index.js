@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components"
 import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
@@ -24,10 +24,28 @@ const SkillsContainer = styled.ul`
 
 const Tool1 = () => {
   const [startedTest, setStartedTest] = useLocalStorage("nesta_test_started");
-  
+  const [chosenSkills, setChosenSkills] = useState([]);
+
   useEffect(() => {
     setStartedTest(1);
   }, [startedTest]);
+
+  function selectSkill(skill) {
+    if(chosenSkills.includes(skill.id)) {
+        setChosenSkills(chosenSkills => chosenSkills.filter(item => item !== skill.id));
+    } else {
+      if(chosenSkills.length < 5) {
+        setChosenSkills([
+            ...chosenSkills,
+            skill.id
+        ]);
+      }
+    }
+  }
+  useEffect(() => {
+    console.log(chosenSkills)
+  }, [chosenSkills]);
+
 
   return(
     <BodyClassName className="step_1">
@@ -42,7 +60,7 @@ const Tool1 = () => {
 
         <SkillsContainer>
           {skills.map((skill) =>
-            <SkillCard skill={skill} />
+            <SkillCard key={skill.id} skill={skill} chosenSkills={chosenSkills} selectSkill={selectSkill} />
           )}
         </SkillsContainer>
       </>  

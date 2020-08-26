@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components"
 import { Link } from 'react-router-dom';
 import theme from "../../_theme"
@@ -13,6 +13,22 @@ const Outer = styled.li`
     margin-bottom: ${theme.standardSpace}px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0px 0px 0px 3px ${theme.focus}, 0px 0px 0px 6px ${theme.black};
+    }
+    &.active {
+        background: ${props => props.bg};
+        color: ${theme.white};
+        a {
+            color: ${theme.white};
+        }
+    }
 
     @media screen and (min-width: ${theme.s}){
         width: calc(50% - 54px);
@@ -27,7 +43,7 @@ const Outer = styled.li`
     }
 
     @media screen and (min-width: ${theme.m}){
-        width: calc(33% - 54px);
+        width: calc(33% - 55px);
         margin-right: ${theme.standardSpace}px;
 
         &:nth-of-type(2n) {
@@ -58,19 +74,92 @@ const ModalContent = styled.div`
 `
 const ReadMore = styled.button`
     display: block;
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    text-align: left;
+    display: inline-block;
+    padding: 5px;
+    margin-left: -5px;
     margin-top: auto;
-`
+    width: fit-content;
+    cursor: pointer;
+    border-radius: 0;
+    font-weight: bold;
 
-export const SkillCard = ({skill}) => {
+    &:hover {
+        text-decoration: none;
+        opacity: 0.8;
+    }
+    &:focus {
+        outline: none;
+        background-color: ${theme.focus};
+        box-shadow: 0 -2px ${theme.focus}, 0 4px ${theme.black};
+        text-decoration: none;
+    }
+`
+const ModalActions = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+const CloseModal = styled(ReadMore)`
+
+`
+const AddButton = styled.button`
+    background: ${props => props.bg};
+    padding: 15px 20px;
+    border: 3px solid transparent;
+    font-weight: bold;
+    display: inline-block;
+    width: fit-content;
+    color: ${theme.white};
+    
+    &:hover {
+        opacity: 0.8;
+    }
+    &:focus {
+        outline: none;
+        border-color: ${theme.focus};
+        box-shadow: 0px 0px 0px 3px ${theme.black};
+    }
+`
+export const SkillCard = ({skill, selectSkill, chosenSkills}) => {
+    Modal.setAppElement('body')
     const [showModal, setShowModal] = useState(false)
+    const [isActive, setIsActive] = useState(chosenSkills.includes(skill.id))
+    useEffect(() => {
+        setIsActive(chosenSkills.includes(skill.id))
+    }, [chosenSkills]);
+
+    function getBranding(brand) {
+        return brand === "working_together" ? theme.orange : (skill.brand === "leading_change" ? theme.purple : (skill.brand === "learning" ? theme.red : theme.darkPurple))
+    }
+    
+    function openModal(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        setShowModal(true);
+    }
+
     return(
         <>
-            <Outer bg={skill.brand === "working_together" ? theme.orange : (skill.brand === "leading_change" ? theme.purple : (skill.brand === "learning" ? theme.red : theme.darkPurple))}>
+            <Outer 
+                bg={getBranding(skill.brand)} 
+                onClick={() => selectSkill(skill)} 
+                onKeyPress={(e) => e.key === 'Enter' && selectSkill(skill)}
+                className={isActive ? "active" : ""}
+                tabIndex="0" 
+                role="button" 
+                aria-pressed={isActive ? "true" : "false"}
+            >
                 <Inner>
                     <SkillTitle>{skill.title}</SkillTitle>
                     <SkillText>{skill.text}</SkillText>
                 </Inner>
-                {skill.content && <ReadMore onClick={() => setShowModal(true)}>Read more</ReadMore>}
+                {skill.content && 
+                    <ReadMore onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>Read more</ReadMore>
+                }
             </Outer>
             {skill.content && 
                 <Modal 
@@ -87,9 +176,9 @@ export const SkillCard = ({skill}) => {
                             left: '50%',
                             right: 'auto',
                             bottom: 'auto',
-                            width: '100%',
+                            width: '90%',
                             maxWidth: '600px',
-                            border: `5px solid ${skill.brand === "working_together" ? theme.orange : (skill.brand === "leading_change" ? theme.purple : (skill.brand === "learning" ? theme.red : theme.darkPurple))}`,
+                            border: `5px solid ${getBranding(skill.brand)}`,
                             borderRadius: '0'
                         }
                     }}
@@ -98,7 +187,15 @@ export const SkillCard = ({skill}) => {
                     <ModalTitle>{skill.title}</ModalTitle>
                     <ModalLead>{skill.text}</ModalLead>
                     <ModalContent>{parse(skill.content)}</ModalContent>
-                    <button onClick={() => setShowModal(false)}>Close Modal</button>
+                    <ModalActions>
+                        <CloseModal onClick={() => setShowModal(false)}>Close Modal</CloseModal>
+                        <AddButton 
+                            bg={getBranding(skill.brand)} 
+                            onClick={() => { selectSkill(skill); setShowModal(false);}}
+                        >
+                                { isActive ? "Remove" : "Select"} this skill
+                            </AddButton>
+                    </ModalActions>
                 </Modal>
             }
         </>

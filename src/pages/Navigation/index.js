@@ -11,15 +11,20 @@ import * as ROLES from '../../constants/roles';
 const Outer = styled.header`
   padding: 25px 15px;
   background: ${theme.darkPurple};
+  margin-bottom: ${theme.standardSpace}px;
   a {
     color: ${theme.white};
   }
 `
 const Inner = styled.div`
-  max-width: ${theme.xl};
+  max-width: ${theme.l};
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (min-width: ${theme.xl}){
+    max-width: calc(${theme.xl} - 200px);
+  }
 `
 const Nav = styled.nav`
 `

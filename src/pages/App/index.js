@@ -23,8 +23,11 @@ import Tool4 from '../Tool4WeakAttributes';
 
 const PageWrapper = styled.div`
   padding: 0 15px;
-  max-width: ${theme.xl};
+  max-width: ${theme.l};
   margin: 0 auto;
+  @media screen and (min-width: ${theme.xl}){
+    max-width: calc(${theme.xl} - 200px);
+  }
 `
 
 const App = () => {
