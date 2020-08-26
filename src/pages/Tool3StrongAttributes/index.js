@@ -8,6 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
 import attributes from "../../data/attributes.js"
 
+import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
 import { SkillDot } from "../../components/SkillDot";
 import { TrackingBar } from "../../components/TrackingBar";
@@ -27,13 +28,14 @@ const SkillsContainer = styled.ul`
 
 const Tool3 = () => {
   const maxSelectionNo = 3;
+  const currentStepNo = 3;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [proAttributes, setProAttributes] = useLocalStorage("nesta_pro_attributes");
   const [chosenSkills, setChosenSkills] = useState(proAttributes ? JSON.parse(proAttributes) : []);
   const { addToast } = useToasts()
 
   useEffect(() => {
-    setCurrentStep(3);
+    setCurrentStep(currentStepNo);
   }, [currentStep]);
 
   function selectSkill(skill) {
@@ -46,7 +48,7 @@ const Tool3 = () => {
             skill.id
         ]);
       } else {
-        addToast(`You can only select ${maxSelectionNo} skills`, {
+        addToast(`You can only select ${maxSelectionNo} attributes`, {
           appearance: 'warning',
           autoDismiss: true,
           autoDismissTimeout: 2500
@@ -59,8 +61,10 @@ const Tool3 = () => {
   }, [chosenSkills]);
 
   return(
-    <BodyClassName className="step_3">
+    <BodyClassName className={`step_${currentStepNo}`}>
       <>
+        <CurrentStep step={currentStepNo} max={4} />
+
         <p>In addition to skills, our research identified nine <strong>key attitudes</strong> that support successful experimentation and problem solving. These differ from skills in that you will have formed them over a greater period of time and they are more difficult to change or develop.</p>
         
         <p>Select the <strong>three attitudes</strong> that you think your colleagues would <strong>most likely use to describe you.</strong></p>    

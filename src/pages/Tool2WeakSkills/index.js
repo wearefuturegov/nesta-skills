@@ -8,6 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
 import skills from "../../data/skills.js"
 
+import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
 import { SkillDot } from "../../components/SkillDot";
 import { TrackingBar } from "../../components/TrackingBar";
@@ -27,6 +28,8 @@ const SkillsContainer = styled.ul`
 
 const Tool2 = () => {
   const maxSelectionNo = 2;
+  const currentStepNo = 2;
+
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [storedSkills, setStoredSkills] = useLocalStorage("nesta_pro_skills");
   const [storedWeakness, setStoredWeakness] = useLocalStorage("nesta_con_skills");
@@ -34,7 +37,7 @@ const Tool2 = () => {
   const { addToast } = useToasts()
 
   useEffect(() => {
-    setCurrentStep(2);
+    setCurrentStep(currentStepNo);
   }, [currentStep]);
 
   function selectSkill(skill) {
@@ -60,8 +63,10 @@ const Tool2 = () => {
   }, [chosenSkills]);
 
   return(
-    <BodyClassName className="step_2">
+    <BodyClassName className={`step_${currentStepNo}`}>
       <>
+        <CurrentStep step={currentStepNo} max={4} />
+
         <p>Now select the <strong>two cards</strong> which you or your colleagues might use to describe your <strong>least strong</strong> or <strong>least well-practiced skills.</strong></p>
         
         <p>Remember that having less strong skills isn’t a negative thing, as no one person could have all of these skills.</p>    

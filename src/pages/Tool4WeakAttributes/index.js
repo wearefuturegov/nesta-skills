@@ -8,6 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
 import attributes from "../../data/attributes.js"
 
+import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
 import { SkillDot } from "../../components/SkillDot";
 import { TrackingBar } from "../../components/TrackingBar";
@@ -27,6 +28,7 @@ const SkillsContainer = styled.ul`
 
 const Tool4 = () => {
   const maxSelectionNo = 1;
+  const currentStepNo = 4;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [proAttributes, setProAttributes] = useLocalStorage("nesta_pro_attributes");
   const [conAttributes, setConAttributes] = useLocalStorage("nesta_con_attributes");
@@ -35,7 +37,7 @@ const Tool4 = () => {
   const { addToast } = useToasts()
 
   useEffect(() => {
-    setCurrentStep(4);
+    setCurrentStep(currentStepNo);
   }, [currentStep]);
 
   function selectSkill(skill) {
@@ -48,7 +50,7 @@ const Tool4 = () => {
             skill.id
         ]);
       } else {
-        addToast(`You can only select ${maxSelectionNo} skills`, {
+        addToast(`You can only select ${maxSelectionNo} attribute`, {
           appearance: 'warning',
           autoDismiss: true,
           autoDismissTimeout: 2500
@@ -61,8 +63,10 @@ const Tool4 = () => {
   }, [chosenSkills]);
 
   return(
-    <BodyClassName className="step_4">
+    <BodyClassName className={`step_${currentStepNo}`}>
       <>
+        <CurrentStep step={currentStepNo} max={4} />
+
         <p>Now select the <strong>one attitude</strong> that you think your colleagues would be <strong>least likely to use to describe you.</strong></p>
         
         <SkillsContainer>

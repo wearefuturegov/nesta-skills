@@ -8,6 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
 import skills from "../../data/skills.js"
 
+import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
 import { SkillDot } from "../../components/SkillDot";
 import { TrackingBar } from "../../components/TrackingBar";
@@ -27,13 +28,15 @@ const SkillsContainer = styled.ul`
 
 const Tool1 = () => {
   const maxSelectionNo = 5;
+  const currentStepNo = 1;
+
   const [startedTest, setStartedTest] = useLocalStorage("nesta_progress");
   const [storedSkills, setStoredSkills] = useLocalStorage("nesta_pro_skills");
   const [chosenSkills, setChosenSkills] = useState(storedSkills ? JSON.parse(storedSkills) : []);
   const { addToast } = useToasts()
 
   useEffect(() => {
-    setStartedTest(1);
+    setStartedTest(currentStepNo);
   }, [startedTest]);
 
   function selectSkill(skill) {
@@ -60,8 +63,10 @@ const Tool1 = () => {
 
 
   return(
-    <BodyClassName className="step_1">
+    <BodyClassName className={`step_${currentStepNo}`}>
       <>
+        <CurrentStep step={currentStepNo} max={4} />
+
         <p>Let’s try and build up a picture of your skills so we can understand:</p>
         <ul>
           <li>what strengths you bring to a team</li>

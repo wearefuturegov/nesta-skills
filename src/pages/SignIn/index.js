@@ -41,12 +41,13 @@ class SignInFormBase extends Component {
 
   onSubmit = event => {
     const { email, password } = this.state;
+    const currentStep = window.localStorage.getItem("nesta_progress");
 
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOME);
+        this.props.history.push(currentStep === "0" ? ROUTES.LANDING : `/step_${currentStep}`);
       })
       .catch(error => {
         this.setState({ error });
