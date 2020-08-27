@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { compose } from 'recompose';
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import rolesContent from "../../data/roles.js"
 
 import {
   AuthUserContext,
@@ -10,7 +11,7 @@ import {
 
 const ResultsPage = () => {
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
-  
+
   useEffect(() => {
     window.localStorage.setItem("nesta_pro_skills", "");
     window.localStorage.setItem("nesta_con_skills", "");
@@ -19,13 +20,29 @@ const ResultsPage = () => {
     setCurrentStep(0);
   }, [currentStep]);
 
+  const parseTotals = (array) => {
+    let tempArray = [];
+    rolesContent.map((role, index) => {
+      tempArray = [...tempArray, {
+        id: role.id-1,
+        total: array[index+1]
+      }]
+    });
+    return tempArray;
+  }
   return(
     <AuthUserContext.Consumer>
       {authUser => (
         <div>
           <h1>Results Page{authUser.username && ` - ${authUser.username}`}</h1>
 
-          <p>This Page is accessible only by signed in users.</p>
+          {parseTotals(authUser.roleTotals).sort((a, b) => (a.total < b.total) ? 1 : -1).map(role => (
+            <div>
+              <p>{rolesContent[role.id].title}</p>
+              <p>{role.total}</p>
+            </div>
+          ))}
+          
         </div>
       )}
     </AuthUserContext.Consumer>
