@@ -19,8 +19,8 @@ import theme from "../../_theme"
 import StartPage from '../Tool0Start';
 import Tool1 from '../Tool1StrongSkills';
 import Tool2 from '../Tool2WeakSkills';
-import Tool3 from '../Tool3StrongAttributes';
-import Tool4 from '../Tool4WeakAttributes';
+import Tool3 from '../Tool3StrongAttitudes';
+import Tool4 from '../Tool4WeakAttitudes';
 import Tool5 from '../Tool5SignUp';
 import Tool6 from '../Tool6SaveResults';
 

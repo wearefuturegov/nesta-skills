@@ -25,7 +25,7 @@ export const SkillDot = ({skillID, skills}) => {
             <Outer 
                 href={`#skill_${selectedSkill.id}`} 
                 title={selectedSkill.title} 
-                bg={selectedSkill.brand === "working_together" ? theme.orange : (selectedSkill.brand === "leading_change" ? theme.purple : (selectedSkill.brand === "learning" ? theme.red : theme.darkPurple))}
+                bg={selectedSkill.brand === "working_together" ? theme.orange : (selectedSkill.brand === "learning" ? theme.purple : (selectedSkill.brand === "leading_change" ? theme.red : theme.darkPurple))}
             />    
             :
             <BlankOuter />       

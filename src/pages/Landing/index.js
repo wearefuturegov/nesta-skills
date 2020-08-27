@@ -7,6 +7,10 @@ import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { Link } from 'react-router-dom';
 
+import {
+  AuthUserContext
+} from '../Session';
+
 const MainWrapper = styled.div`
 `
 
@@ -50,15 +54,42 @@ const Landing = () => {
         <Section>
           <h2>Nesta’s Competency Framework</h2>
           <LeadP>Innovation in the public sector often focuses on learning new methods. These are of course valuable, but we’ve found that on their own they are not enough. We also need to understand the core set of attitudes and skills that underpin and support these methods.</LeadP>
-          {currentStep > 0 ? 
-            <>
-              <p>It looks like you have already started</p>
-              <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
-              <Button to={`/step_${currentStep}`} background={theme.red}>Continue</Button>
-            </>
-            :
-            <Button to={ROUTES.START} background={theme.red}>Get started</Button>
-          }
+
+          <AuthUserContext.Consumer>
+            {authUser => (
+              authUser ?
+                <div>
+                  <h1>{authUser.username && `Welcome - ${authUser.username}`}</h1>
+
+                  {authUser.roleTotals && authUser.roleTotals.length > 0 ?
+                    <>
+                      <p>You have already completed this app.</p>
+                      <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
+                      <Button to={`/results`} background={theme.red}>View your results</Button>
+                    </>
+                    :
+                    currentStep > 0 ? 
+                      <>
+                        <p>It looks like you have already started</p>
+                        <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
+                        <Button to={`/step_${currentStep}`} background={theme.red}>Continue</Button>
+                      </>
+                      :
+                      <Button to={ROUTES.START} background={theme.red}>Get started</Button>
+                  }
+                </div>
+                :
+                currentStep > 0 ? 
+                  <>
+                    <p>It looks like you have already started</p>
+                    <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
+                    <Button to={`/step_${currentStep}`} background={theme.red}>Continue</Button>
+                  </>
+                  :
+                  <Button to={ROUTES.START} background={theme.red}>Get started</Button>
+            )}
+          </AuthUserContext.Consumer>
+
         </Section>
 
         <Section>

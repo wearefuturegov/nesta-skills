@@ -133,7 +133,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
     }, [chosenSkills]);
 
     function getBranding(brand) {
-        return brand === "working_together" ? theme.orange : (brand === "leading_change" ? theme.purple : (brand === "learning" ? theme.red : theme.darkPurple))
+        return brand === "working_together" ? theme.orange : (brand === "learning" ? theme.purple : (brand === "leading_change" ? theme.red : theme.darkPurple))
     }
     
     function openModal(event) {

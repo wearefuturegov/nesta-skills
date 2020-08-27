@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { compose } from 'recompose';
+import SignOutButton from '../SignOut';
 
 import {
   AuthUserContext,
@@ -25,6 +26,7 @@ const AccountPage = () => (
         <p>Org type: {authUser.orgType}</p>
         <PasswordForgetForm />
         <PasswordChangeForm />
+        <SignOutButton />
       </div>
     )}
   </AuthUserContext.Consumer>

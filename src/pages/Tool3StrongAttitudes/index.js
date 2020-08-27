@@ -6,7 +6,7 @@ import theme from "../../_theme"
 import { useToasts } from 'react-toast-notifications'
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
-import attributes from "../../data/attributes.js"
+import attitudes from "../../data/attitudes.js"
 
 import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
@@ -26,14 +26,12 @@ const SkillsContainer = styled.ul`
   margin-top: ${theme.standardSpace}px;
 `
 
-const Tool4 = () => {
-  const maxSelectionNo = 1;
-  const currentStepNo = 4;
+const Tool3 = () => {
+  const maxSelectionNo = 3;
+  const currentStepNo = 3;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
-  const [proAttributes, setProAttributes] = useLocalStorage("nesta_pro_attributes");
-  const [conAttributes, setConAttributes] = useLocalStorage("nesta_con_attributes");
-  
-  const [chosenSkills, setChosenSkills] = useState(conAttributes ? JSON.parse(conAttributes) : []);
+  const [proAttitudes, setProAttitudes] = useLocalStorage("nesta_pro_attitudes");
+  const [chosenSkills, setChosenSkills] = useState(proAttitudes ? JSON.parse(proAttitudes) : []);
   const { addToast } = useToasts()
 
   useEffect(() => {
@@ -50,7 +48,7 @@ const Tool4 = () => {
             skill.id
         ]);
       } else {
-        addToast(`You can only select ${maxSelectionNo} attribute`, {
+        addToast(`You can only select ${maxSelectionNo} attitudes`, {
           appearance: 'warning',
           autoDismiss: true,
           autoDismissTimeout: 2500
@@ -59,7 +57,7 @@ const Tool4 = () => {
     }
   }
   useEffect(() => {
-    setConAttributes(JSON.stringify(chosenSkills))
+    setProAttitudes(JSON.stringify(chosenSkills))
   }, [chosenSkills]);
 
   return(
@@ -67,33 +65,34 @@ const Tool4 = () => {
       <>
         <CurrentStep step={currentStepNo} max={4} />
 
-        <p>Now select the <strong>one attitude</strong> that you think your colleagues would be <strong>least likely to use to describe you.</strong></p>
+        <p>In addition to skills, our research identified nine <strong>key attitudes</strong> that support successful experimentation and problem solving. These differ from skills in that you will have formed them over a greater period of time and they are more difficult to change or develop.</p>
         
+        <p>Select the <strong>three attitudes</strong> that you think your colleagues would <strong>most likely use to describe you.</strong></p>    
+
         <SkillsContainer>
-          {attributes.map((skill) =>
-            JSON.parse(proAttributes).includes(skill.id) === false &&
-              <SkillCard 
-                key={skill.id} 
-                skill={skill} 
-                chosenSkills={chosenSkills} 
-                selectSkill={selectSkill} 
-                maxSelectionNo={maxSelectionNo} 
-              />
+          {attitudes.map((skill) =>
+            <SkillCard 
+              key={skill.id} 
+              skill={skill} 
+              chosenSkills={chosenSkills} 
+              selectSkill={selectSkill} 
+              maxSelectionNo={maxSelectionNo} 
+            />
           )}
         </SkillsContainer>
 
         <TrackingBar 
           maxSelectionNo={maxSelectionNo}
           chosenSkills={chosenSkills} 
-          type="weak attribute"
-          previousLink={ROUTES.STEP3}
-          nextLink={ROUTES.STEP5}
+          type="best attitudes"
+          previousLink={ROUTES.STEP2}
+          nextLink={ROUTES.STEP4}
         >
           {chosenSkills.map((skillID) =>
             <SkillDot 
               key={skillID} 
               skillID={skillID} 
-              skills={attributes} 
+              skills={attitudes} 
             />
           )}
         </TrackingBar>
@@ -102,4 +101,4 @@ const Tool4 = () => {
   )
 };
 
-export default Tool4;
+export default Tool3;

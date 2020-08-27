@@ -52,7 +52,7 @@ export default [
     },
     {
         id: "5",
-        brand: "leading_change",
+        brand: "learning",
         title: "Future acumen",
         text: "Connecting long-term vision with short-term actions",
         content: `
@@ -61,7 +61,7 @@ export default [
     },
     {
         id: "6",
-        brand: "leading_change",
+        brand: "learning",
         title: "Prototyping and iterating",
         text: "Testing ideas and systematically improving them",
         content: `
@@ -70,7 +70,7 @@ export default [
     },
     {
         id: "7",
-        brand: "leading_change",
+        brand: "learning",
         title: "Data literacy and evidence",
         text: "Using different kinds of data effectively to accelerate sense-making",
         content: `
@@ -79,7 +79,7 @@ export default [
     },
     {
         id: "8",
-        brand: "leading_change",
+        brand: "learning",
         title: "Systems thinking",
         text: "Combining micro and macro perspectives to grasp complexity",
         content: `
@@ -88,7 +88,7 @@ export default [
     },
     {
         id: "9",
-        brand: "leading_change",
+        brand: "learning",
         title: "Tech literacy",
         text: "Testing ideas and systematically improving them",
         content: `
@@ -97,7 +97,7 @@ export default [
     },
     {
         id: "10",
-        brand: "learning",
+        brand: "leading_change",
         title: "Political and bureaucratic awareness",
         text: "Ensuring strategic support through political dynamics and bureaucratic procedures",
         content: `
@@ -106,7 +106,7 @@ export default [
     },
     {
         id: "11",
-        brand: "learning",
+        brand: "leading_change",
         title: "Financing change",
         text: "Understanding the many ways to liberate, mobilise and use financial resources",
         content: `
@@ -115,7 +115,7 @@ export default [
     },
     {
         id: "12",
-        brand: "learning",
+        brand: "leading_change",
         title: "Intrapreneurship",
         text: "Being entrepreneurial within an organisation to create new opportunities",
         content: `
@@ -124,7 +124,7 @@ export default [
     },
     {
         id: "13",
-        brand: "learning",
+        brand: "leading_change",
         title: "Demonstrating value",
         text: "Making the case for change by articulating the value of it",
         content: `
