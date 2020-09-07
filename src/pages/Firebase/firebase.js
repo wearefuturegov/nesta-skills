@@ -79,6 +79,10 @@ class Firebase {
   user = uid => this.db.ref(`users/${uid}`);
 
   users = () => this.db.ref('users');
+
+  // *** Page data ***
+
+  landingPage = () => this.db.ref('landing_page');
 }
 
 export default Firebase;

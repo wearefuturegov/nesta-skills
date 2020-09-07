@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import styled from "styled-components"
 import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import BodyClassName from 'react-body-classname';
 import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
+import { withFirebase } from '../Firebase';
 
 import {
   AuthUserContext
@@ -42,18 +43,63 @@ const RestartLink = styled(Link)`
 
 const Landing = () => {
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
+  const LandingContent = withFirebase(LandingContentGenerate);
 
   return(
     <BodyClassName className="landing_page">
       <MainWrapper role="main">
-        <Section>
-          <h1>Building the next generation of public innovation</h1>
-          <LeadP>Across the globe, government teams are pioneering new ways of working. States of Change is a collective that exists to support this growing global movement.</LeadP>
-        </Section>
+        <LandingContent currentStep={currentStep} />
+      </MainWrapper>
+    </BodyClassName>
+  )
+};
 
+export default Landing;
+
+
+class LandingContentGenerate extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+      data: [],
+      currentStep: props.currentStep
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ loading: true });
+
+    this.props.firebase.landingPage().on('value', snapshot => {
+      const dataObject = snapshot.val();
+
+      this.setState({
+        data: dataObject,
+        loading: false,
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    this.props.firebase.landingPage().off();
+  }
+
+  render() {
+    const { data, loading, currentStep } = this.state;
+
+    return (
+      loading ? 
+        <div>Loading ...</div>
+        :
+        <>
         <Section>
-          <h2>Nesta’s Competency Framework</h2>
-          <LeadP>Innovation in the public sector often focuses on learning new methods. These are of course valuable, but we’ve found that on their own they are not enough. We also need to understand the core set of attitudes and skills that underpin and support these methods.</LeadP>
+          <h1>{data._1_strapline}</h1>
+          <LeadP>{data._2_paragraph_1}</LeadP>
+        </Section>
+        <Section>
+          <h2>{data._3_sub_title}</h2>
+          <LeadP>{data._4_paragraph_2}</LeadP>
 
           <AuthUserContext.Consumer>
             {authUser => (
@@ -93,7 +139,7 @@ const Landing = () => {
         </Section>
 
         <Section>
-          <h2>You can use this interactive app to help you</h2>
+          <h2>{data._5_sub_title_2}</h2>
           <CirclesContainer>
             <Circle>
               <CircleTitle>Learn</CircleTitle>
@@ -109,9 +155,7 @@ const Landing = () => {
             </Circle>
           </CirclesContainer>
         </Section>
-      </MainWrapper>
-    </BodyClassName>
-  )
-};
-
-export default Landing;
+        </>
+    );
+  }
+}
