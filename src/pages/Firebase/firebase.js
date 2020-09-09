@@ -92,6 +92,8 @@ class Firebase {
 
   landingPage = () => this.db.ref('landing_page');
 
+  flameLink = () => this.db.ref('flamelink/environments/production/content/landingPage/en-US');
+
   step5Content = () => this.db.ref('step_5_content');
 }
 

@@ -79,9 +79,10 @@ class LandingContentGenerate extends Component {
   componentDidMount() {
     this.setState({ loading: true });
 
-    this.props.firebase.landingPage().on('value', snapshot => {
+    this.props.firebase.flameLink().on('value', snapshot => {
       const dataObject = snapshot.val();
 
+      console.log(dataObject)
       this.setState({
         data: dataObject,
         loading: false,
@@ -90,7 +91,7 @@ class LandingContentGenerate extends Component {
   }
 
   componentWillUnmount() {
-    this.props.firebase.landingPage().off();
+    this.props.firebase.flameLink().off();
   }
 
   render() {
@@ -101,11 +102,11 @@ class LandingContentGenerate extends Component {
         <div>Loading ...</div>
         :
         <>
-        <Section>
-          <h1>{data._1_strapline}</h1>
-          <LeadP>{data._2_paragraph_1}</LeadP>
+        <Section> 
+          <h1>{data['1Strapline']}</h1>
+          {/* <LeadP>{data._2_paragraph_1}</LeadP> */}
         </Section>
-        <Section>
+        {/* <Section>
           <h2>{data._3_sub_title}</h2>
           <LeadP>{data._4_paragraph_2}</LeadP>
 
@@ -162,7 +163,7 @@ class LandingContentGenerate extends Component {
               <CircleText>a picture of your team’s skills and attitudes</CircleText>
             </Circle>
           </CirclesContainer>
-        </Section>
+        </Section> */}
         </>
     );
   }
