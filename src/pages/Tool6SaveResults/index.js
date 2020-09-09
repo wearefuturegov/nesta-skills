@@ -48,7 +48,7 @@ class Tool6 extends Component {
       position: authUser.position ? authUser.position : "", 
       location: authUser.location ? authUser.location : "",
       proSkills: this.state.proSkills,
-      conSkills: this.state.proSkills,
+      conSkills: this.state.conSkills,
       proAttitudes: this.state.proAttitudes,
       conAttitudes: this.state.conAttitudes,
       roleTotals: this.state.roleTotals
