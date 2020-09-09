@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect } from 'react';
 import { compose } from 'recompose';
 import styled from "styled-components";
 import theme from "../../_theme";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import rolesContent from "../../data/roles.js"
+import resultsContent from "../../data/roles.js"
 import { SingleRole } from "../../components/SingleRole";
 import Modal from 'react-modal';
+import { PieChart } from 'react-minimal-pie-chart';
+import { withFirebase } from '../Firebase';
 
 import {
   AuthUserContext,
@@ -14,38 +16,15 @@ import {
 } from '../Session';
 
 
-const ReadMore = styled.button`
-    display: block;
-    background: transparent;
-    border: none;
-    text-decoration: underline;
-    text-align: left;
-    display: inline-block;
-    padding: 5px;
-    margin-left: -5px;
-    margin-top: auto;
-    width: fit-content;
-    cursor: pointer;
-    border-radius: 0;
-    font-weight: bold;
+const MoreBtn = styled.button`
 
-    &:hover {
-        text-decoration: none;
-        opacity: 0.8;
-    }
-    &:focus {
-        outline: none;
-        background-color: ${theme.focus};
-        box-shadow: 0 -2px ${theme.focus}, 0 4px ${theme.black};
-        text-decoration: none;
-        color: ${theme.black} !important;
-    }
 `
-
+const Section = styled.section`
+`
 const ResultsPage = () => {
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   Modal.setAppElement('body')
-  const [showModal, setShowModal] = useState(false)
+  const ResultsContent = withFirebase(ResultsContentGenerate);
   
   useEffect(() => {
     window.localStorage.setItem("nesta_pro_skills", "");
@@ -55,63 +34,11 @@ const ResultsPage = () => {
     setCurrentStep(0);
   }, [currentStep]);
 
-  const parseTotals = (array) => {
-    let tempArray = [];
-    rolesContent.map((role, index) => {
-      tempArray = [...tempArray, {
-        id: role.id-1,
-        total: parseInt(array[index+1])
-      }]
-    });
-    return tempArray;
-  }
-  
-  function openModal(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    setShowModal(true);
-  }
-
   return(
     <AuthUserContext.Consumer>
       {authUser => {
-        let parsedTotals = parseTotals(authUser.roleTotals).sort((a, b) => (a.total < b.total) ? 1 : -1);
         return(
-          <div>
-            <h1>{authUser.username && `${authUser.username}'s results`}</h1>
-            <p>Based upon the strengths you have provided, these are the roles we think you are best suited to play:</p>
-            {parsedTotals.slice(0,3).map(role => (
-              <SingleRole key={role.id} role={role} />
-            ))}
-            <ReadMore onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>View all roles</ReadMore>
-            <Modal 
-                isOpen={showModal}
-                contentLabel="View all roles"
-                onRequestClose={() => setShowModal(false)}
-                style={{
-                    overlay: {
-                        backgroundColor: 'rgba(60,18,82,0.8)'
-                    },
-                    content: {
-                        transform: 'translate(-50%, -50%)',
-                        top: '50%',
-                        left: '50%',
-                        right: 'auto',
-                        bottom: 'auto',
-                        width: '90%',
-                        maxWidth: '600px',
-                        maxHeight: 'calc(100% - 80px)',
-                        overflow: 'scroll',
-                        border: `5px solid ${theme.darkPurple}`,
-                        borderRadius: '0'
-                    }
-                }}
-            >
-                {parsedTotals.map(role => (
-                <SingleRole key={role.id} role={role} />
-                ))}
-            </Modal>
-          </div>
+            <ResultsContent authUserRoles={authUser.roleTotals}  />
         )
       }}
     </AuthUserContext.Consumer>
@@ -124,3 +51,114 @@ export default compose(
   withEmailVerification,
   withAuthorization(condition),
 )(ResultsPage);
+
+class ResultsContentGenerate extends Component {
+    constructor(props) {
+      super(props);        
+
+      this.state = {
+        loading: false,
+        data: [],
+        yourRoleScores: props.authUserRoles,
+      };
+    }
+  
+    componentDidMount() {
+      this.setState({ loading: true });
+  
+      this.props.firebase.roles().on('value', snapshot => {
+        const dataObject = snapshot.val();
+        
+        dataObject.map((role, index) => {
+            role.total = this.state.yourRoleScores[index]
+        })
+  
+        this.setState({
+            rolesData: dataObject.sort((a, b) => (parseInt(a.total) < parseInt(b.total)) ? 1 : -1),
+            loading: false,
+            showModal: false
+        });
+      });
+    }
+  
+    componentWillUnmount() {
+      this.props.firebase.roles().off();
+    }
+
+    showModal = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        this.setState({ showModal: true });
+        
+    };
+
+    hideModal = () => {
+        this.setState({ showModal: false });
+    };
+  
+    render() {
+        const { rolesData, loading, yourRoleScores } = this.state;
+  
+      return (
+        loading ? 
+          <div>Loading ...</div>
+          :
+          <>
+            <Section>
+                <h1>Your results</h1>
+                <p>Based upon the strengths you have provided, these are the roles we think you are best suited to play:</p>
+                {rolesData && rolesData.slice(0,3).map(role => (
+                    <SingleRole key={role.title} role={role} />
+                ))}
+                
+                <MoreBtn onClick={this.showModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>View all roles</MoreBtn>
+                <Modal 
+                    isOpen={this.state.showModal}
+                    contentLabel="View all roles"
+                    onRequestClose={this.hideModal}
+                    style={{
+                        overlay: {
+                            backgroundColor: 'rgba(60,18,82,0.8)'
+                        },
+                        content: {
+                            transform: 'translate(-50%, -50%)',
+                            top: '50%',
+                            left: '50%',
+                            right: 'auto',
+                            bottom: 'auto',
+                            width: '90%',
+                            maxWidth: '600px',
+                            maxHeight: 'calc(100% - 80px)',
+                            overflow: 'scroll',
+                            border: `5px solid ${theme.darkPurple}`,
+                            borderRadius: '0'
+                        }
+                    }}
+                >
+                    {rolesData && rolesData.map(role => (
+                        <SingleRole key={role.title} role={role} />
+                    ))}
+                </Modal>
+            </Section>
+            <Section>
+                <h2>Your strongest skills</h2>
+                {/* TODO NEED TO REPLACE VALUES WITH NUMBER OF SKILLS */}
+                <PieChart
+                    data={[
+                        { title: 'Working Together', value: 1, color: theme.orange },
+                        { title: 'Learning', value: 5, color: theme.purple },
+                        { title: 'Leading Change', value: 2, color: theme.red },
+                        ]}
+                    label={({ dataEntry }) => dataEntry.title}
+                    labelStyle={(index) => ({
+                        // fill: dataMock[index].color,
+                        fontSize: '2px',
+                    })}
+                    radius={42}
+                    labelPosition={112}
+                />
+            </Section>
+          </>
+      );
+    }
+}

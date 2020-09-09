@@ -13,6 +13,6 @@ const ButtonContainer = styled(Link)`
     margin-bottom: ${theme.standardSpace}px;
 `
 
-export const Button = ({to, background, children}) => (
-    <ButtonContainer to={to} bg={background ? background : theme.darkPurple }>{children}</ButtonContainer>
+export const Button = ({to, background, onClick, children}) => (
+    <ButtonContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } >{children}</ButtonContainer>
 );
