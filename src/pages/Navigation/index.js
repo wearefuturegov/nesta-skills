@@ -68,9 +68,7 @@ const NavigationAuth = ({ authUser, currentStep }) => (
             {authUser.roleTotals && authUser.roleTotals.length > 0 ?
               <Link to={ROUTES.RESULTS}>Results</Link>
               :
-              currentStep > 0 ? 
-                <Link to={`/step_${currentStep}`}>Continue</Link>
-                :
+              currentStep === 0 &&
                 <Link to={ROUTES.START}>Start</Link>
             }
           </NavItem>

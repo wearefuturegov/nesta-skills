@@ -51,6 +51,7 @@ const App = () => {
 
           <Route path={ROUTES.START} component={StartPage} />
           <Route path={ROUTES.RESTART} component={() => <StartPage restart={true} />} />
+          <Route path={ROUTES.VERIFIED} component={() => <LandingPage verified={true} />} />
           <Route path={ROUTES.STEP1} component={Tool1} />
           <Route path={ROUTES.STEP2} component={Tool2} />
           <Route path={ROUTES.STEP3} component={Tool3} />

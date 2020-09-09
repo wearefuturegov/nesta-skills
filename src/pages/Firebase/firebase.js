@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import * as ROUTES from '../../constants/routes';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -30,13 +31,20 @@ class Firebase {
   doSignInWithEmailAndPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
 
-  doSignOut = () => this.auth.signOut();
+    doSignOut = () => {
+      this.auth.signOut();
+      window.localStorage.setItem("nesta_progress", "");
+      window.localStorage.setItem("nesta_pro_skills", "");
+      window.localStorage.setItem("nesta_con_skills", "");
+      window.localStorage.setItem("nesta_pro_attitudes", "");
+      window.localStorage.setItem("nesta_con_attitudes", "");
+    }
 
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
   doSendEmailVerification = () =>
     this.auth.currentUser.sendEmailVerification({
-      url: "http://localhost:3000",
+      url: "http://localhost:3000" + ROUTES.VERIFIED,
     });
 
   doPasswordUpdate = password =>
@@ -83,6 +91,8 @@ class Firebase {
   // *** Page data ***
 
   landingPage = () => this.db.ref('landing_page');
+
+  step5Content = () => this.db.ref('step_5_content');
 }
 
 export default Firebase;

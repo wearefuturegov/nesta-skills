@@ -5,7 +5,7 @@ import * as ROUTES from '../../constants/routes';
 import BodyClassName from 'react-body-classname';
 import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, useHistory } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 
 import {
@@ -41,10 +41,18 @@ const RestartLink = styled(Link)`
   margin-right: ${theme.standardSpace}px;
 `
 
-const Landing = () => {
+const Landing = ({verified = false}) => {
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const LandingContent = withFirebase(LandingContentGenerate);
+  const history = useHistory();
 
+  if(verified) {
+    if(currentStep === 5) {
+      history.push(ROUTES.SAVERESULTS);
+    } else {
+      history.push(ROUTES.LANDING);
+    }
+  }
   return(
     <BodyClassName className="landing_page">
       <MainWrapper role="main">
