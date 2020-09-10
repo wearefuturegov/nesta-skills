@@ -16,6 +16,8 @@ import { withAuthentication } from '../Session';
 import styled from "styled-components"
 import theme from "../../_theme"
 
+import data from '../../data.json'
+
 import StartPage from '../Tool0Start';
 import Tool1 from '../Tool1StrongSkills';
 import Tool2 from '../Tool2WeakSkills';
@@ -34,6 +36,13 @@ const PageWrapper = styled.div`
 `
 
 const App = () => {
+  let state = {
+    data
+  }
+
+  let getDocument = (collection, name) =>
+  state.data[collection] &&
+  state.data[collection].filter(page => page.name === name)[0]
 
   return(
     <Router>
@@ -41,7 +50,7 @@ const App = () => {
 
       <PageWrapper>
         <ToastProvider>
-          <Route exact path={ROUTES.LANDING} component={LandingPage} />
+          <Route exact path={ROUTES.LANDING} component={() => <LandingPage fields={getDocument('pages', 'landing-page')} />} /> 
           <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />
           <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
@@ -49,9 +58,9 @@ const App = () => {
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Route path={ROUTES.ADMIN} component={AdminPage} />
 
-          <Route path={ROUTES.START} component={StartPage} />
+          <Route path={ROUTES.START} component={() => <StartPage fields={getDocument('pages', '00-start')} />} />
           <Route path={ROUTES.RESTART} component={() => <StartPage restart={true} />} />
-          <Route path={ROUTES.VERIFIED} component={() => <LandingPage verified={true} />} />
+          <Route path={ROUTES.VERIFIED} component={() => <LandingPage verified={true} fields={getDocument('pages', 'landing-page')} />} />
           <Route path={ROUTES.STEP1} component={Tool1} />
           <Route path={ROUTES.STEP2} component={Tool2} />
           <Route path={ROUTES.STEP3} component={Tool3} />

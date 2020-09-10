@@ -6,7 +6,6 @@ import BodyClassName from 'react-body-classname';
 import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { Switch, Route, Link, useHistory } from 'react-router-dom';
-import { withFirebase } from '../Firebase';
 
 import {
   AuthUserContext
@@ -41,9 +40,9 @@ const RestartLink = styled(Link)`
   margin-right: ${theme.standardSpace}px;
 `
 
-const Landing = ({verified = false}) => {
+const Landing = ({verified = false, fields}) => {
+  const { _1_strapline, _2_paragraph_1, _3_sub_title, _4_paragraph_2, _5_sub_title_2 } = fields;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
-  const LandingContent = withFirebase(LandingContentGenerate);
   const history = useHistory();
 
   if(verified) {
@@ -56,58 +55,13 @@ const Landing = ({verified = false}) => {
   return(
     <BodyClassName className="landing_page">
       <MainWrapper role="main">
-        <LandingContent currentStep={currentStep} />
-      </MainWrapper>
-    </BodyClassName>
-  )
-};
-
-export default Landing;
-
-
-class LandingContentGenerate extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false,
-      data: [],
-      currentStep: props.currentStep
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ loading: true });
-
-    this.props.firebase.landingPage().on('value', snapshot => {
-      const dataObject = snapshot.val();
-
-      this.setState({
-        data: dataObject,
-        loading: false,
-      });
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.firebase.landingPage().off();
-  }
-
-  render() {
-    const { data, loading, currentStep } = this.state;
-
-    return (
-      loading ? 
-        <div>Loading ...</div>
-        :
-        <>
         <Section>
-          <h1>{data._1_strapline}</h1>
-          <LeadP>{data._2_paragraph_1}</LeadP>
+          <h1>{_1_strapline}</h1>
+          <LeadP>{_2_paragraph_1}</LeadP>
         </Section>
         <Section>
-          <h2>{data._3_sub_title}</h2>
-          <LeadP>{data._4_paragraph_2}</LeadP>
+          <h2>{_3_sub_title}</h2>
+          <LeadP>{_4_paragraph_2}</LeadP>
 
           <AuthUserContext.Consumer>
             {authUser => (
@@ -145,9 +99,8 @@ class LandingContentGenerate extends Component {
           </AuthUserContext.Consumer>
 
         </Section>
-
         <Section>
-          <h2>{data._5_sub_title_2}</h2>
+          <h2>{_5_sub_title_2}</h2>
           <CirclesContainer>
             <Circle>
               <CircleTitle>Learn</CircleTitle>
@@ -163,7 +116,9 @@ class LandingContentGenerate extends Component {
             </Circle>
           </CirclesContainer>
         </Section>
-        </>
-    );
-  }
-}
+      </MainWrapper>
+    </BodyClassName>
+  )
+};
+
+export default Landing;

@@ -4,6 +4,8 @@ import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import Marked from 'react-markdown'
+import Content from '../../components/Content'
 
 const BlockContainer = styled.ul`
   padding: 0;
@@ -38,7 +40,9 @@ const BlockText = styled.div`
   
 `
 
-const StartPage = ({restart}) => {
+const StartPage = ({restart, fields}) => {
+  console.log(fields);
+  const { title, top_content, bottom_content, block_one_title, block_one_content, block_two_title, block_two_content, block_three_title, block_three_content } = fields;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   
   useEffect(() => {
@@ -53,31 +57,31 @@ const StartPage = ({restart}) => {
   
   return(
     <div>
-      <h1>Free XXX tool</h1>
-      <p>This tool should take around 10 minutes to complete.</p>
+      <h1>{title}</h1>
 
-      <p>Our research has shown that when teams have skills and behaviours in the following three core areas, they’re more likely to be successful at experimenting and problem solving. This means they are more effective, efficient and impactful in their work.</p>
+
+      <Content source={top_content} />
+
 
       <BlockContainer>
         <Block color={theme.orange}>
-          <BlockTitle>Working together</BlockTitle>
-          <BlockText>Engaging with citizens and stakeholders to create shared ownership of new solutions.</BlockText>
+          <BlockTitle>{block_one_title}</BlockTitle>
+          <BlockText>{block_one_content}</BlockText>
         </Block>
         <Block color={theme.red}>
-          <BlockTitle>Leading Change</BlockTitle>
-          <BlockText>Mobilising resources and support to make change happen.</BlockText>
+          <BlockTitle>{block_two_title}</BlockTitle>
+          <BlockText>{block_two_content}</BlockText>
         </Block>
         <Block color={theme.purple}>
-          <BlockTitle>Accelerating Learning</BlockTitle>
-          <BlockText>Exploring and iterating new ideas to inform and validate solutions.</BlockText>
+          <BlockTitle>{block_three_title}</BlockTitle>
+          <BlockText>{block_three_content}</BlockText>
         </Block>
       </BlockContainer>
 
-      <p>Each of the three areas relates to a specific set of skills and behaviours.</p>
 
-      <p>We wouldn’t expect for one individual to have all these; instead, they should be spread across a wider team. The challenge (and opportunity) is to combine them in ways that make the team greater than its individual members.</p>
+      <Content source={bottom_content} />
 
-      <p>You as an individual might still have a range of these skills (at varying degrees of strength and weakness) across all three areas. Or you may naturally gravitate to only one or two of them.</p>
+      
       <Button to={ROUTES.STEP1}>Start</Button>
     </div>
   )
