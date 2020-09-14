@@ -63,14 +63,15 @@ const ResultsPage = () => {
       {authUser => {
         if(currentStep !== 6) {
           history.push(ROUTES.LANDING)
-         } else {
-          let parsedTotals = parseTotals(authUser.roleTotals).sort((a, b) => (a.total < b.total) ? 1 : -1);
-          
+        } else {
+          let parsedTotals = false;
+          if(authUser.roleTotals) { 
+            parsedTotals = parseTotals(authUser.roleTotals).sort((a, b) => (a.total < b.total) ? 1 : -1);
+          }
           return(
           <>
             <Section>
                 <h1>Your results</h1>
-                {JSON.stringify(parsedTotals)}
                 <p>Based upon the strengths you have provided, these are the roles we think you are best suited to play:</p>
                 {parsedTotals && parsedTotals.slice(0,3).map(role => (
                     <SingleRole key={role.title} role={role} />

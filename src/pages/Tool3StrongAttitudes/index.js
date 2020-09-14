@@ -36,7 +36,13 @@ const Tool3 = () => {
 
   useEffect(() => {
     setCurrentStep(currentStepNo);
-  }, [currentStep]);
+  }, []);
+
+  useEffect(() => {
+    if(chosenSkills.length === maxSelectionNo) {
+      setCurrentStep(currentStepNo + 1);
+    }
+  }, [chosenSkills]);
 
   function selectSkill(skill) {
     if(chosenSkills.includes(skill.id)) {

@@ -8,6 +8,7 @@ import { AuthUserContext } from '../Session';
 import { Link, useHistory } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import { SignUpForm } from '../SignUp';
+import { SignInLink } from '../SignIn';
 
 const Section = styled.section`
 
@@ -39,6 +40,7 @@ const Tool5 = () => {
                 </Section>
                 <Section>
                   <SignUpForm />
+                  <SignInLink />
                 </Section>
               </>
             )

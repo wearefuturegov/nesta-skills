@@ -30,14 +30,20 @@ const Tool1 = () => {
   const maxSelectionNo = 5;
   const currentStepNo = 1;
 
-  const [startedTest, setStartedTest] = useLocalStorage("nesta_progress");
+  const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [storedSkills, setStoredSkills] = useLocalStorage("nesta_pro_skills");
   const [chosenSkills, setChosenSkills] = useState(storedSkills ? JSON.parse(storedSkills) : []);
   const { addToast } = useToasts()
 
   useEffect(() => {
-    setStartedTest(currentStepNo);
-  }, [startedTest]);
+    setCurrentStep(currentStepNo);
+  }, []);
+
+  useEffect(() => {
+    if(chosenSkills.length === maxSelectionNo) {
+      setCurrentStep(currentStepNo + 1);
+    }
+  }, [chosenSkills]);
 
   function selectSkill(skill) {
     if(chosenSkills.includes(skill.id)) {

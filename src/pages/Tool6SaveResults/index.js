@@ -67,19 +67,18 @@ const Tool6 = props => {
     props.firebase.user(authUser.uid).set({
       username: authUser.username ? authUser.username : "",
       email: authUser.email ? authUser.email : "",
-      roles: authUser.roles ? authUser.roles : "",
       orgType: authUser.orgType ? authUser.orgType : "", 
       position: authUser.position ? authUser.position : "", 
       location: authUser.location ? authUser.location : "",
-      proSkills: proSkills,
-      conSkills: conSkills,
-      proAttitudes: proAttitudes,
-      conAttitudes: conAttitudes,
+      proSkills: JSON.parse(proSkills),
+      conSkills: JSON.parse(conSkills),
+      proAttitudes: JSON.parse(proAttitudes),
+      conAttitudes: JSON.parse(conAttitudes),
       roleTotals: roleTotals
     }).then(() => {
       props.firebase.user(authUser.uid).once('value')
       .then(snapshot => {
-        props.history.push(ROUTES.RESULTS)
+        history.push(ROUTES.RESULTS)
       });
     })
   }
