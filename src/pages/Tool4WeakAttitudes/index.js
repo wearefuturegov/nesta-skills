@@ -6,7 +6,7 @@ import theme from "../../_theme"
 import { useToasts } from 'react-toast-notifications'
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
-import attitudes from "../../data/attitudes.js"
+import Content from '../../components/Content'
 
 import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
@@ -26,7 +26,9 @@ const SkillsContainer = styled.ul`
   margin-top: ${theme.standardSpace}px;
 `
 
-const Tool4 = () => {
+const Tool4 = ({fields, attitudes}) => {
+
+  const { body } = fields;
   const maxSelectionNo = 1;
   const currentStepNo = 4;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
@@ -73,7 +75,8 @@ const Tool4 = () => {
       <>
         <CurrentStep step={currentStepNo} max={4} />
 
-        <p>Now select the <strong>one attitude</strong> that you think your colleagues would be <strong>least likely to use to describe you.</strong></p>
+        <Content source={body} />
+
         
         <SkillsContainer>
           {attitudes.map((skill) =>

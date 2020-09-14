@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: feature/netlify-cms # Branch to update (optional; defaults to master)
+  branch: master # Branch to update (optional; defaults to master)
 
 media_folder: "public/images/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
@@ -34,3 +34,74 @@ collections:
           - {label: Block three title, name: block_three_title, widget: string, required: true}
           - {label: Block three content, name: block_three_content, widget: string, required: true}
           - {label: Bottom content, name: bottom_content, widget: markdown, required: true}
+      - file: "content/pages/01-strong-skills.md"
+        label: "Tool Step 1"
+        name: "01-strong-skills"
+        fields:
+          - {label: Content, name: body, widget: markdown}
+      - file: "content/pages/02-weak-skills.md"
+        label: "Tool Step 2"
+        name: "02-weak-skills"
+        fields:
+          - {label: Content, name: body, widget: markdown}
+      - file: "content/pages/03-strong-attitudes"
+        label: "Tool Step 3"
+        name: "03-strong-attitudes"
+        fields:
+          - {label: Content, name: body, widget: markdown}
+      - file: "content/pages/04-weak-attitudes.md"
+        label: "Tool Step 4"
+        name: "04-weak-attitudes.md"
+        fields:
+          - {label: Content, name: body, widget: markdown}
+      - file: "content/pages/05-sign-up.md"
+        label: "Tool Step 5"
+        name: "05-sign-up"
+        fields:
+          - {label: Title, name: title, widget: string, required: true}
+          - {label: Content, name: body, widget: markdown}
+
+  - name: skills
+    label: Skill
+    editor:
+      preview: false
+    folder: content/skills
+    slug: "{{slug}}"
+    create: false # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: Title, name: title, widget: string}
+      - {label: id, name: id, widget: hidden}
+      - {label: Brand, name: brand, widget: string}
+      - {label: text, name: text, widget: text}
+      - {label: Content, name: body, widget: markdown}
+
+
+  - name: roles
+    label: Roles
+    editor:
+      preview: false
+    folder: content/roles
+    slug: "{{slug}}"
+    create: false # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: Title, name: title, widget: string}
+      - {label: Sub title, name: sub_title, widget: string}
+      - {label: id, name: id, widget: hidden}
+      - {label: Action, name: action, widget: string}
+      - {label: Attitudes, name: attitudesMapping, widget: hidden}
+      - {label: Skills, name: skillsMapping, widget: hidden}
+      - {label: Sub Skills, name: subSkillsMapping, widget: hidden}
+      - {label: Content, name: body, widget: string}
+
+  - name: attitudes
+    label: Attitudes
+    editor:
+      preview: false
+    folder: content/attitudes
+    slug: "{{slug}}"
+    create: false # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: Title, name: title, widget: string}
+      - {label: id, name: id, widget: hidden}
+      - {label: Brand, name: brand, widget: string}
+      - {label: Text, name: text, widget: string}

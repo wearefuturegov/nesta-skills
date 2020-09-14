@@ -15,7 +15,11 @@ const Section = styled.section`
 
 `
 
-const Tool5 = ({fields}) => {
+
+// this is to save steping through everything 100 times!
+// set localstorage vars to what we would have created up till this point
+
+const MockFinalStep = ({fields}) => {
 
   const { title, body } = fields;
   const currentStepNo = 5;
@@ -24,6 +28,12 @@ const Tool5 = ({fields}) => {
 
   useEffect(() => {
     setCurrentStep(currentStepNo);
+    window.localStorage.setItem("nesta_pro_skills", "[1,2,3,6,5]");
+    window.localStorage.setItem("nesta_con_skills", "[11,10]");
+    window.localStorage.setItem("nesta_pro_attitudes", "[6,5,4]");
+    window.localStorage.setItem("nesta_con_attitudes", "[9]");
+
+
   }, []);
 
   return(
@@ -54,4 +64,4 @@ const Tool5 = ({fields}) => {
   )
 };
 
-export default Tool5;
+export default MockFinalStep;

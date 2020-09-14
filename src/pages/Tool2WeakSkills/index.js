@@ -6,7 +6,7 @@ import theme from "../../_theme"
 import { useToasts } from 'react-toast-notifications'
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
-import skills from "../../data/skills.js"
+import Content from '../../components/Content'
 
 import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
@@ -26,7 +26,9 @@ const SkillsContainer = styled.ul`
   margin-top: ${theme.standardSpace}px;
 `
 
-const Tool2 = () => {
+const Tool2 = ({fields, skills}) => {
+
+  const { body } = fields;
   const maxSelectionNo = 2;
   const currentStepNo = 2;
 
@@ -73,9 +75,7 @@ const Tool2 = () => {
       <>
         <CurrentStep step={currentStepNo} max={4} />
 
-        <p>Now select the <strong>two cards</strong> which you or your colleagues might use to describe your <strong>least strong</strong> or <strong>least well-practiced skills.</strong></p>
-        
-        <p>Remember that having less strong skills isn’t a negative thing, as no one person could have all of these skills.</p>    
+        <Content source={body} />   
 
         <SkillsContainer>
           {skills.map((skill) =>

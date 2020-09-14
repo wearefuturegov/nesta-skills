@@ -84,7 +84,7 @@ export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, n
                 </Middle>
                 {nextLink ? 
                     <NextButton className={chosenSkills.length === maxSelectionNo ? "" : "disabled"}>
-                        <Button to={chosenSkills.length === maxSelectionNo && nextLink}>Next</Button>
+                        <Button to={nextLink}>Next</Button>
                     </NextButton>
                     :
                     <BlankSpace />

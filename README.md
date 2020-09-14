@@ -66,3 +66,51 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+## Local storage
+
+* `nesta_progress` - is the current step in the process the user is on.
+
+* `nesta_pro_skills`
+* `nesta_con_skills`
+* `nesta_pro_attitudes`
+* `nesta_con_attitudes`
+
+
+## Flow when not logged in
+
+### Tool0Start
+- sets `nesta_progress` to 0
+- if called with restart sets `nesta_pro_skills`, `nesta_con_skills`, `nesta_pro_attitudes`, `nesta_con_attitudes` to empty
+
+### Tool1StrongSkills
+
+- set `nesta_progress` to 1
+- create and set `nesta_pro_skills` to []
+- select options and update `nesta_pro_skills` to `"[4,5,6,9,8]"`
+
+### Tool2WeakSkills
+
+- set `nesta_progress` to 2
+- create and set `nesta_pro_skills` to []
+- select options and update `nesta_pro_skills` to `"[4,5,6,9,8]"`
+- uses `nesta_pro_skills` to hide ones already selected
+
+### Tool3StrongAttitudes
+
+- set `nesta_progress` to 3
+- create and set `nesta_pro_attitudes` to []
+- select options and update `nesta_pro_attitudes` to `"[4,5,6,9,8]"`
+
+### Tool4WeakAttitudes
+
+- set `nesta_progress` to 4
+- create and set `nesta_con_attitudes` to []
+- select options and update `nesta_con_attitudes` to `"[4,5,6,9,8]"`
+- uses `nesta_pro_attitudes` to hide ones already selected
+
+### Tool5SignUp
+
+#### sign in

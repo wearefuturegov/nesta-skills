@@ -14,5 +14,7 @@ const ButtonContainer = styled(Link)`
 `
 
 export const Button = ({to, background, onClick, children}) => (
-    <ButtonContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } >{children}</ButtonContainer>
+    <>
+        <ButtonContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } >{children}</ButtonContainer>
+    </>
 );
