@@ -23,8 +23,8 @@ const AccountPage = () => (
     {authUser => (
       <div>
         <h1>Account: {authUser.email}</h1>
-        <p>Org type: {authUser.orgType}</p>
-        <PasswordForgetForm />
+        {authUser.orgType && <p>Org type: {authUser.orgType}</p>}
+        {/* <PasswordForgetForm /> */}
         <PasswordChangeForm />
         <SignOutButton />
       </div>
