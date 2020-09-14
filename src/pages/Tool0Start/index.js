@@ -52,7 +52,7 @@ const StartPage = ({restart, fields}, props) => {
       window.localStorage.setItem("nesta_con_attitudes", "");
     }
     setCurrentStep(0);
-  }, [currentStep]);
+  }, []);
 
   return(
     <div>

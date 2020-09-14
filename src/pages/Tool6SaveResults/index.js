@@ -35,7 +35,7 @@ const Tool6 = props => {
         setRoleTotals(array);
       }) 
     }
-  }, [currentStep]);
+  }, []);
 
   const sumRating = (skills, subSkills, attitudes) => {
     let total = 0;
@@ -78,7 +78,9 @@ const Tool6 = props => {
     }).then(() => {
       props.firebase.user(authUser.uid).once('value')
       .then(snapshot => {
-        history.push(ROUTES.RESULTS)
+        setTimeout(function() {
+          history.push(ROUTES.RESULTS)
+        }.bind(this), 1000)
       });
     })
   }

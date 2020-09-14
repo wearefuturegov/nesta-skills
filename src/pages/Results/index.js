@@ -19,7 +19,15 @@ import {
 
 
 const MoreBtn = styled.button`
-
+  display: inline-block;
+  padding: 15px ${theme.standardSpace}px;
+  background: ${theme.darkPurple};
+  color: ${theme.white};
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: ${theme.standardSpace}px;
+  border: none;
+  cursor: pointer;
 `
 const Section = styled.section`
 `
@@ -50,7 +58,7 @@ const ResultsPage = () => {
       window.localStorage.setItem("nesta_pro_attitudes", "");
       window.localStorage.setItem("nesta_con_attitudes", "");
     }
-  }, [currentStep]);
+  }, []);
 
   function openModal(event) {
     event.preventDefault();
@@ -109,7 +117,7 @@ const ResultsPage = () => {
             <Section>
                 <h2>Your strongest skills</h2>
                 {/* TODO NEED TO REPLACE VALUES WITH NUMBER OF SKILLS */}
-                <PieChart
+                {/* <PieChart
                     data={[
                         { title: 'Working Together', value: 1, color: theme.orange },
                         { title: 'Learning', value: 5, color: theme.purple },
@@ -122,7 +130,7 @@ const ResultsPage = () => {
                     })}
                     radius={42}
                     labelPosition={112}
-                />
+                /> */}
             </Section>
           </>
         )}

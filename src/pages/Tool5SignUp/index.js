@@ -21,7 +21,7 @@ const Tool5 = () => {
 
   useEffect(() => {
     setCurrentStep(currentStepNo);
-  }, [currentStep]);
+  }, []);
 
   return(
     <BodyClassName className={`step_${currentStepNo}`}>
