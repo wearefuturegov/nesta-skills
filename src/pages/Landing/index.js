@@ -69,7 +69,7 @@ const Landing = ({verified = false, fields}) => {
                 <div>
                   <h1>{authUser.username && `Welcome - ${authUser.username}`}</h1>
 
-                  {authUser.roleTotals && authUser.roleTotals.length > 0 ?
+                  {authUser.roleTotals && authUser.roleTotals.length > 0 && currentStep === 6 ?
                     <>
                       <p>You have already completed this app.</p>
                       <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>

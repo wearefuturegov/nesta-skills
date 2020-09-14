@@ -9,7 +9,7 @@ import { SingleRole } from "../../components/SingleRole";
 import Modal from 'react-modal';
 import { PieChart } from 'react-minimal-pie-chart';
 import rolesContent from "../../data/roles.js"
-
+import { withFirebase } from '../Firebase';
 
 import {
   AuthUserContext,
@@ -50,6 +50,12 @@ const ResultsPage = () => {
   }
   
   useEffect(() => {
+    if(!window.localStorage.getItem("nesta_results_reload")) {
+      window.localStorage.setItem("nesta_results_reload", true);
+      window.location.reload();
+    } else {
+      window.localStorage.removeItem("nesta_results_reload");
+    }
     if(currentStep !== 6) {
       history.push(ROUTES.LANDING);
     } else {
@@ -142,6 +148,7 @@ const ResultsPage = () => {
 const condition = authUser => !!authUser;
 
 export default compose(
+  withFirebase,
   withEmailVerification,
   withAuthorization(condition),
 )(ResultsPage);

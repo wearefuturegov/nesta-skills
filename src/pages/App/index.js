@@ -54,7 +54,6 @@ const App = () => {
           <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />
           <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-          <Route path={ROUTES.RESULTS} component={ResultsPage} />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Route path={ROUTES.ADMIN} component={AdminPage} />
 
@@ -67,6 +66,7 @@ const App = () => {
           <Route path={ROUTES.STEP4} component={Tool4} />
           <Route path={ROUTES.STEP5} component={Tool5} />
           <Route path={ROUTES.SAVERESULTS} component={Tool6} />
+          <Route path={ROUTES.RESULTS} component={ResultsPage} />
         </ToastProvider>
       </PageWrapper>
     </Router>
