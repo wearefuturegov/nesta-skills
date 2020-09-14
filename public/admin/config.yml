@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: feature/netlify-cms # Branch to update (optional; defaults to master)
+
+media_folder: "public/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "pages"
+    label: "Page"
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - file: "content/pages/landing-page.md"
+        label: "Landing Page"
+        name: "landing-page"
+        fields:
+          - {label: _1_strapline, name: _1_strapline, widget: string, required: true}
+          - {label: _2_paragraph_1, name: _2_paragraph_1, widget: markdown, required: true}
+          - {label: _3_sub_title, name: _3_sub_title, widget: string, required: true}
+          - {label: _4_paragraph_2, name: _4_paragraph_2, widget: markdown, required: true}
+          - {label: _5_sub_title_2, name: _5_sub_title_2, widget: string, required: true}
+      - file: "content/pages/00-start.md"
+        label: "Start page"
+        name: "00-start"
+        fields:
+          - {label: Title, name: title, widget: string, required: true}
+          - {label: Top content, name: top_content, widget: markdown, required: true}
+          - {label: Block one title, name: block_one_title, widget: string, required: true}
+          - {label: Block one content, name: block_one_content, widget: string, required: true}
+          - {label: Block two title, name: block_two_title, widget: string, required: true}
+          - {label: Block two content, name: block_two_content, widget: string, required: true}
+          - {label: Block three title, name: block_three_title, widget: string, required: true}
+          - {label: Block three content, name: block_three_content, widget: string, required: true}
+          - {label: Bottom content, name: bottom_content, widget: markdown, required: true}
