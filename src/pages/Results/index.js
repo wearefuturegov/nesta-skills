@@ -1,13 +1,15 @@
-import React, { Component, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
+import * as ROUTES from '../../constants/routes';
 import { compose } from 'recompose';
 import styled from "styled-components";
 import theme from "../../_theme";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import resultsContent from "../../data/roles.js"
 import { SingleRole } from "../../components/SingleRole";
 import Modal from 'react-modal';
 import { PieChart } from 'react-minimal-pie-chart';
-import { withFirebase } from '../Firebase';
+import rolesContent from "../../data/roles.js"
+
 
 import {
   AuthUserContext,
@@ -22,100 +24,63 @@ const MoreBtn = styled.button`
 const Section = styled.section`
 `
 const ResultsPage = () => {
+  const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
+  const [showModal, setShowModal] = useState(false)
   Modal.setAppElement('body')
-  const ResultsContent = withFirebase(ResultsContentGenerate);
+  
+  const parseTotals = (array) => {
+    let tempArray = [];
+    rolesContent.map((role, index) => {
+      tempArray = [...tempArray, {
+        id: role.id,
+        total: parseInt(array[index+1]),
+        title: role.title
+      }]
+    });
+    return tempArray;
+  }
   
   useEffect(() => {
-    window.localStorage.setItem("nesta_pro_skills", "");
-    window.localStorage.setItem("nesta_con_skills", "");
-    window.localStorage.setItem("nesta_pro_attitudes", "");
-    window.localStorage.setItem("nesta_con_attitudes", "");
-    setCurrentStep(0);
+    if(currentStep !== 6) {
+      history.push(ROUTES.LANDING);
+    } else {
+      window.localStorage.setItem("nesta_pro_skills", "");
+      window.localStorage.setItem("nesta_con_skills", "");
+      window.localStorage.setItem("nesta_pro_attitudes", "");
+      window.localStorage.setItem("nesta_con_attitudes", "");
+    }
   }, [currentStep]);
+
+  function openModal(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    setShowModal(showModal ? false : true);
+  }
 
   return(
     <AuthUserContext.Consumer>
       {authUser => {
-        return(
-            <ResultsContent authUserRoles={authUser.roleTotals}  />
-        )
-      }}
-    </AuthUserContext.Consumer>
-  )
-};
-
-const condition = authUser => !!authUser;
-
-export default compose(
-  withEmailVerification,
-  withAuthorization(condition),
-)(ResultsPage);
-
-class ResultsContentGenerate extends Component {
-    constructor(props) {
-      super(props);        
-
-      this.state = {
-        loading: false,
-        data: [],
-        yourRoleScores: props.authUserRoles,
-      };
-    }
-  
-    componentDidMount() {
-      this.setState({ loading: true });
-  
-      this.props.firebase.roles().on('value', snapshot => {
-        const dataObject = snapshot.val();
-        
-        dataObject.map((role, index) => {
-            role.total = this.state.yourRoleScores[index]
-        })
-  
-        this.setState({
-            rolesData: dataObject.sort((a, b) => (parseInt(a.total) < parseInt(b.total)) ? 1 : -1),
-            loading: false,
-            showModal: false
-        });
-      });
-    }
-  
-    componentWillUnmount() {
-      this.props.firebase.roles().off();
-    }
-
-    showModal = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        this.setState({ showModal: true });
-        
-    };
-
-    hideModal = () => {
-        this.setState({ showModal: false });
-    };
-  
-    render() {
-        const { rolesData, loading, yourRoleScores } = this.state;
-  
-      return (
-        loading ? 
-          <div>Loading ...</div>
-          :
+        if(currentStep !== 6) {
+          history.push(ROUTES.LANDING)
+         } else {
+          let parsedTotals = parseTotals(authUser.roleTotals).sort((a, b) => (a.total < b.total) ? 1 : -1);
+          
+          return(
           <>
             <Section>
                 <h1>Your results</h1>
+                {JSON.stringify(parsedTotals)}
                 <p>Based upon the strengths you have provided, these are the roles we think you are best suited to play:</p>
-                {rolesData && rolesData.slice(0,3).map(role => (
+                {parsedTotals && parsedTotals.slice(0,3).map(role => (
                     <SingleRole key={role.title} role={role} />
                 ))}
                 
-                <MoreBtn onClick={this.showModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>View all roles</MoreBtn>
+                <MoreBtn onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>View all roles</MoreBtn>
                 <Modal 
-                    isOpen={this.state.showModal}
+                    isOpen={showModal}
                     contentLabel="View all roles"
-                    onRequestClose={this.hideModal}
+                    onRequestClose={openModal}
                     style={{
                         overlay: {
                             backgroundColor: 'rgba(60,18,82,0.8)'
@@ -135,7 +100,7 @@ class ResultsContentGenerate extends Component {
                         }
                     }}
                 >
-                    {rolesData && rolesData.map(role => (
+                    {parsedTotals && parsedTotals.map(role => (
                         <SingleRole key={role.title} role={role} />
                     ))}
                 </Modal>
@@ -159,6 +124,15 @@ class ResultsContentGenerate extends Component {
                 />
             </Section>
           </>
-      );
-    }
-}
+        )}
+      }}
+    </AuthUserContext.Consumer>
+  )
+};
+
+const condition = authUser => !!authUser;
+
+export default compose(
+  withEmailVerification,
+  withAuthorization(condition),
+)(ResultsPage);

@@ -26,7 +26,7 @@ const Tool5 = () => {
     <BodyClassName className={`step_${currentStepNo}`}>
       <AuthUserContext.Consumer>
         {authUser =>
-          authUser ? (
+          authUser && currentStep === 5 ? (
               history.push(ROUTES.SAVERESULTS)
             ) : (
               <>
