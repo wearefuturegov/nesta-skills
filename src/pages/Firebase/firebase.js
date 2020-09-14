@@ -90,10 +90,6 @@ class Firebase {
 
   // *** Page data ***
 
-  landingPage = () => this.db.ref('landing_page');
-
-  step5Content = () => this.db.ref('step_5_content');
-
   roles = () => this.db.ref('roles');
 }
 

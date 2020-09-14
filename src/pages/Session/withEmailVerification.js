@@ -2,6 +2,7 @@ import React from 'react';
 
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
+import SignOutButton from '../SignOut';
 
 const needsEmailVerification = authUser =>
   authUser &&
@@ -51,6 +52,7 @@ const withEmailVerification = Component => {
                 >
                   Re-send confirmation E-Mail
                 </button>
+                <SignOutButton />
               </div>
             ) : (
               <Component {...this.props} />
