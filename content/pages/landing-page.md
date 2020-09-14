@@ -1,6 +1,6 @@
 ---
 title: Landing page
-_1_strapline: Building the next generation of public innovation TEST
+_1_strapline: Building the next generation of public innovation
 _2_paragraph_1: Innovation in the public sector often focuses on learning new
   methods. These are of course valuable, but we’ve found that on their own they
   are not enough. We also need to understand the core set of attitudes and
