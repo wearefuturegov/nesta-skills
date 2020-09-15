@@ -44,7 +44,7 @@ collections:
         name: "02-weak-skills"
         fields:
           - {label: Content, name: body, widget: markdown}
-      - file: "content/pages/03-strong-attitudes"
+      - file: "content/pages/03-strong-attitudes.md"
         label: "Tool Step 3"
         name: "03-strong-attitudes"
         fields:
