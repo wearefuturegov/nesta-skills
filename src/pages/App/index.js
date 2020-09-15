@@ -25,6 +25,7 @@ import Tool3 from '../Tool3StrongAttitudes';
 import Tool4 from '../Tool4WeakAttitudes';
 import Tool5 from '../Tool5SignUp';
 import Tool6 from '../Tool6SaveResults';
+import MockFinalStep from '../MockFinalStep';
 
 const PageWrapper = styled.div`
   padding: 0 15px;
@@ -40,9 +41,12 @@ const App = () => {
     data
   }
 
+  
   let getDocument = (collection, name) =>
   state.data[collection] &&
   state.data[collection].filter(page => page.name === name)[0]
+
+  let getDocuments = collection => state.data[collection] || []
 
   return(
     <Router>
@@ -58,15 +62,19 @@ const App = () => {
           <Route path={ROUTES.ADMIN} component={AdminPage} />
 
           <Route path={ROUTES.START} component={() => <StartPage fields={getDocument('pages', '00-start')} />} />
-          <Route path={ROUTES.RESTART} component={() => <StartPage restart={true} fields={getDocument('pages', '00-start')} />} />
+          <Route path={ROUTES.RESTART} component={() => <StartPage fields={getDocument('pages', '00-start')} restart={true} />} />
           <Route path={ROUTES.VERIFIED} component={() => <LandingPage verified={true} fields={getDocument('pages', 'landing-page')} />} />
-          <Route path={ROUTES.STEP1} component={Tool1} />
-          <Route path={ROUTES.STEP2} component={Tool2} />
-          <Route path={ROUTES.STEP3} component={Tool3} />
-          <Route path={ROUTES.STEP4} component={Tool4} />
-          <Route path={ROUTES.STEP5} component={Tool5} />
-          <Route path={ROUTES.SAVERESULTS} component={Tool6} />
-          <Route path={ROUTES.RESULTS} component={ResultsPage} />
+          <Route path={ROUTES.STEP1} component={() => <Tool1 fields={getDocument('pages', '01-strong-skills')} skills={getDocuments('skills')} />} />
+          <Route path={ROUTES.STEP2} component={() => <Tool2 fields={getDocument('pages', '02-weak-skills')} skills={getDocuments('skills')} />} />
+          <Route path={ROUTES.STEP3}  component={() => <Tool3 fields={getDocument('pages', '03-strong-attitudes')} attitudes={getDocuments('attitudes')} />} />
+          <Route path={ROUTES.STEP4}  component={() => <Tool4 fields={getDocument('pages', '04-weak-attitudes')} attitudes={getDocuments('attitudes')} />} />
+          <Route path={ROUTES.STEP5}  component={() => <Tool5 fields={getDocument('pages', '05-sign-up')} />}/>
+
+
+          <Route path="/beentheredonethat"  component={() => <MockFinalStep fields={getDocument('pages', '05-sign-up')} />}/>
+
+          <Route path={ROUTES.SAVERESULTS} component={() => <Tool6 rolesContent={getDocuments('roles')} />} />
+          <Route path={ROUTES.RESULTS} component={() => <ResultsPage skills={getDocuments('skills')} rolesContent={getDocuments('roles')} />} />
         </ToastProvider>
       </PageWrapper>
     </Router>

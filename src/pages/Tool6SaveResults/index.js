@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as ROUTES from '../../constants/routes';
 import { compose } from 'recompose';
-import roles from "../../data/roles.js"
 import { useHistory } from "react-router-dom";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
@@ -13,6 +12,8 @@ import {
 import { withFirebase } from '../Firebase';
 
 const Tool6 = props => {
+  const rolesContent = props.rolesContent;
+
   const history = useHistory();
   const currentStepNo = 6;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress")
@@ -28,7 +29,7 @@ const Tool6 = props => {
     } else {
       setCurrentStep(currentStepNo);
 
-      roles.map(role => {
+      rolesContent.map(role => {
         let array = roleTotals;
         let newTotal = sumRating(role.skillsMapping, role.subSkillsMapping, role.attitudesMapping).toString();
         array[role.id] = newTotal;
@@ -38,6 +39,10 @@ const Tool6 = props => {
   }, []);
 
   const sumRating = (skills, subSkills, attitudes) => {
+    skills = (skills === null) ? [] : skills;
+    subSkills = (subSkills === null) ? [] : subSkills;
+    attitudes = (attitudes === null) ? [] : attitudes;
+
     let total = 0;
     skills.length > 0 && skills.forEach(skill => {
       if(proSkills.includes(skill.toString())) {

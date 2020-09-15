@@ -6,7 +6,7 @@ import theme from "../../_theme"
 import { useToasts } from 'react-toast-notifications'
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
-import attitudes from "../../data/attitudes.js"
+import Content from '../../components/Content'
 
 import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
@@ -26,7 +26,9 @@ const SkillsContainer = styled.ul`
   margin-top: ${theme.standardSpace}px;
 `
 
-const Tool3 = () => {
+const Tool3 = ({fields, attitudes}) => {
+
+  const { body } = fields;
   const maxSelectionNo = 3;
   const currentStepNo = 3;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
@@ -71,10 +73,8 @@ const Tool3 = () => {
       <>
         <CurrentStep step={currentStepNo} max={4} />
 
-        <p>In addition to skills, our research identified nine <strong>key attitudes</strong> that support successful experimentation and problem solving. These differ from skills in that you will have formed them over a greater period of time and they are more difficult to change or develop.</p>
+        <Content source={body} />
         
-        <p>Select the <strong>three attitudes</strong> that you think your colleagues would <strong>most likely use to describe you.</strong></p>    
-
         <SkillsContainer>
           {attitudes.map((skill) =>
             <SkillCard 

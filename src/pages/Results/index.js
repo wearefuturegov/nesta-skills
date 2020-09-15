@@ -8,9 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { SingleRole } from "../../components/SingleRole";
 import Modal from 'react-modal';
 import { PieChart } from 'react-minimal-pie-chart';
-import rolesContent from "../../data/roles.js"
 import { withFirebase } from '../Firebase';
-import skills from "../../data/skills.js"
 
 import {
   AuthUserContext,
@@ -32,7 +30,7 @@ const MoreBtn = styled.button`
 `
 const Section = styled.section`
 `
-const ResultsPage = ({ firebase }) => {
+const ResultsPage = ({ firebase , skills, rolesContent}) => {
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
@@ -62,12 +60,12 @@ const ResultsPage = ({ firebase }) => {
   }
   
   useEffect(() => {
-    if(!window.localStorage.getItem("nesta_results_reload")) {
-      window.localStorage.setItem("nesta_results_reload", true);
-      window.location.reload();
-    } else {
-      window.localStorage.removeItem("nesta_results_reload");
-    }
+    // if(!window.localStorage.getItem("nesta_results_reload")) {
+    //   window.localStorage.setItem("nesta_results_reload", true);
+    //   // window.location.reload();
+    // } else {
+    //   window.localStorage.removeItem("nesta_results_reload");
+    // }
     if(currentStep !== 6) {
       history.push(ROUTES.LANDING);
     } else {

@@ -4,7 +4,6 @@ import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import Marked from 'react-markdown'
 import Content from '../../components/Content'
 
 const BlockContainer = styled.ul`
@@ -41,9 +40,13 @@ const BlockText = styled.div`
 `
 
 const StartPage = ({restart, fields}, props) => {
+  // page content @todo -probably doesnt need this many fields now that we have wysiwyg option
   const { title, top_content, bottom_content, block_one_title, block_one_content, block_two_title, block_two_content, block_three_title, block_three_content } = fields;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   
+
+  // on page load set current step to 0
+  // if its a flagged as a restart - empty local storage of previously selected values
   useEffect(() => {
     if (restart) {
       window.localStorage.setItem("nesta_pro_skills", "");

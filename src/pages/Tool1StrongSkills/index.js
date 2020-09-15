@@ -6,7 +6,7 @@ import theme from "../../_theme"
 import { useToasts } from 'react-toast-notifications'
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
-import skills from "../../data/skills.js"
+import Content from '../../components/Content'
 
 import { CurrentStep } from '../../components/CurrentStep';
 import { SkillCard } from "../../components/SkillCard";
@@ -26,7 +26,9 @@ const SkillsContainer = styled.ul`
   margin-top: ${theme.standardSpace}px;
 `
 
-const Tool1 = () => {
+const Tool1 = ({fields, skills}) => {
+
+  const { body } = fields;
   const maxSelectionNo = 5;
   const currentStepNo = 1;
 
@@ -73,13 +75,7 @@ const Tool1 = () => {
       <>
         <CurrentStep step={currentStepNo} max={4} />
 
-        <p>Let’s try and build up a picture of your skills so we can understand:</p>
-        <ul>
-          <li>what strengths you bring to a team</li>
-          <li>what type of role this might mean you play in a team</li>
-          <li>what your areas for development could be</li>
-        </ul>
-        <p>Look through each of the cards below and <strong>select the five</strong> which you think your colleagues would use to describe <strong>your strongest skills</strong> out of the 13 below.</p>    
+        <Content source={body} />
 
         <SkillsContainer>
           {skills.map((skill) =>
