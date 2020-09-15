@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from "styled-components"
 import theme from "../../_theme"
 import Modal from 'react-modal';
-import parse from 'html-react-parser';
 import { RemoveScrollBar } from "react-remove-scroll-bar"
+import Content from '../../components/Content'
 
 const Outer = styled.li`
     padding: 15px;
@@ -67,9 +67,6 @@ const ModalTitle = styled.h2`
 `
 const ModalLead = styled.p`
     font-size 1.5rem;
-`
-const ModalContent = styled.div`
-
 `
 const ReadMore = styled.button`
     display: block;
@@ -186,7 +183,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                     <RemoveScrollBar />
                     <ModalTitle>{skill.title}</ModalTitle>
                     <ModalLead>{skill.text}</ModalLead>
-                    <ModalContent>{parse(skill.content)}</ModalContent>
+                    <Content source={skill.content} />
                     <ModalActions>
                         <CloseModal onClick={() => setShowModal(false)}>Close Modal</CloseModal>
                         {chosenSkills.length === maxSelectionNo && !isActive ? 
