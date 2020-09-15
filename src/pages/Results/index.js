@@ -89,9 +89,10 @@ const ResultsPage = ({ firebase , skills, rolesContent}) => {
           history.push(ROUTES.LANDING)
         } else {
           let parsedTotals = false;
-          let parsedSkills = parseSkills(authUser.proSkills)
+          let parsedSkills = false;
           if(authUser.roleTotals) { 
             parsedTotals = parseTotals(authUser.roleTotals).sort((a, b) => (a.total < b.total) ? 1 : -1);
+            parsedSkills = parseSkills(authUser.proSkills);
           }
           return(
             parsedTotals ?
