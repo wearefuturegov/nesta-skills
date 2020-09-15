@@ -111,6 +111,7 @@ const AddButton = styled.button`
     display: inline-block;
     width: fit-content;
     color: ${theme.white};
+    cursor: pointer;
     
     &:hover {
         opacity: 0.8;
@@ -119,6 +120,12 @@ const AddButton = styled.button`
         outline: none;
         border-color: ${theme.focus};
         box-shadow: 0px 0px 0px 3px ${theme.black};
+    }
+
+    &.secondary {
+        background: transparent;
+        border: 4px solid ${props => props.bg};
+        color: ${theme.black};
     }
 `
 export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) => {
@@ -192,6 +199,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                             <AddButton 
                                 bg={getBranding(skill.brand)} 
                                 onClick={() => { selectSkill(skill); setShowModal(false);}}
+                                className={isActive && "secondary"}
                             >
                                 { isActive ? "Remove" : "Select"} this skill
                             </AddButton>
