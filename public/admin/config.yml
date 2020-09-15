@@ -22,7 +22,7 @@ collections:
           - {label: _4_paragraph_2, name: _4_paragraph_2, widget: markdown, required: true}
           - {label: _5_sub_title_2, name: _5_sub_title_2, widget: string, required: true}
       - file: "content/pages/00-start.md"
-        label: "Start page"
+        label: "Tool start page"
         name: "00-start"
         fields:
           - {label: Title, name: title, widget: string, required: true}
@@ -35,27 +35,27 @@ collections:
           - {label: Block three content, name: block_three_content, widget: string, required: true}
           - {label: Bottom content, name: bottom_content, widget: markdown, required: true}
       - file: "content/pages/01-strong-skills.md"
-        label: "Tool Step 1"
+        label: "Tool Step 1 - strong skills"
         name: "01-strong-skills"
         fields:
           - {label: Content, name: body, widget: markdown}
       - file: "content/pages/02-weak-skills.md"
-        label: "Tool Step 2"
+        label: "Tool Step 2 - weak skills"
         name: "02-weak-skills"
         fields:
           - {label: Content, name: body, widget: markdown}
       - file: "content/pages/03-strong-attitudes.md"
-        label: "Tool Step 3"
+        label: "Tool Step 3 - strong attitudes"
         name: "03-strong-attitudes"
         fields:
           - {label: Content, name: body, widget: markdown}
       - file: "content/pages/04-weak-attitudes.md"
-        label: "Tool Step 4"
+        label: "Tool Step 4 - weak attitudes"
         name: "04-weak-attitudes.md"
         fields:
           - {label: Content, name: body, widget: markdown}
       - file: "content/pages/05-sign-up.md"
-        label: "Tool Step 5"
+        label: "Tool Step 5 - sign up"
         name: "05-sign-up"
         fields:
           - {label: Title, name: title, widget: string, required: true}
