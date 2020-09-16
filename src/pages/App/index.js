@@ -70,11 +70,10 @@ const App = () => {
           <Route path={ROUTES.STEP4}  component={() => <Tool4 fields={getDocument('pages', '04-weak-attitudes')} attitudes={getDocuments('attitudes')} />} />
           <Route path={ROUTES.STEP5}  component={() => <Tool5 fields={getDocument('pages', '05-sign-up')} />}/>
 
-
           <Route path="/beentheredonethat"  component={() => <MockFinalStep fields={getDocument('pages', '05-sign-up')} />}/>
 
           <Route path={ROUTES.SAVERESULTS} component={() => <Tool6 rolesContent={getDocuments('roles')} />} />
-          <Route path={ROUTES.RESULTS} component={() => <ResultsPage skills={getDocuments('skills')} rolesContent={getDocuments('roles')} />} />
+          <Route path={ROUTES.RESULTS} component={() => <ResultsPage skills={getDocuments('skills')} rolesContent={getDocuments('roles')} fields={getDocument('pages', '06-results')} />} />
         </ToastProvider>
       </PageWrapper>
     </Router>

@@ -60,6 +60,12 @@ collections:
         fields:
           - {label: Title, name: title, widget: string, required: true}
           - {label: Content, name: body, widget: markdown}
+      - file: "content/pages/06-results.md"
+        label: "Tool Step 6 - results"
+        name: "06-results"
+        fields:
+          - {label: Title, name: title, widget: string, required: true}
+          - {label: Content, name: body, widget: markdown}
 
   - name: skills
     label: Skills

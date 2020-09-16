@@ -10,6 +10,8 @@ import Modal from 'react-modal';
 import { PieChart } from 'react-minimal-pie-chart';
 import { withFirebase } from '../Firebase';
 import BodyClassName from 'react-body-classname';
+import { Button } from '../../components/Button';
+import Content from '../../components/Content';
 
 import {
   AuthUserContext,
@@ -18,20 +20,13 @@ import {
 } from '../Session';
 
 
-const MoreBtn = styled.button`
-  display: inline-block;
-  padding: 15px ${theme.standardSpace}px;
-  background: ${theme.darkPurple};
-  color: ${theme.white};
-  text-decoration: none;
-  font-weight: 600;
-  margin-bottom: ${theme.standardSpace}px;
-  border: none;
-  cursor: pointer;
+const MoreBtn = styled(Button)`
+
 `
 const Section = styled.section`
 `
-const ResultsPage = ({ firebase , skills, rolesContent}) => {
+const ResultsPage = ({skills, rolesContent, fields}) => {
+  const { title, body } = fields;
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
@@ -104,8 +99,11 @@ const ResultsPage = ({ firebase , skills, rolesContent}) => {
               parsedTotals ?
                 <>
                   <Section>
-                      <h1>Your results</h1>
-                      <p>Based upon the strengths you have provided, these are the roles we think you are best suited to play:</p>
+                    <h1>{title}</h1>
+                    <Content source={body} />
+                  </Section>
+
+                  <Section>
                       {parsedTotals && parsedTotals.slice(0,3).map(role => (
                           <SingleRole key={role.title} role={role} />
                       ))}
