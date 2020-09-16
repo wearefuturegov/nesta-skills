@@ -25,6 +25,14 @@ const MoreBtn = styled(Button)`
 `
 const Section = styled.section`
 `
+const PieContainer = styled.div`
+  max-width: 500px;
+
+  svg {
+    margin-top: -100px;
+    margin-left: -50px;
+  }
+`
 const ResultsPage = ({skills, rolesContent, fields}) => {
   const { title, body } = fields;
   const history = useHistory();
@@ -139,20 +147,22 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
                   </Section>
                   <Section>
                       <h2>Your strongest skills</h2>
-                      <PieChart
-                          data={[
-                              { title: 'Working Together', value: parsedSkills.filter(skill => skill.brand === "working_together").length, color: theme.orange },
-                              { title: 'Learning', value: parsedSkills.filter(skill => skill.brand === "learning").length, color: theme.purple },
-                              { title: 'Leading Change', value: parsedSkills.filter(skill => skill.brand === "leading_change").length, color: theme.red },
-                              ]}
-                          label={({ dataEntry }) => dataEntry.title}
-                          labelStyle={(index) => ({
-                              // fill: dataMock[index].color,
-                              fontSize: '2px',
-                          })}
-                          radius={20}
-                          labelPosition={112}
-                      />
+                      <PieContainer>
+                        <PieChart
+                            data={[
+                                { title: 'Working Together', value: parsedSkills.filter(skill => skill.brand === "working_together").length, color: theme.orange },
+                                { title: 'Learning', value: parsedSkills.filter(skill => skill.brand === "learning").length, color: theme.purple },
+                                { title: 'Leading Change', value: parsedSkills.filter(skill => skill.brand === "leading_change").length, color: theme.red },
+                                ]}
+                            label={({ dataEntry }) => dataEntry.title}
+                            labelStyle={(index) => ({
+                                // fill: dataMock[index].color,
+                                fontSize: '2px',
+                            })}
+                            radius={30}
+                            labelPosition={112}
+                        />
+                      </PieContainer>
                   </Section>
                 </>
               :

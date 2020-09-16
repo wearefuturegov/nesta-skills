@@ -39,6 +39,8 @@ a:focus {
   background: #FFF71A;
   box-shadow: 0 1px #FFF71A, 0 4px #0b0c0c;
   text-decoration: none;
+  outline: none;
+  border-radius: 0;
 }
 
 code {

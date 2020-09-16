@@ -35,6 +35,13 @@ const LinkContainer = styled(Link)`
     text-decoration: none;
     font-weight: 600;
     margin-bottom: ${theme.standardSpace}px;
+
+    &:focus {
+        outline: none;
+        border-radius: 0;
+        background: ${props => props.bg};
+        box-shadow: 0 0px 0px 3px ${theme.black}, 0 0px 0px 5px ${theme.focus};
+    }    
 `
 
 export const Button = ({isButton, to, background, onClick, children, ...props}) => (

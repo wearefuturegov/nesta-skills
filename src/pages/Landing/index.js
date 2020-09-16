@@ -38,6 +38,10 @@ const CircleText = styled.p`
 const RestartLink = styled(Link)`
   color: ${theme.white};
   margin-right: ${theme.standardSpace}px;
+
+  &:focus {
+    color: ${theme.black};
+  }
 `
 
 const Landing = ({verified = false, fields}) => {
