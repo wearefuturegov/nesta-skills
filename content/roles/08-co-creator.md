@@ -1,6 +1,6 @@
 ---
 title: Co-creator
-sub_title: Enabling
+sub_title: Facilitates Collaboration
 id: 8
 action: Facilitates co-creation
 brand: working_together

@@ -77,7 +77,7 @@ const ModalActions = styled.div`
     flex-direction: row;
     justify-content: space-between;
 `
-const CloseModal = styled(ReadMore)`
+const CloseModal = styled(SecondaryButton)`
 
 `
 const AddButton = styled.button`
@@ -160,7 +160,9 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                             width: '90%',
                             maxWidth: '600px',
                             border: `5px solid ${getBranding(skill.brand)}`,
-                            borderRadius: '0'
+                            borderRadius: '0',
+                            maxHeight: 'calc(100vh - 70px)',
+                            overflow: 'scroll'
                         }
                     }}
                 >

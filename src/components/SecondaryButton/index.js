@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from 'react-router-dom';
 import theme from "../../_theme"
 
-const ButtonContainer = styled(Link)`
+const styles = `
     display: block;
     background: transparent;
     border: none;
@@ -30,9 +30,16 @@ const ButtonContainer = styled(Link)`
         color: ${theme.black} !important;
     }
 `
+const ButtonContainer = styled(Link)`
+    ${styles}
+`
+const FakeButtonContainer = styled.button`
+    ${styles}
+`
 
 export const SecondaryButton = ({to, background, onClick, children}) => (
-    <>
+    to ?
         <ButtonContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } >{children}</ButtonContainer>
-    </>
+        :
+        <FakeButtonContainer onClick={onClick} bg={background ? background : theme.darkPurple } >{children}</FakeButtonContainer>
 );

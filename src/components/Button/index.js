@@ -13,10 +13,12 @@ const ButtonContainer = styled.button`
     margin-bottom: ${theme.standardSpace}px;
     border: none;
     margin-top: 10px; 
+    cursor: pointer;
 
     &:focus {
         outline: none;
         border-radius: 0;
+        box-shadow: 0 0px 0px 3px ${theme.black}, 0 0px 0px 5px ${theme.focus};
     }
 
     &:disabled {
@@ -48,5 +50,8 @@ export const Button = ({isButton, to, background, onClick, children, ...props}) 
     isButton ? 
         <ButtonContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } {...props}>{children}</ButtonContainer>
         :
-        <LinkContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } {...props}>{children}</LinkContainer>
+        to ?
+            <LinkContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } {...props}>{children}</LinkContainer>
+            :
+            <ButtonContainer onClick={onClick} bg={background ? background : theme.darkPurple } {...props}>{children}</ButtonContainer>
 );

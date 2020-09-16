@@ -5,7 +5,7 @@ import { compose } from 'recompose';
 import styled from "styled-components";
 import theme from "../../_theme";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { SingleRole } from "../../components/SingleRole";
+import { SingleRole, RolesList } from "../../components/SingleRole";
 import Modal from 'react-modal';
 import { PieChart } from 'react-minimal-pie-chart';
 import { withFirebase } from '../Firebase';
@@ -21,16 +21,21 @@ import {
 
 
 const MoreBtn = styled(Button)`
-
+  margin: 0 auto;
+  z-index: 1;
+  display: block;
+  width: fit-content;
 `
 const Section = styled.section`
 `
 const PieContainer = styled.div`
   max-width: 500px;
+  z-index: -1;
 
   svg {
-    margin-top: -100px;
+    margin-top: 0;
     margin-left: -50px;
+    z-index: -1;
   }
 `
 const ResultsPage = ({skills, rolesContent, fields}) => {
@@ -38,6 +43,7 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
+  const [showRoles, setShowRoles] = useState(false)
   Modal.setAppElement('body')
   
   const parseTotals = (array) => {
@@ -47,7 +53,13 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
         id: role.id,
         total: parseInt(array[index+1]),
         title: role.title,
-        sub_title: role.sub_title
+        sub_title: role.sub_title,
+        brand: role.brand,
+        competencies: role.competencies,
+        strengths: role.strengths,
+        weaknesses: role.weaknesses,
+        attitudes: role.attitudes,
+        content: role.content
       }]
     });
     return tempArray;
@@ -112,40 +124,22 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
                   </Section>
 
                   <Section>
+                    <RolesList>
                       {parsedTotals && parsedTotals.slice(0,3).map(role => (
                           <SingleRole key={role.title} role={role} />
                       ))}
-                      
-                      <MoreBtn onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>View all roles</MoreBtn>
-                      <Modal 
-                          isOpen={showModal}
-                          contentLabel="View all roles"
-                          onRequestClose={openModal}
-                          style={{
-                              overlay: {
-                                  backgroundColor: 'rgba(60,18,82,0.8)'
-                              },
-                              content: {
-                                  transform: 'translate(-50%, -50%)',
-                                  top: '50%',
-                                  left: '50%',
-                                  right: 'auto',
-                                  bottom: 'auto',
-                                  width: '90%',
-                                  maxWidth: '600px',
-                                  maxHeight: 'calc(100% - 80px)',
-                                  overflow: 'scroll',
-                                  border: `5px solid ${theme.darkPurple}`,
-                                  borderRadius: '0'
-                              }
-                          }}
-                      >
-                          {parsedTotals && parsedTotals.map(role => (
-                              <SingleRole key={role.title} role={role} />
+                      {showRoles &&
+                        <>
+                          {parsedTotals && parsedTotals.slice(3,parsedTotals.length).map(role => (
+                            <SingleRole key={role.title} role={role} />
                           ))}
-                      </Modal>
+                          <MoreBtn onClick={() => setShowRoles(false)}>Hide roles</MoreBtn>
+                        </>
+                      }
+                    </RolesList>
+                    {!showRoles &&<MoreBtn onClick={() => setShowRoles(true)}>View all roles</MoreBtn>}
                   </Section>
-                  <Section>
+                  <Section> 
                       <h2>Your strongest skills</h2>
                       <PieContainer>
                         <PieChart
