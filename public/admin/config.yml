@@ -94,6 +94,11 @@ collections:
       - {label: Sub title, name: sub_title, widget: string}
       - {label: id, name: id, widget: hidden}
       - {label: Action, name: action, widget: string}
+      - {label: Competencies, name: competencies, widget: object, fields: 
+          - {label: Competency text, name: text, widget: string }
+          - {label: Competency brand, name: brand, widget: select, options: ["working_together", "learning", "leading_change"] }
+        }
+
       - {label: Role Strengths, name: strengths, widget: list, collapsed: false, required: false}
       - {label: Role Weaknesses, name: weaknesses, widget: list, collapsed: false, required: false}
       - {label: Attitudes, name: attitudesMapping, widget: hidden}
