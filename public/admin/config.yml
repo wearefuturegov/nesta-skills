@@ -100,8 +100,21 @@ collections:
         fields: 
           - {label: "Competency text", name: text, widget: string }
           - {label: "Competency brand", name: brand, widget: select, options: ["working_together", "learning", "leading_change"] }
-      - {label: Role Strengths, name: strengths, widget: list, collapsed: false, required: false}
-      - {label: Role Weaknesses, name: weaknesses, widget: list, collapsed: false, required: false}
+      - label: Role Strengths
+        name: strengths 
+        widget: list
+        fields: 
+          - {label: Strength, name: text, widget: string }
+      - label: Role Weaknesses
+        name: weaknesses 
+        widget: list
+        fields: 
+          - {label: Weakness, name: text, widget: string }
+      - label: Role Attitudes
+        name: attitudes 
+        widget: list
+        fields: 
+          - {label: Attitude, name: text, widget: string }
       - {label: Attitudes, name: attitudesMapping, widget: hidden}
       - {label: Skills, name: skillsMapping, widget: hidden}
       - {label: Sub Skills, name: subSkillsMapping, widget: hidden}
