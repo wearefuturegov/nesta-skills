@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { compose } from 'recompose';
 import SignOutButton from '../SignOut';
+import BodyClassName from 'react-body-classname';
 
 import {
   AuthUserContext,
@@ -19,17 +20,19 @@ const SIGN_IN_METHODS = [
 ];
 
 const AccountPage = () => (
-  <AuthUserContext.Consumer>
-    {authUser => (
-      <div>
-        <h1>Account: {authUser.email}</h1>
-        {authUser.orgType && <p>Org type: {authUser.orgType}</p>}
-        {/* <PasswordForgetForm /> */}
-        <PasswordChangeForm />
-        <SignOutButton />
-      </div>
-    )}
-  </AuthUserContext.Consumer>
+  <BodyClassName className="account_page">
+    <AuthUserContext.Consumer>
+      {authUser => (
+        <div>
+          <h1>Account: {authUser.email}</h1>
+          {authUser.orgType && <p>Org type: {authUser.orgType}</p>}
+          {/* <PasswordForgetForm /> */}
+          <PasswordChangeForm />
+          <SignOutButton />
+        </div>
+      )}
+    </AuthUserContext.Consumer>
+  </BodyClassName>
 );
 
 

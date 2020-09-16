@@ -8,12 +8,22 @@ import { AuthUserContext } from '../Session';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
+import logoSvg from './nesta.js';
+
 const Outer = styled.header`
-  padding: 25px 15px;
+  padding: 10px 15px;
   background: ${theme.darkPurple};
   margin-bottom: ${theme.standardSpace}px;
   a {
     color: ${theme.white};
+    font-weight: bold;
+
+    &:focus {
+      color: ${theme.black};
+      svg {
+        fill: ${theme.black};
+      }
+    }
   }
 `
 const Inner = styled.div`
@@ -32,14 +42,30 @@ const NavList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0;
+  height: 100%;
 `
 const NavItem = styled.li`
   display: inline-block;
   margin-left: 15px;
-`
-const Logo = styled.div`
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  a {
+    text-decoration: none;
+    padding: 3px 0;
+    margin-left: 10px;
+    border-bottom: 2px solid transparent;
 
+    &:hover {
+      border-bottom: 2px solid ${theme.white}99;
+    }
+  }
 `
+const Logo = styled(logoSvg)`
+  width: 100px;
+  fill: ${theme.white};
+`
+
 
 const Navigation = () => {
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
@@ -60,20 +86,20 @@ const Navigation = () => {
 const NavigationAuth = ({ authUser, currentStep }) => (
   <Outer>
     <Inner>
-      <Link to={ROUTES.LANDING}><Logo>logo</Logo></Link>
+      <Link to={ROUTES.LANDING}><Logo fill={theme.white} alt="Nesta" /></Link>
       
       <Nav>
         <NavList>
           <NavItem>
             {authUser.roleTotals && authUser.roleTotals.length > 0 && currentStep === 6 ?
-              <Link to={ROUTES.RESULTS}>Results</Link>
+              <Link to={ROUTES.RESULTS} className="results_link">Results</Link>
               :
               currentStep === 0 &&
                 <Link to={ROUTES.START}>Start</Link>
             }
           </NavItem>
           <NavItem>
-            <Link to={ROUTES.ACCOUNT}>Account</Link>
+            <Link to={ROUTES.ACCOUNT} className="account_link">Account</Link>
           </NavItem>
           {authUser.roles.includes(ROLES.ADMIN) && (
             <NavItem>
@@ -89,7 +115,7 @@ const NavigationAuth = ({ authUser, currentStep }) => (
 const NavigationNonAuth = () => (
   <Outer>
     <Inner>
-      <Link to={ROUTES.LANDING}><Logo>logo</Logo></Link>
+      <Link to={ROUTES.LANDING}><Logo alt="Nesta" /></Link>
       <Nav>
         <NavList>
           <NavItem>
