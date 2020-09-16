@@ -145,10 +145,11 @@ const SingleCompetency = styled.div`
     }
     .text {
         text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
-        line-height: 1.25;
+        line-height: 1.3;
         top: 50%;
         transform: translateY(-50%);
         position: relative;
+        padding: 10px;
     }
 `
 const AttitudeList = styled(CompetencyList)`
