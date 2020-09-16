@@ -4,6 +4,7 @@ import theme from "../../_theme"
 import Modal from 'react-modal';
 import { RemoveScrollBar } from "react-remove-scroll-bar"
 import Content from '../../components/Content'
+import { SecondaryButton } from '../../components/SecondaryButton';
 
 const Outer = styled.li`
     padding: 15px;
@@ -68,32 +69,8 @@ const ModalTitle = styled.h2`
 const ModalLead = styled.p`
     font-size 1.5rem;
 `
-const ReadMore = styled.button`
-    display: block;
-    background: transparent;
-    border: none;
-    text-decoration: underline;
-    text-align: left;
-    display: inline-block;
-    padding: 5px;
-    margin-left: -5px;
-    margin-top: auto;
-    width: fit-content;
-    cursor: pointer;
-    border-radius: 0;
-    font-weight: bold;
+const ReadMore = styled(SecondaryButton)`
 
-    &:hover {
-        text-decoration: none;
-        opacity: 0.8;
-    }
-    &:focus {
-        outline: none;
-        background-color: ${theme.focus};
-        box-shadow: 0 -2px ${theme.focus}, 0 4px ${theme.black};
-        text-decoration: none;
-        color: ${theme.black} !important;
-    }
 `
 const ModalActions = styled.div`
     display: flex;

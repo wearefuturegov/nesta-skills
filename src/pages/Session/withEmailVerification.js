@@ -1,8 +1,21 @@
 import React from 'react';
-
+import styled from "styled-components";
+import theme from "../../_theme";
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
-import SignOutButton from '../SignOut';
+import { SecondaryButton } from "../../components/SecondaryButton";
+
+const EmailVerify = styled.div`
+  max-width: 400px;
+  padding-top: 50px;
+  margin: 0 auto;
+  text-align: center;
+`
+
+const ConfirmationText = styled.p`
+  font-weight: bold;
+  color: ${theme.green};
+`
 
 const needsEmailVerification = authUser =>
   authUser &&
@@ -30,30 +43,20 @@ const withEmailVerification = Component => {
         <AuthUserContext.Consumer>
           {authUser =>
             needsEmailVerification(authUser) ? (
-              <div>
-                {this.state.isSent ? (
-                  <p>
-                    E-Mail confirmation sent: Check you E-Mails (Spam
-                    folder included) for a confirmation E-Mail.
-                    Refresh this page once you confirmed your E-Mail.
-                  </p>
-                ) : (
-                  <p>
-                    Verify your E-Mail: Check you E-Mails (Spam folder
-                    included) for a confirmation E-Mail or send
-                    another confirmation E-Mail.
-                  </p>
-                )}
-
-                <button
+              <EmailVerify>
+                <h1>Verify your E-Mail</h1>
+                {this.state.isSent && <ConfirmationText>Email sent</ConfirmationText>}
+                <p>Check you E-Mails (including your spam folder) for a confirmation email.</p>
+                <SecondaryButton
+                  isButton
                   type="button"
                   onClick={this.onSendEmailVerification}
                   disabled={this.state.isSent}
                 >
                   Re-send confirmation E-Mail
-                </button>
-                <SignOutButton />
-              </div>
+                </SecondaryButton>
+                {/* <SignOutButton /> */}
+              </EmailVerify>
             ) : (
               <Component {...this.props} />
             )

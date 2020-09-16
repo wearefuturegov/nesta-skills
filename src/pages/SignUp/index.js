@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styled from "styled-components";
 import theme from "../../_theme";
+import { Button } from "../../components/Button";
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -137,11 +138,11 @@ class SignUpFormBase extends Component {
       error,
     } = this.state;
 
-    const isInvalid =
-      passwordOne !== passwordTwo ||
-      passwordOne === '' ||
-      email === '' ||
-      username === '';
+    // const isInvalid =
+    //   passwordOne !== passwordTwo ||
+    //   passwordOne === '' ||
+    //   email === '' ||
+    //   username === '';
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -487,10 +488,9 @@ class SignUpFormBase extends Component {
             onChange={this.onChangeCheckbox}
           />
         </Label> */}
-        {isInvalid && <p>Please fill in the remaining fields to sign up</p>}
-        <button disabled={isInvalid} type="submit">
+        <Button type="submit" isButton>
           Sign Up
-        </button>
+        </Button>
 
         {error && <p>{error.message}</p>}
       </form>

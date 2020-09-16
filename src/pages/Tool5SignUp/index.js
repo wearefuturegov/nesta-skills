@@ -9,7 +9,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import { SignUpForm } from '../SignUp';
 import { SignInLink } from '../SignIn';
-import Content from '../../components/Content'
+import Content from '../../components/Content';
+import { SecondaryButton } from '../../components/SecondaryButton';
 
 const Section = styled.section`
 
@@ -34,7 +35,7 @@ const Tool5 = ({fields}) => {
               history.push(ROUTES.SAVERESULTS)
             ) : (
               <>
-                <Link to={ROUTES.STEP4}>Previous step</Link>
+                <SecondaryButton to={ROUTES.STEP4}>Previous step</SecondaryButton>
 
                 <Section>
                   <h1>{title}</h1>

@@ -13,6 +13,7 @@ export default {
     red: "#FF0041",
     purple: "#9B00C3",
     focus: "#FFF71A",
+    green: "#2d9a21",
 
     // breakpoints
     s: "550px",
