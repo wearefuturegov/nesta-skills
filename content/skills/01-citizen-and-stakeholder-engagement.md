@@ -13,5 +13,3 @@ In practice behaviour:
 * Seeing the people affected by an issue as experts in their own right too and including their voice.
 * Listening to people’s everyday experiences and challenging your own assumptions.
 * Tailoring activities for the people you’re working with and listening to a wide group of people, particularly those who aren’t often heard.
-
-![](/images/uploads/screenshot-2020-09-16-at-17.48.48.png)
