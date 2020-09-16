@@ -8,9 +8,7 @@ strengths:
   - Excellent listener and storyteller & can read between the lines of what
     people are saying
 weaknesses:
-  - May at times be a people pleaser
-  - focusing less on action
-  - more on relationships
+  - May at times be a people pleaser, focusing less on action, more on relationships
 attitudesMapping:
   - 1
   - 2
