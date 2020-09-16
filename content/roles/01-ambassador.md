@@ -13,13 +13,10 @@ competencies:
   - text: Data literacy and evidence
     brand: learning
 strengths:
-  - Vast experience of the political landscape & can work around the system
-  - Excellent listener and storyteller & can read between the lines of what
-    people are saying
+  - text: Vast experience of the political landscape & can work around the system
+  - text: Excellent listener and storyteller & can read between the lines of what people are saying
 weaknesses:
-  - May at times be a people pleaser
-  - focusing less on action
-  - more on relationships
+  - text: May at times be a people pleaser, focusing less on action, more on relationships
 attitudesMapping:
   - 1
   - 2
