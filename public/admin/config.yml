@@ -96,7 +96,7 @@ collections:
       - {label: Action, name: action, widget: string}
       - label: Competencies
         name: competencies 
-        widget: object
+        widget: list
         fields: 
           - {label: "Competency text", name: text, widget: string }
           - {label: "Competency brand", name: brand, widget: select, options: ["working_together", "learning", "leading_change"] }
