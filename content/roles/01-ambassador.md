@@ -3,6 +3,15 @@ title: Ambassador
 sub_title: Creates mandate
 id: 1
 action: Relational
+competencies:
+  - text: Political and bureaucratic awareness
+    brand: leading_change
+  - text: Demonstrating Value
+    brand: leading_change
+  - text: Storytelling and advocacy
+    brand: leading_change
+  - text: Data literacy and evidence
+    brand: learning
 strengths:
   - Vast experience of the political landscape & can work around the system
   - Excellent listener and storyteller & can read between the lines of what
