@@ -3,6 +3,26 @@ title: Orchestrator
 sub_title: Operationalises visions
 id: 3
 action: Pragmatic
+brand: leading_change
+competencies:
+  - text: Brokering
+    brand: working_together
+  - text: Financial Change
+    brand: leading_change
+  - text: Demonstrating Value
+    brand: leading_change
+  - text: Future Acumen
+    brand: learning
+strengths:
+  - text: Great attention to detail, able to link the smaller actions to the bigger changes
+  - text: Excellent people skills, can mobalise and encourage colleagues
+weaknesses:
+  - text: Can sometimes micro manage colleagues, being overbearing and stifling
+attitudes:
+  - text: Action Orientated
+  - text: Outcomes Focused
+  - text: Reflective
+  - text: Agile
 skillsMapping:
   - 10
   - 11

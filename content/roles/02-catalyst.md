@@ -3,6 +3,27 @@ title: Catalyst
 sub_title: Operationalises visions
 id: 2
 action: Pragmatic
+brand: leading_change
+competencies:
+  - text: Political and bureaucratic awareness
+    brand: leading_change
+  - text: Intrapreneurship
+    brand: leading_change
+  - text: Storytelling & advocacy
+    brand: leading_change
+  - text: Future Acumen
+    brand: learning
+strengths:
+  - text: Often have bold visions for improvement, and have the courage to challenge the status quo
+  - text: Are not put off by failures, and will persevere
+  - text: Can often excite and mobalise other people
+weaknesses:
+  - text: Can at times be impatient and restless, wanting to see change happen quickly without taking the time to establish relationships
+attitudes:
+  - text: Action Orientated
+  - text: Courageous
+  - text: Imaginative
+  - text: Resilient
 skillsMapping:
   - 11
   - 12

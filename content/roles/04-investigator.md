@@ -3,6 +3,26 @@ title: Investigator
 sub_title: Generates insights
 id: 4
 action: Analytical
+brand: learning
+competencies:
+  - text: Citizen & Stakeholder Engagement
+    brand: working_together
+  - text: Systems Thinking
+    brand: learning
+  - text: Tech Literacy
+    brand: learning
+  - text: Data literacy & Evidence
+    brand: learning
+strengths:
+  - text: Understanding and making sense of the world around them
+  - text: Understanding and discovering ways and means of making their findings accessible and communicable to others.
+weaknesses:
+  - text: May dwell too much or too long on investigation and analysis. Might find it hard to stop investigating
+attitudes:
+  - text: Resilient
+  - text: Curious
+  - text: Reflective
+  - text: Empathic
 skillsMapping:
   - 7
   - 8

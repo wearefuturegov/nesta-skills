@@ -94,6 +94,8 @@ collections:
       - {label: Sub title, name: sub_title, widget: string}
       - {label: id, name: id, widget: hidden}
       - {label: Action, name: action, widget: string}
+      - {label: Content, name: body, widget: markdown}
+      - {label: Brand, name: brand, widget: select, options: ["working_together", "learning", "leading_change"] }
       - label: Competencies
         name: competencies 
         widget: list
@@ -118,7 +120,6 @@ collections:
       - {label: Attitudes, name: attitudesMapping, widget: hidden}
       - {label: Skills, name: skillsMapping, widget: hidden}
       - {label: Sub Skills, name: subSkillsMapping, widget: hidden}
-      - {label: Content, name: body, widget: string}
 
   - name: attitudes
     label: Attitudes

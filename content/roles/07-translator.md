@@ -3,6 +3,27 @@ title: Translater
 sub_title: Creates common ground
 id: 7
 action: Empathic
+brand: working_together
+competencies:
+  - text: Citizen & Stakeholder Engagement
+    brand: working_together
+  - text: Building Bridges
+    brand: working_together
+  - text: Storytelling & advocacy
+    brand: leading_change
+  - text: Data literacy & Evidence
+    brand: learning
+strengths:
+  - text: Genuine interest in a broad range of subjects
+  - text: Can transform hard data into captivating stories
+  - text: Sensitive to people they are engaging with
+weaknesses:
+  - text: Can consider themselves as master of several domains, not knowing when to call in the experts
+attitudes:
+  - text: Resilient
+  - text: Curious
+  - text: Reflective
+  - text: Empathic
 skillsMapping:
   - 1
   - 3
