@@ -94,8 +94,8 @@ collections:
       - {label: Sub title, name: sub_title, widget: string}
       - {label: id, name: id, widget: hidden}
       - {label: Action, name: action, widget: string}
-      - {label: Role Strengths, name: strengths, widget: list}
-      - {label: Role Weaknesses, name: weaknesses, widget: list}
+      - {label: Role Strengths, name: strengths, widget: list, fields: true}
+      - {label: Role Weaknesses, name: weaknesses, widget: list, fields: true}
       - {label: Attitudes, name: attitudesMapping, widget: hidden}
       - {label: Skills, name: skillsMapping, widget: hidden}
       - {label: Sub Skills, name: subSkillsMapping, widget: hidden}
