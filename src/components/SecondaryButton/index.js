@@ -18,6 +18,10 @@ const styles = `
     border-radius: 0;
     font-weight: bold;
 
+    &.white-button {
+        color: ${theme.white};
+    }
+
     &:hover {
         text-decoration: none;
         opacity: 0.8;
@@ -37,9 +41,9 @@ const FakeButtonContainer = styled.button`
     ${styles}
 `
 
-export const SecondaryButton = ({to, background, onClick, children}) => (
+export const SecondaryButton = ({to, background, onClick, classes, children}) => (
     to ?
-        <ButtonContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } >{children}</ButtonContainer>
+        <ButtonContainer className={classes} onClick={onClick} to={to} bg={background ? background : theme.darkPurple } >{children}</ButtonContainer>
         :
-        <FakeButtonContainer onClick={onClick} bg={background ? background : theme.darkPurple } >{children}</FakeButtonContainer>
+        <FakeButtonContainer className={classes} onClick={onClick} bg={background ? background : theme.darkPurple } >{children}</FakeButtonContainer>
 );

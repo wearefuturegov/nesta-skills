@@ -12,6 +12,8 @@ import { withFirebase } from '../Firebase';
 import BodyClassName from 'react-body-classname';
 import { Button } from '../../components/Button';
 import Content from '../../components/Content';
+import { RemoveScrollBar } from "react-remove-scroll-bar"
+import { SecondaryButton } from '../../components/SecondaryButton';
 
 import {
   AuthUserContext,
@@ -22,7 +24,6 @@ import {
 
 const MoreBtn = styled(Button)`
   margin: 0 auto;
-  z-index: 1;
   display: block;
   width: fit-content;
 `
@@ -37,6 +38,14 @@ const PieContainer = styled.div`
     margin-left: -50px;
     z-index: -1;
   }
+`
+const CloseModal = styled(SecondaryButton)`
+
+`
+const ModalActions = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 `
 const ResultsPage = ({skills, rolesContent, fields}) => {
   const { title, body } = fields;
@@ -99,7 +108,15 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
   function openModal(event) {
     event.preventDefault();
     event.stopPropagation();
-    setShowModal(showModal ? false : true);
+    setShowModal(true);
+  }
+  function closeModal(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      setShowModal(false);
+  }
+  function keyPressed(condition) {
+      setShowModal(condition ? false : true);
   }
 
   return(
@@ -137,26 +154,53 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
                         </>
                       }
                     </RolesList>
-                    {!showRoles &&<MoreBtn onClick={() => setShowRoles(true)}>View all roles</MoreBtn>}
+                    {!showRoles &&<MoreBtn onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</MoreBtn>}
                   </Section>
                   <Section> 
-                      <h2>Your strongest skills</h2>
-                      <PieContainer>
-                        <PieChart
-                            data={[
-                                { title: 'Working Together', value: parsedSkills.filter(skill => skill.brand === "working_together").length, color: theme.orange },
-                                { title: 'Learning', value: parsedSkills.filter(skill => skill.brand === "learning").length, color: theme.purple },
-                                { title: 'Leading Change', value: parsedSkills.filter(skill => skill.brand === "leading_change").length, color: theme.red },
-                                ]}
-                            label={({ dataEntry }) => dataEntry.title}
-                            labelStyle={(index) => ({
-                                // fill: dataMock[index].color,
-                                fontSize: '2px',
-                            })}
-                            radius={30}
-                            labelPosition={112}
-                        />
-                      </PieContainer>
+                      <h2 onClick={openModal}>Your strongest skills</h2>
+                      <Modal 
+                        isOpen={showModal}
+                        contentLabel="Your skills selection"
+                        onRequestClose={closeModal}
+                        style={{
+                            overlay: {
+                                backgroundColor: 'rgba(60,18,82,0.8)'
+                            },
+                            content: {
+                                transform: 'translate(-50%, -50%)',
+                                top: '50%',
+                                left: '50%',
+                                right: 'auto',
+                                bottom: 'auto',
+                                width: '90%',
+                                maxWidth: '600px',
+                                border: `5px solid ${theme.darkPurple}`,
+                                borderRadius: '0',
+                                maxHeight: 'calc(100vh - 70px)',
+                                overflow: 'scroll'
+                            }
+                        }}
+                      >
+                          <RemoveScrollBar />
+                          <PieContainer>
+                              <PieChart
+                                  data={[
+                                      { title: 'Working Together', value: parsedSkills.filter(skill => skill.brand === "working_together").length, color: theme.orange },
+                                      { title: 'Learning', value: parsedSkills.filter(skill => skill.brand === "learning").length, color: theme.purple },
+                                      { title: 'Leading Change', value: parsedSkills.filter(skill => skill.brand === "leading_change").length, color: theme.red },
+                                      ]}
+                                  label={({ dataEntry }) => dataEntry.title}
+                                  labelStyle={(index) => ({
+                                      fontSize: '2px',
+                                  })}
+                                  radius={30}
+                                  labelPosition={112}
+                              />
+                            </PieContainer>
+                          <ModalActions>
+                              <CloseModal onClick={closeModal}>Close Modal</CloseModal>
+                          </ModalActions>
+                      </Modal>
                   </Section>
                 </>
               :

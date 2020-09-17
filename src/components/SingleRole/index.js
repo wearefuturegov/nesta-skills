@@ -76,6 +76,9 @@ const RoleSubTitle = styled.h3`
     text-align: center;
     color: ${props => props.color ? props.color : theme.white};
 `
+const RoleSumary = styled.p`
+    color: ${theme.white};
+`
 const ModalActions = styled.div`
     display: flex;
     flex-direction: row;
@@ -193,7 +196,6 @@ const SWList = styled.ul`
 const SWItem = styled.li`
 
 `
-
 const CloseModal = styled(SecondaryButton)`
 
 `
@@ -230,6 +232,9 @@ export const SingleRole = ({role}) => {
         >
             <RoleTitle>{role.title}</RoleTitle>
             <RoleSubTitle>{role.sub_title}</RoleSubTitle>
+            <RoleSumary>Based on your input you are <strong>{role.total > 55 ? "most" : role.total > 15 ? "quite" : "least"} likely</strong> to fit this role.</RoleSumary>
+            <SecondaryButton classes="white-button" onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>Read more</SecondaryButton>
+
             <Modal 
                 isOpen={showModal}
                 contentLabel={role.title}
