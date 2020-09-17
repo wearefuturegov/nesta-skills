@@ -30,8 +30,9 @@ const MoreBtn = styled(Button)`
 `
 const Section = styled.section`
 `
-const GreySection = styled.section`
-  background: ${theme.lightGrey};
+const ColouredSection = styled.section`
+  background: ${props => props.bg ? props.bg : theme.lightGrey};
+  color: ${props => props.reverseText ? theme.white : theme.black};
   margin-top: ${props => props.topOfPage ? "-25px" : "50px"};
   margin-bottom: 50px;
   padding: 50px 0;
@@ -47,8 +48,8 @@ const GreySection = styled.section`
     bottom: 0px;
     left: -9998px;
     right: 0px;
-    box-shadow: ${theme.lightGrey} 9999px 0px 0px;
-    border-left: 9999px solid ${theme.lightGrey};
+    box-shadow: ${props => props.bg ? props.bg : theme.lightGrey} 9999px 0px 0px;
+    border-left: 9999px solid ${props => props.bg ? props.bg : theme.lightGrey};
     z-index: -1;
   }
 `
@@ -108,7 +109,7 @@ const WeakSkillsContainer = styled.div`
 `
 
 const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
-  const { title, body, title_2, body_2 } = fields;
+  const { title, body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5 } = fields;
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
@@ -210,7 +211,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
             return(
               parsedTotals ?
                 <>
-                  <GreySection topOfPage>
+                  <ColouredSection topOfPage>
                     <h1>{title}</h1>
                     <Content source={body} />
 
@@ -228,9 +229,9 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                       }
                     </RolesList>
                     {!showRoles &&<MoreBtn onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</MoreBtn>}
-                  </GreySection>
+                  </ColouredSection>
                   <Section> 
-                    <h2>{title_2}</h2>
+                    <h3>{title_2}</h3>
                     <Content source={body_2} />
                     <Button onClick={openModal}>View your skills selection</Button>
                     <Modal 
@@ -258,7 +259,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                     >
                       <RemoveScrollBar />
                       <ModalTitle>{title_2}</ModalTitle>
-                      <p>{body_2}</p>
+                      <Content source={body_2} />
                       
                       <RowContainer>
                         <Half>
@@ -340,13 +341,23 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                           <CloseModal onClick={closeModal}>Close Modal</CloseModal>
                       </ModalActions>
                     </Modal>
+                    
+                    <hr />
+
+                    <h2>{title_3}</h2>
+                    <Content source={body_3} />
+
                   </Section>
-                  <GreySection>
-                    <h2>What next?</h2>
-                    <h3>Team activities</h3>
-                    <p>the competency framework focuses on teams, rather than individuals. Find out how to run an activity with your team to develop a picture of your skills as a whole.</p>
-                    <Button to={ROUTES.RESULTSTEAM}>See team activites</Button>
-                  </GreySection>
+                  <ColouredSection reverseText bg={theme.darkPurple}>
+                    <h3>{title_4}</h3>
+                    <Content source={body_4} />
+                    <Button reverse to={ROUTES.RESULTSTEAM}>See team activites</Button>
+                  </ColouredSection>
+                  <Section>
+                    <h3>{title_5}</h3>
+                    <Content source={body_5} />
+                    <Button to={ROUTES.RESULTSSKILLS}>Develop your skills</Button>
+                  </Section>
                 </>
               :
               <p>Loading...</p>

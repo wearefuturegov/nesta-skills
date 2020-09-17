@@ -26,6 +26,7 @@ import Tool5 from '../Tool5SignUp';
 import Tool6 from '../Tool6SaveResults';
 import ResultsPage from '../Results';
 import ResultsTeamActivitesPage from '../ResultsTeamActivitesPage';
+import ResultsSkillsDevelopmentPage from '../ResultsSkillsDevelopmentPage';
 import MockFinalStep from '../MockFinalStep';
 
 const PageWrapper = styled.div`
@@ -83,7 +84,8 @@ const App = () => {
             />} 
           />
           <Route path={ROUTES.RESULTSTEAM} component={() => <ResultsTeamActivitesPage fields={getDocument('pages', '07-results-team-activites')} />} />
-
+          <Route path={ROUTES.RESULTSSKILLS} component={() => <ResultsSkillsDevelopmentPage skills={getDocuments('skills')} fields={getDocument('pages', '08-results-skills-development')} />} />
+          
         </ToastProvider>
       </PageWrapper>
     </Router>

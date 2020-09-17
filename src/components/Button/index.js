@@ -7,9 +7,10 @@ const ButtonContainer = styled.button`
     display: inline-block;
     padding: 15px ${theme.standardSpace}px;
     background: ${props => props.bg};
-    color: ${theme.white};
+    color: ${props => props.reverse ? theme.black : theme.white};
     text-decoration: none;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: bold;
     margin-bottom: ${theme.standardSpace}px;
     border: none;
     margin-top: 10px; 
@@ -33,9 +34,10 @@ const LinkContainer = styled(Link)`
     display: inline-block;
     padding: 15px ${theme.standardSpace}px;
     background: ${props => props.bg};
-    color: ${theme.white};
+    color: ${props => props.reverse ? theme.black : theme.white};
     text-decoration: none;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: bold;
     margin-bottom: ${theme.standardSpace}px;
 
     &:focus {
@@ -46,12 +48,12 @@ const LinkContainer = styled(Link)`
     }    
 `
 
-export const Button = ({isButton, to, background, onClick, external, children, ...props}) => (
+export const Button = ({isButton, to, background, onClick, external, reverse, children, ...props}) => (
     isButton ? 
-        <ButtonContainer onClick={onClick} to={to} target={external ? "_blank" : "_self"} bg={background ? background : theme.darkPurple } {...props}>{children}</ButtonContainer>
+        <ButtonContainer reverse={reverse} onClick={onClick} to={to} target={external ? "_blank" : "_self"} bg={background ? background : reverse ? theme.white : theme.darkPurple } {...props}>{children}</ButtonContainer>
         :
         to ?
-            <LinkContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } {...props}>{children}</LinkContainer>
+            <LinkContainer reverse={reverse} onClick={onClick} to={to} target={external ? "_blank" : "_self"} bg={background ? background : reverse ? theme.white : theme.darkPurple } {...props}>{children}</LinkContainer>
             :
-            <ButtonContainer onClick={onClick} bg={background ? background : theme.darkPurple } {...props}>{children}</ButtonContainer>
+            <ButtonContainer reverse={reverse} onClick={onClick} bg={background ? background : theme.darkPurple } {...props}>{children}</ButtonContainer>
 );

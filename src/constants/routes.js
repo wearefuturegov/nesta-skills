@@ -17,3 +17,4 @@ export const STEP5 = '/step_5';
 export const SAVERESULTS = '/save_results';
 export const RESULTS = '/results';
 export const RESULTSTEAM = '/results-team-activities';
+export const RESULTSSKILLS = '/results-skills-development';

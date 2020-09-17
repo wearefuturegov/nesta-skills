@@ -68,6 +68,12 @@ collections:
           - {label: Content, name: body, widget: markdown}
           - {label: Your Skills Title, name: title_2, widget: string}
           - {label: Your Skills Content, name: body_2, widget: markdown}
+          - {label: What next Title, name: title_3, widget: string}
+          - {label: What next Content, name: body_3, widget: markdown}
+          - {label: Team activites Title, name: title_4, widget: string}
+          - {label: Team activites Content, name: body_4, widget: markdown}
+          - {label: Develop skills Title, name: title_5, widget: string}
+          - {label: Develop skills Content, name: body_5, widget: markdown}
       - file: "content/pages/07-results-team-activites.md"
         label: "Results - team activites"
         name: "07-results-team-activites"
@@ -89,7 +95,24 @@ collections:
       - {label: Brand, name: brand, widget: string}
       - {label: text, name: text, widget: text}
       - {label: Content, name: body, widget: markdown}
-
+      - label: Resources - Read
+        name: read 
+        widget: list
+        fields: 
+          - {label: Resource text, name: text, widget: string, required: true }
+          - {label: Resource URL, name: text, widget: string }
+      - label: Resources - Watch
+        name: watch 
+        widget: list
+        fields: 
+          - {label: Resource text, name: text, widget: string, required: true }
+          - {label: Resource URL, name: text, widget: string }
+      - label: Resources - Use
+        name: use 
+        widget: list
+        fields: 
+          - {label: Resource text, name: text, widget: string, required: true }
+          - {label: Resource URL, name: text, widget: string }
 
   - name: roles
     label: Roles
