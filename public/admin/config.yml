@@ -100,19 +100,19 @@ collections:
         widget: list
         fields: 
           - {label: Resource text, name: text, widget: string, required: true }
-          - {label: Resource URL, name: text, widget: string }
+          - {label: Resource URL, name: url, widget: string }
       - label: Resources - Watch
         name: watch 
         widget: list
         fields: 
           - {label: Resource text, name: text, widget: string, required: true }
-          - {label: Resource URL, name: text, widget: string }
+          - {label: Resource URL, name: url, widget: string }
       - label: Resources - Use
         name: use 
         widget: list
         fields: 
           - {label: Resource text, name: text, widget: string, required: true }
-          - {label: Resource URL, name: text, widget: string }
+          - {label: Resource URL, name: url, widget: string }
 
   - name: roles
     label: Roles
