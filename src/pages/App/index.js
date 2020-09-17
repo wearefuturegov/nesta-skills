@@ -73,7 +73,14 @@ const App = () => {
           <Route path="/beentheredonethat"  component={() => <MockFinalStep fields={getDocument('pages', '05-sign-up')} />}/>
 
           <Route path={ROUTES.SAVERESULTS} component={() => <Tool6 rolesContent={getDocuments('roles')} />} />
-          <Route path={ROUTES.RESULTS} component={() => <ResultsPage skills={getDocuments('skills')} rolesContent={getDocuments('roles')} fields={getDocument('pages', '06-results')} />} />
+          <Route path={ROUTES.RESULTS} component={() => 
+            <ResultsPage 
+              skills={getDocuments('skills')} 
+              rolesContent={getDocuments('roles')} 
+              attitudes={getDocuments('attitudes')} 
+              fields={getDocument('pages', '06-results')} 
+            />} 
+          />
         </ToastProvider>
       </PageWrapper>
     </Router>

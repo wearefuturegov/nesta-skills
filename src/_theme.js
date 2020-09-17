@@ -5,7 +5,7 @@ export default {
     // colour scheme
     black: "#0b0c0c",
     white: "#ffffff",
-    lightGrey: "#F9F9F9",
+    lightGrey: "#efefef",
     grey: "#C4C4C4",
 
     darkPurple: "#3C1252",

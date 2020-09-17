@@ -14,6 +14,7 @@ import { Button } from '../../components/Button';
 import Content from '../../components/Content';
 import { RemoveScrollBar } from "react-remove-scroll-bar"
 import { SecondaryButton } from '../../components/SecondaryButton';
+import { SkillCardLite, SkillsContainer } from "../../components/SkillCard";
 
 import {
   AuthUserContext,
@@ -28,6 +29,28 @@ const MoreBtn = styled(Button)`
   width: fit-content;
 `
 const Section = styled.section`
+`
+const GreySection = styled.section`
+  background: ${theme.lightGrey};
+  margin-top: -25px;
+  margin-bottom: 50px;
+  padding: 50px 0;
+  position: relative;
+  h1 {
+    margin-top: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: -9998px;
+    right: 0px;
+    box-shadow: ${theme.lightGrey} 9999px 0px 0px;
+    border-left: 9999px solid ${theme.lightGrey};
+    z-index: -1;
+  }
 `
 const PieContainer = styled.div`
   max-width: 500px;
@@ -47,8 +70,45 @@ const ModalActions = styled.div`
     flex-direction: row;
     justify-content: space-between;
 `
-const ResultsPage = ({skills, rolesContent, fields}) => {
-  const { title, body } = fields;
+const ModalTitle = styled.h3`
+  margin-top: 0;
+`
+const RowContainer = styled.div`
+  @media screen and (min-width: ${theme.m}){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
+const Half = styled.div`
+  margin-bottom: 15px;
+  width: 100%;
+  @media screen and (min-width: ${theme.m}){
+    margin-right: 15px;
+    margin-bottom: 0;
+    width: calc(50% - 8px);
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  svg {
+    margin-top: -75px;
+  }
+  .skill-card {
+    width: 100%;
+    margin-right: 0;
+  }
+`
+const StyledSkillsContainer = styled(SkillsContainer)`
+  margin-top: 0;
+`
+const WeakSkillsContainer = styled.div`
+  margin-top: -96px;
+`
+
+const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
+  const { title, body, title_2, body_2 } = fields;
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
@@ -79,6 +139,15 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
     skills.map((skill) => {
       if(array.includes(skill.id)) {
         tempArray = [...tempArray, skill]
+      }
+    });
+    return tempArray;
+  }
+  const parseAttitudes = (array) => {
+    let tempArray = [];
+    attitudes.map((attitude) => {
+      if(array.includes(attitude.id)) {
+        tempArray = [...tempArray, attitude]
       }
     });
     return tempArray;
@@ -127,20 +196,24 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
             history.push(ROUTES.LANDING)
           } else {
             let parsedTotals = false;
-            let parsedSkills = false;
+            let parsedProSkills = false;
+            let parsedConSkills = false;
+            let parsedProAttitudes = false;
+            let parsedConAttitudes = false;
             if(authUser.roleTotals) { 
               parsedTotals = parseTotals(authUser.roleTotals).sort((a, b) => (a.total < b.total) ? 1 : -1);
-              parsedSkills = parseSkills(authUser.proSkills);
+              parsedProSkills = parseSkills(authUser.proSkills);
+              parsedConSkills = parseSkills(authUser.conSkills);
+              parsedProAttitudes = parseAttitudes(authUser.proAttitudes);
+              parsedConAttitudes = parseAttitudes(authUser.conAttitudes);
             }
             return(
               parsedTotals ?
                 <>
-                  <Section>
+                  <GreySection>
                     <h1>{title}</h1>
                     <Content source={body} />
-                  </Section>
 
-                  <Section>
                     <RolesList>
                       {parsedTotals && parsedTotals.slice(0,3).map(role => (
                           <SingleRole key={role.title} role={role} />
@@ -155,52 +228,118 @@ const ResultsPage = ({skills, rolesContent, fields}) => {
                       }
                     </RolesList>
                     {!showRoles &&<MoreBtn onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</MoreBtn>}
-                  </Section>
+                  </GreySection>
                   <Section> 
-                      <h2 onClick={openModal}>Your strongest skills</h2>
-                      <Modal 
-                        isOpen={showModal}
-                        contentLabel="Your skills selection"
-                        onRequestClose={closeModal}
-                        style={{
-                            overlay: {
-                                backgroundColor: 'rgba(60,18,82,0.8)'
-                            },
-                            content: {
-                                transform: 'translate(-50%, -50%)',
-                                top: '50%',
-                                left: '50%',
-                                right: 'auto',
-                                bottom: 'auto',
-                                width: '90%',
-                                maxWidth: '600px',
-                                border: `5px solid ${theme.darkPurple}`,
-                                borderRadius: '0',
-                                maxHeight: 'calc(100vh - 70px)',
-                                overflow: 'scroll'
-                            }
-                        }}
-                      >
-                          <RemoveScrollBar />
+                    <h2>{title_2}</h2>
+                    <p>{body_2}</p>
+                    <Button onClick={openModal}>View your skills selection</Button>
+                    <Modal 
+                      isOpen={showModal}
+                      contentLabel={title_2}
+                      onRequestClose={closeModal}
+                      style={{
+                          overlay: {
+                              backgroundColor: 'rgba(60,18,82,0.8)'
+                          },
+                          content: {
+                              transform: 'translate(-50%, -50%)',
+                              top: '50%',
+                              left: '50%',
+                              right: 'auto',
+                              bottom: 'auto',
+                              width: '90%',
+                              maxWidth: '1000px',
+                              border: `5px solid ${theme.darkPurple}`,
+                              borderRadius: '0',
+                              maxHeight: 'calc(100vh - 70px)',
+                              overflow: 'scroll'
+                          }
+                      }}
+                    >
+                      <RemoveScrollBar />
+                      <ModalTitle>{title_2}</ModalTitle>
+                      <p>{body_2}</p>
+                      
+                      <RowContainer>
+                        <Half>
+                          <h3>Your strongest skills</h3>
+                          {parsedProSkills &&
+                            <StyledSkillsContainer>
+                              {parsedProSkills.map(skill => (
+                                <SkillCardLite
+                                  key={skill.id} 
+                                  skill={skill} 
+                                />
+                              ))}
+                            </StyledSkillsContainer>
+                          }
+                        </Half>
+                        <Half>
+                          <h3>Your skills across the 3 main areas</h3>
                           <PieContainer>
-                              <PieChart
-                                  data={[
-                                      { title: 'Working Together', value: parsedSkills.filter(skill => skill.brand === "working_together").length, color: theme.orange },
-                                      { title: 'Learning', value: parsedSkills.filter(skill => skill.brand === "learning").length, color: theme.purple },
-                                      { title: 'Leading Change', value: parsedSkills.filter(skill => skill.brand === "leading_change").length, color: theme.red },
-                                      ]}
-                                  label={({ dataEntry }) => dataEntry.title}
-                                  labelStyle={(index) => ({
-                                      fontSize: '2px',
-                                  })}
-                                  radius={30}
-                                  labelPosition={112}
-                              />
-                            </PieContainer>
-                          <ModalActions>
-                              <CloseModal onClick={closeModal}>Close Modal</CloseModal>
-                          </ModalActions>
-                      </Modal>
+                            <PieChart
+                                data={[
+                                    { title: 'Working Together', value: parsedProSkills.filter(skill => skill.brand === "working_together").length, color: theme.orange },
+                                    { title: 'Learning', value: parsedProSkills.filter(skill => skill.brand === "learning").length, color: theme.purple },
+                                    { title: 'Leading Change', value: parsedProSkills.filter(skill => skill.brand === "leading_change").length, color: theme.red },
+                                    ]}
+                                label={({ dataEntry }) => dataEntry.title}
+                                labelStyle={(index) => ({
+                                    fontSize: '2px',
+                                })}
+                                radius={30}
+                                labelPosition={112}
+                            />
+                          </PieContainer>
+                          <WeakSkillsContainer>
+                            <h3>Your weakest skills</h3>
+                            {parsedConSkills &&
+                                <StyledSkillsContainer>
+                                  {parsedConSkills.map(skill => (
+                                    <SkillCardLite
+                                      key={skill.id} 
+                                      skill={skill} 
+                                    />
+                                  ))}
+                                </StyledSkillsContainer>
+                              }
+                            </WeakSkillsContainer>
+                        </Half>
+                      </RowContainer>
+                      <br/>
+                      <h2>Your attitudes selection</h2>
+                      <RowContainer>
+                        <Half>
+                          <h3>The attitudes that most describe you</h3>
+                          {parsedProAttitudes &&
+                            <StyledSkillsContainer>
+                              {parsedProAttitudes.map(skill => (
+                                <SkillCardLite
+                                  key={skill.id} 
+                                  skill={skill} 
+                                />
+                              ))}
+                            </StyledSkillsContainer>
+                          }
+                        </Half>
+                        <Half>
+                          <h3>The attitude that least describe you</h3>
+                          {parsedConAttitudes &&
+                            <StyledSkillsContainer>
+                              {parsedConAttitudes.map(skill => (
+                                <SkillCardLite
+                                  key={skill.id} 
+                                  skill={skill} 
+                                />
+                              ))}
+                            </StyledSkillsContainer>
+                          }
+                        </Half>
+                      </RowContainer>
+                      <ModalActions>
+                          <CloseModal onClick={closeModal}>Close Modal</CloseModal>
+                      </ModalActions>
+                    </Modal>
                   </Section>
                 </>
               :

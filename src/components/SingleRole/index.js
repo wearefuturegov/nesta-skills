@@ -9,6 +9,7 @@ const List = styled.ul`
     list-style-type: none;
     padding: 0;
     margin: 0;
+    margin-top: 25px;
     display: flex;
     -webkit-flex-direction: row;
     -moz-flex-direction: row;
@@ -69,15 +70,18 @@ const RoleTitle = styled.h2`
     margin-bottom: 5px;
     text-align: center;
     color: ${props => props.color ? props.color : theme.white};
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 `
 const RoleSubTitle = styled.h3`
     margin-top: 0;
     margin-bottom: 10px;
     text-align: center;
     color: ${props => props.color ? props.color : theme.white};
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 `
 const RoleSumary = styled.p`
     color: ${theme.white};
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 `
 const ModalActions = styled.div`
     display: flex;
@@ -232,7 +236,7 @@ export const SingleRole = ({role}) => {
         >
             <RoleTitle>{role.title}</RoleTitle>
             <RoleSubTitle>{role.sub_title}</RoleSubTitle>
-            <RoleSumary>Based on your input you are <strong>{role.total > 55 ? "most" : role.total > 15 ? "quite" : "least"} likely</strong> to fit this role.</RoleSumary>
+            <RoleSumary>Based on your selection you are <strong>{role.total > 55 ? "most" : role.total > 15 ? "quite" : "least"} likely</strong> to fit this role.</RoleSumary>
             <SecondaryButton classes="white-button" onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>Read more</SecondaryButton>
 
             <Modal 

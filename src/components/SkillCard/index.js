@@ -6,17 +6,31 @@ import { RemoveScrollBar } from "react-remove-scroll-bar"
 import Content from '../../components/Content'
 import { SecondaryButton } from '../../components/SecondaryButton';
 
+export const SkillsContainer = styled.ul`
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: ${theme.standardSpace}px;
+`
+
 const Outer = styled.li`
-    padding: 15px;
-    border: 5px solid ${props => props.bg};
+    padding: ${props => props.isButton ? "15px" : "10px"};
+    border: ${props => props.isButton ? `5px solid ${props.bg}` : `3px solid ${props.bg}`};
     width: 100%;
-    margin-bottom: ${theme.standardSpace}px;
+    margin-bottom: ${props => props.isButton ? `${theme.standardSpace}px` : "15px"};
     display: flex;
     flex-direction: column;
-    cursor: pointer;
+    cursor: ${props => props.isButton ? "pointer" : "default"};
+    max-width: ${props => props.isButton ? "100%" : "350px"};
 
     &:hover {
-        opacity: 0.8;
+        opacity: ${props => props.isButton ? "0.8" : "1"};
     }
     &:focus {
         outline: none;
@@ -30,6 +44,12 @@ const Outer = styled.li`
         }
     }
 
+    p {
+        margin-bottom: ${props => props.isButton ? "15px" : "0"};
+    }
+    p {
+        margin-bottom: ${props => props.isButton ? "15px" : "0"};
+    }
     @media screen and (min-width: ${theme.s}){
         width: calc(50% - 54px);
         margin-right: ${theme.standardSpace}px;
@@ -57,8 +77,8 @@ const Outer = styled.li`
 const Inner = styled.div`
 `
 
-const SkillTitle = styled.p`
-
+const SkillTitle = styled.h3`
+    margin-top: 0;
 `
 const SkillText = styled.p`
 
@@ -105,6 +125,11 @@ const AddButton = styled.button`
         color: ${theme.black};
     }
 `
+
+function getBranding(brand) {
+    return brand === "working_together" ? theme.orange : (brand === "learning" ? theme.purple : (brand === "leading_change" ? theme.red : theme.darkPurple))
+}
+
 export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) => {
     Modal.setAppElement('body')
     const [showModal, setShowModal] = useState(false)
@@ -112,10 +137,6 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
     useEffect(() => {
         setIsActive(chosenSkills.includes(skill.id))
     }, [chosenSkills]);
-
-    function getBranding(brand) {
-        return brand === "working_together" ? theme.orange : (brand === "learning" ? theme.purple : (brand === "leading_change" ? theme.red : theme.darkPurple))
-    }
     
     function openModal(event) {
         event.preventDefault();
@@ -133,6 +154,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                 tabIndex="0" 
                 role="button" 
                 aria-pressed={isActive ? "true" : "false"}
+                isButton
             >
                 <Inner>
                     <SkillTitle>{skill.title}</SkillTitle>
@@ -189,3 +211,15 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
         </>
     );
 }
+
+
+export const SkillCardLite = ({skill}) => 
+    <Outer 
+        bg={getBranding(skill.brand)} 
+        className="skill-card"
+    >
+        <Inner>
+            <SkillTitle>{skill.title}</SkillTitle>
+            <SkillText>{skill.text}</SkillText>
+        </Inner>
+    </Outer>

@@ -9,22 +9,9 @@ import BodyClassName from 'react-body-classname';
 import Content from '../../components/Content'
 
 import { CurrentStep } from '../../components/CurrentStep';
-import { SkillCard } from "../../components/SkillCard";
+import { SkillCard, SkillsContainer } from "../../components/SkillCard";
 import { SkillDot } from "../../components/SkillDot";
 import { TrackingBar } from "../../components/TrackingBar";
-
-const SkillsContainer = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: ${theme.standardSpace}px;
-`
 
 const Tool1 = ({fields, skills}) => {
 
