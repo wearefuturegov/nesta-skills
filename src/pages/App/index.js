@@ -7,7 +7,6 @@ import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
-import ResultsPage from '../Results';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
@@ -25,6 +24,8 @@ import Tool3 from '../Tool3StrongAttitudes';
 import Tool4 from '../Tool4WeakAttitudes';
 import Tool5 from '../Tool5SignUp';
 import Tool6 from '../Tool6SaveResults';
+import ResultsPage from '../Results';
+import ResultsTeamActivitesPage from '../ResultsTeamActivitesPage';
 import MockFinalStep from '../MockFinalStep';
 
 const PageWrapper = styled.div`
@@ -81,6 +82,8 @@ const App = () => {
               fields={getDocument('pages', '06-results')} 
             />} 
           />
+          <Route path={ROUTES.RESULTSTEAM} component={() => <ResultsTeamActivitesPage fields={getDocument('pages', '07-results-team-activites')} />} />
+
         </ToastProvider>
       </PageWrapper>
     </Router>

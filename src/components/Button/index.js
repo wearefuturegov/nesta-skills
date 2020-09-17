@@ -46,9 +46,9 @@ const LinkContainer = styled(Link)`
     }    
 `
 
-export const Button = ({isButton, to, background, onClick, children, ...props}) => (
+export const Button = ({isButton, to, background, onClick, external, children, ...props}) => (
     isButton ? 
-        <ButtonContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } {...props}>{children}</ButtonContainer>
+        <ButtonContainer onClick={onClick} to={to} target={external ? "_blank" : "_self"} bg={background ? background : theme.darkPurple } {...props}>{children}</ButtonContainer>
         :
         to ?
             <LinkContainer onClick={onClick} to={to} bg={background ? background : theme.darkPurple } {...props}>{children}</LinkContainer>

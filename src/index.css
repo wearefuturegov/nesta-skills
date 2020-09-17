@@ -11,6 +11,7 @@ body {
 
 p {
   margin-top: 0;
+  max-width: 930px;
 }
 
 body.landing_page {

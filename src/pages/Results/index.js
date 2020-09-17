@@ -32,7 +32,7 @@ const Section = styled.section`
 `
 const GreySection = styled.section`
   background: ${theme.lightGrey};
-  margin-top: -25px;
+  margin-top: ${props => props.topOfPage ? "-25px" : "50px"};
   margin-bottom: 50px;
   padding: 50px 0;
   position: relative;
@@ -210,7 +210,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
             return(
               parsedTotals ?
                 <>
-                  <GreySection>
+                  <GreySection topOfPage>
                     <h1>{title}</h1>
                     <Content source={body} />
 
@@ -231,7 +231,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                   </GreySection>
                   <Section> 
                     <h2>{title_2}</h2>
-                    <p>{body_2}</p>
+                    <Content source={body_2} />
                     <Button onClick={openModal}>View your skills selection</Button>
                     <Modal 
                       isOpen={showModal}
@@ -341,6 +341,12 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                       </ModalActions>
                     </Modal>
                   </Section>
+                  <GreySection>
+                    <h2>What next?</h2>
+                    <h3>Team activities</h3>
+                    <p>the competency framework focuses on teams, rather than individuals. Find out how to run an activity with your team to develop a picture of your skills as a whole.</p>
+                    <Button to={ROUTES.RESULTSTEAM}>See team activites</Button>
+                  </GreySection>
                 </>
               :
               <p>Loading...</p>

@@ -61,13 +61,20 @@ collections:
           - {label: Title, name: title, widget: string, required: true}
           - {label: Content, name: body, widget: markdown}
       - file: "content/pages/06-results.md"
-        label: "Tool Step 6 - results"
+        label: "Results"
         name: "06-results"
         fields:
           - {label: Title, name: title, widget: string, required: true}
           - {label: Content, name: body, widget: markdown}
           - {label: Your Skills Title, name: title_2, widget: string}
           - {label: Your Skills Content, name: body_2, widget: markdown}
+      - file: "content/pages/07-results-team-activites.md"
+        label: "Results - team activites"
+        name: "07-results-team-activites"
+        fields:
+          - {label: Title, name: title, widget: string, required: true}
+          - {label: PDF download, name: pdf, widget: file}
+          - {label: Content, name: body, widget: markdown}
 
   - name: skills
     label: Skills
