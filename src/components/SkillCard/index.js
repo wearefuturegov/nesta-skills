@@ -26,7 +26,7 @@ const Outer = styled.li`
     margin-bottom: ${props => props.isButton ? `${theme.standardSpace}px` : "15px"};
     display: flex;
     flex-direction: column;
-    cursor: ${props => props.isButton ? "pointer" : "default"};
+    cursor: ${props => props.isButton === 2 ? "pointer" : "default"};
     max-width: ${props => props.isButton ? "100%" : "350px"};
 
     &:hover {
@@ -126,6 +126,34 @@ const AddButton = styled.button`
     }
 `
 
+const ResourcesContainer = styled.div`
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+`
+const ResourcesInner = styled.div`
+    width: 100%;
+    @media screen and (min-width: ${theme.m}){
+        width: calc(33% - 10px);
+        margin-right: 15px;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+`
+const ResourcesTitle = styled.h4`
+`
+
+const ResourcesList = styled.ul`
+
+`
+const Resource = styled.li`
+`
+
 function getBranding(brand) {
     return brand === "working_together" ? theme.orange : (brand === "learning" ? theme.purple : (brand === "leading_change" ? theme.red : theme.darkPurple))
 }
@@ -154,7 +182,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                 tabIndex="0" 
                 role="button" 
                 aria-pressed={isActive ? "true" : "false"}
-                isButton
+                isButton={2}
             >
                 <Inner>
                     <SkillTitle>{skill.title}</SkillTitle>
@@ -211,6 +239,108 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
         </>
     );
 }
+
+export const SkillCardDevelopment = ({skill}) => {
+    Modal.setAppElement('body')
+    const [showModal, setShowModal] = useState(false)
+
+    function openModal(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        setShowModal(true);
+    }
+
+    return(
+        <>
+            <Outer 
+                bg={getBranding(skill.brand)} 
+                isButton={1}
+            >
+                <Inner>
+                    <SkillTitle>{skill.title}</SkillTitle>
+                    <SkillText>{skill.text}</SkillText>
+                </Inner>
+                {skill.content && 
+                    <ReadMore onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>See development resources</ReadMore>
+                }
+            </Outer>
+            {skill.content && 
+                <Modal 
+                    isOpen={showModal}
+                    contentLabel={skill.title}
+                    onRequestClose={() => setShowModal(false)}
+                    style={{
+                        overlay: {
+                          backgroundColor: 'rgba(60,18,82,0.8)'
+                        },
+                        content: {
+                            transform: 'translate(-50%, -50%)',
+                            top: '50%',
+                            left: '50%',
+                            right: 'auto',
+                            bottom: 'auto',
+                            width: '90%',
+                            maxWidth: '1200px',
+                            border: `5px solid ${getBranding(skill.brand)}`,
+                            borderRadius: '0',
+                            maxHeight: 'calc(100vh - 70px)',
+                            overflow: 'scroll'
+                        }
+                    }}
+                >
+                    <RemoveScrollBar />
+                    <ModalTitle>{skill.title}</ModalTitle>
+                    <ModalLead>{skill.text}</ModalLead>
+
+                    {(skill.read || skill.watch || skill.use) && 
+                        <>
+                        <h3>Development resources</h3> 
+                        <ResourcesContainer>
+                            {skill.read &&
+                                <ResourcesInner>
+                                    <ResourcesTitle>Read</ResourcesTitle>
+                                    <ResourcesList>
+                                        {skill.read.map(resource => 
+                                            <Resource><a href={resource.url} target="_blank" title="Open link in new tab">{resource.text}</a></Resource>    
+                                        )}
+                                    </ResourcesList>
+                                </ResourcesInner>
+                            }
+                            {skill.watch &&
+                                <ResourcesInner>
+                                    <ResourcesTitle>Watch</ResourcesTitle>
+                                    <ResourcesList>
+                                        {skill.watch.map(resource => 
+                                            <Resource><a href={resource.url} target="_blank" title="Open link in new tab">{resource.text}</a></Resource>    
+                                        )}
+                                    </ResourcesList>
+                                </ResourcesInner>
+                            }
+                            {skill.use &&
+                                <ResourcesInner>
+                                    <ResourcesTitle>Use</ResourcesTitle>
+                                    <ResourcesList>
+                                        {skill.use.map(resource => 
+                                            <Resource><a href={resource.url} target="_blank" title="Open link in new tab">{resource.text}</a></Resource>    
+                                        )}
+                                    </ResourcesList>
+                                </ResourcesInner>
+                            }
+                        </ResourcesContainer>
+                        <hr />
+                        </>
+                    }
+                    <h3>{`About ${skill.title}`}</h3>
+                    <Content source={skill.content} />
+                    <ModalActions>
+                        <CloseModal onClick={() => setShowModal(false)}>Close Modal</CloseModal>
+                    </ModalActions>
+                </Modal>
+            }
+        </>
+    );
+}
+
 
 
 export const SkillCardLite = ({skill}) => 

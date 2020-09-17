@@ -4,6 +4,7 @@ import theme from "../../_theme"
 import * as ROUTES from '../../constants/routes';
 import Content from '../../components/Content'
 import { SecondaryButton } from '../../components/SecondaryButton';
+import { SkillCardDevelopment, SkillsContainer } from "../../components/SkillCard";
 
 const SectionsContainer = styled.div`
   display: flex;
@@ -14,10 +15,11 @@ const SkillSection = styled.div`
   text-align: center;
 `
 
-const ResultsSkillsDevelopmentPage = ({fields}) => {
-  const { title, body, pdf } = fields;
+const ResultsSkillsDevelopmentPage = ({fields, skills}) => {
+  const { title, body } = fields;
 
   return(
+    <>
     <section>
       <SecondaryButton to={ROUTES.RESULTS}>Back to your results</SecondaryButton>
 
@@ -39,6 +41,17 @@ const ResultsSkillsDevelopmentPage = ({fields}) => {
         </SkillSection>
       </SectionsContainer>
     </section>
+    <section>
+      <SkillsContainer>
+        {skills.map((skill) =>
+          <SkillCardDevelopment 
+            key={skill.id} 
+            skill={skill} 
+          />
+        )}
+      </SkillsContainer>
+    </section>
+    </>
   )
 }
 
