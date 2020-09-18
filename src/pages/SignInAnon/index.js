@@ -29,7 +29,7 @@ const SignInAnonButtonBase = (props) => {
       console.log({
         uid: authUser.user.uid,
         isAnonymous: authUser.user.isAnonymous,
-      //   username,
+        username: "anonymous",
       //   email,
         roles: []
       //   orgType, 
