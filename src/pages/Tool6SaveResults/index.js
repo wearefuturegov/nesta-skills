@@ -46,22 +46,28 @@ const Tool6 = props => {
     let total = 0;
     skills.length > 0 && skills.forEach(skill => {
       if(proSkills.includes(skill.toString())) {
+        console.log(`skill ${skill} is positive`)
         total+= 20;
       } else if(conSkills.includes(skill.toString())) {
+        console.log(`skill ${skill} is negative`)
         total-= 20;
       } 
     });
     subSkills.length > 0 && subSkills.forEach(skill => {
       if(proSkills.includes(skill.toString())) {
+        console.log(`sub skill ${skill} is positive`)
         total+= 10;
       } else if(conSkills.includes(skill.toString())) {
+        console.log(`sub skill ${skill} is negative`)
         total-= 10;
       } 
     });
-    attitudes.length > 0 && attitudes.forEach(attitudes => {
-      if(proAttitudes.includes(attitudes.toString())) {
+    attitudes.length > 0 && attitudes.forEach(attitude => {
+      if(proAttitudes.includes(attitude.toString())) {
+        console.log(`attitude ${attitude} is positive`)
         total+= 5;
-      } else if(conAttitudes.includes(attitudes.toString())) {
+      } else if(conAttitudes.includes(attitude.toString())) {
+        console.log(`attitude ${attitude} is negative`)
         total-= 5;
       } 
     });
@@ -85,7 +91,7 @@ const Tool6 = props => {
       props.firebase.user(authUser.uid).once('value')
       .then(snapshot => {
         setTimeout(function() {
-          // history.push(ROUTES.RESULTS)
+          history.push(ROUTES.RESULTS)
         }.bind(this), 1000)
       });
     })

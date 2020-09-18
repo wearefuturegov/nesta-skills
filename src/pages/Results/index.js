@@ -345,7 +345,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                   <ColouredSection reverseText bg={theme.darkPurple}>
                     <h3>{title_4}</h3>
                     <Content source={body_4} />
-                    <Button reverse to={ROUTES.RESULTSTEAM}>See team activites</Button>
+                    <Button reverse="true" to={ROUTES.RESULTSTEAM}>See team activites</Button>
                   </ColouredSection>
                   <Section>
                     <h3>{title_5}</h3>
