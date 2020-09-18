@@ -28,6 +28,9 @@ class Firebase {
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
 
+  doSignInAnonymously = () => 
+    this.auth.signInAnonymously();
+
   doSignInWithEmailAndPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
 

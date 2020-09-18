@@ -69,6 +69,7 @@ const Tool6 = props => {
   } 
 
   const saveResults = authUser => {
+    console.log(authUser);
     props.firebase.user(authUser.uid).set({
       username: authUser.username ? authUser.username : "",
       email: authUser.email ? authUser.email : "",
@@ -84,7 +85,7 @@ const Tool6 = props => {
       props.firebase.user(authUser.uid).once('value')
       .then(snapshot => {
         setTimeout(function() {
-          history.push(ROUTES.RESULTS)
+          // history.push(ROUTES.RESULTS)
         }.bind(this), 1000)
       });
     })
