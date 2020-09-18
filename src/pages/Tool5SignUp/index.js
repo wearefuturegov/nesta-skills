@@ -28,33 +28,30 @@ const Tool5 = ({fields}) => {
   }, []);
 
   return(
-    <BodyClassName className={`step_${currentStepNo}`}>
-      <AuthUserContext.Consumer>
-        {authUser =>
-          authUser && currentStep === 5 ? (
-              history.push(ROUTES.SAVERESULTS)
-            ) : (
-              <>
-                <SecondaryButton to={ROUTES.STEP4}>Previous step</SecondaryButton>
+    <AuthUserContext.Consumer>
+      {authUser =>
+        authUser && currentStep === 5 ? (
+            history.push(ROUTES.SAVERESULTS)
+          ) : (
+            <>
+              <SecondaryButton to={ROUTES.STEP4}>Previous step</SecondaryButton>
 
-                <Section>
-                  <h1>{title}</h1>
-                  <Content source={body} />
-                </Section>
-                <Section>
-                
-                  <SignInAnonButton />
-                  <br />
-                  <SignUpForm />
-                  <br />
-                  <SignInLink />
-                </Section>
-              </>
-            )
-          }
-      </AuthUserContext.Consumer>
-    </BodyClassName>
-
+              <Section>
+                <h1>{title}</h1>
+                <Content source={body} />
+              </Section>
+              <Section>
+              
+                <SignInAnonButton />
+                <br />
+                <SignUpForm />
+                <br />
+                <SignInLink />
+              </Section>
+            </>
+          )
+        }
+    </AuthUserContext.Consumer>
   )
 };
 

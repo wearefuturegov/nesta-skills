@@ -268,6 +268,7 @@ export const SingleRole = ({role}) => {
     
     return(
         <Outer
+            key={role.title}
             bg={getBranding(role.brand)} 
             onClick={openModal}
             data={`total-${role.total}`}
@@ -277,7 +278,7 @@ export const SingleRole = ({role}) => {
         >
             <RoleTitle>{role.title}</RoleTitle>
             <RoleSubTitle>{role.sub_title}</RoleSubTitle>
-            <RoleSumary>Based on your selection you are <strong>{role.total > 55 ? "most" : role.total > 15 ? "quite" : "least"} likely</strong> to fit this role.</RoleSumary>
+            <RoleSumary>Based on your selection you are <strong>{role.total > 60 ? "most" : role.total > 20 ? "quite" : "least"} likely</strong> to fit this role.</RoleSumary>
             <SecondaryButton classes="white-button" onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>Read more</SecondaryButton>
 
             <Modal 
@@ -313,7 +314,7 @@ export const SingleRole = ({role}) => {
                     {role.competencies && 
                         <CompetencyList>
                             {role.competencies.map(competency => (
-                                <SingleCompetency brand={getBranding(competency.brand)}><div className="text">{competency.text}</div></SingleCompetency>
+                                <SingleCompetency key={competency.text} brand={getBranding(competency.brand)}><div className="text">{competency.text}</div></SingleCompetency>
                             ))}
                         </CompetencyList>
                     }
@@ -322,7 +323,7 @@ export const SingleRole = ({role}) => {
                             <BreakTitle color={getBranding(role.brand)}>Attitudes</BreakTitle>
                             <AttitudeList>
                                 {role.attitudes.map(attitude => (
-                                    <SingleAttitude><span>{attitude.text}</span></SingleAttitude>
+                                    <SingleAttitude key={attitude.text}><span>{attitude.text}</span></SingleAttitude>
                                 ))}
                             </AttitudeList>
                         </>
@@ -333,7 +334,7 @@ export const SingleRole = ({role}) => {
                             <span>Strengths</span>
                             <SWList>
                                 {role.strengths.map(strength => (
-                                    <SWItem>{strength.text}</SWItem>
+                                    <SWItem key={strength.text}>{strength.text}</SWItem>
                                 ))}
                             </SWList>  
                         </SWInner>
@@ -341,7 +342,7 @@ export const SingleRole = ({role}) => {
                             <span>Weaknesses</span> 
                             <SWList>
                                 {role.weaknesses.map(weakness => (
-                                    <SWItem>{weakness.text}</SWItem>
+                                    <SWItem key={weakness.text}>{weakness.text}</SWItem>
                                 ))}
                             </SWList>
                         </SWInner>  
