@@ -1,7 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import styled from "styled-components"
 import * as ROUTES from '../../constants/routes';
-import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
 import { AuthUserContext } from '../Session';
@@ -11,6 +10,7 @@ import { SignUpForm } from '../SignUp';
 import { SignInLink } from '../SignIn';
 import Content from '../../components/Content';
 import { SecondaryButton } from '../../components/SecondaryButton';
+import { SignInAnonButton } from '../SignInAnon';
 
 const Section = styled.section`
 
@@ -42,6 +42,9 @@ const Tool5 = ({fields}) => {
                   <Content source={body} />
                 </Section>
                 <Section>
+                
+                  <SignInAnonButton />
+                  <br />
                   <SignUpForm />
                   <br />
                   <SignInLink />

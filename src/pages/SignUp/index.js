@@ -8,6 +8,7 @@ import { SecondaryButton } from '../../components/SecondaryButton';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
+import * as ERRORS from '../../constants/errors';
 
 const Label = styled.label`
   font-weight: bold;
@@ -65,16 +66,6 @@ const INITIAL_STATE = {
   location: ''
 };
 
-const ERROR_CODE_ACCOUNT_EXISTS = 'auth/email-already-in-use';
-
-const ERROR_MSG_ACCOUNT_EXISTS = `
-  An account with this E-Mail address already exists.
-  Try to login with this account instead. If you think the
-  account is already used from one of the social logins, try
-  to sign in with one of them. Afterward, associate your accounts
-  on your personal account page.
-`;
-
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
@@ -111,8 +102,8 @@ class SignUpFormBase extends Component {
         this.props.history.push(ROUTES.SAVERESULTS);
       })
       .catch(error => {
-        if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
-          error.message = ERROR_MSG_ACCOUNT_EXISTS;
+        if (error.code === ERRORS.ERROR_CODE_ACCOUNT_EXISTS) {
+          error.message = ERRORS.ERROR_MSG_ACCOUNT_EXISTS;
         }
 
         this.setState({ error });
