@@ -26,25 +26,10 @@ const SignInAnonButtonBase = (props) => {
     .then(authUser => {
       console.log(authUser);
       // Create a user in your Firebase realtime database
-      console.log({
-        uid: authUser.user.uid,
-        isAnonymous: authUser.user.isAnonymous,
-        username: "anonymous",
-      //   email,
-        roles: []
-      //   orgType, 
-      //   position, 
-      //   location
-      })
       return props.firebase.user(authUser.user.uid).set({
-        uid: authUser.user.uid,
-        isAnonymous: authUser.user.isAnonymous,
-      //   username,
-      //   email,
+        isAnonymous: true,
+        username: "anonymous",
         roles: []
-      //   orgType, 
-      //   position, 
-      //   location
       });
     })
     .then(() => {

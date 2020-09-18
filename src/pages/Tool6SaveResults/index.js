@@ -86,7 +86,8 @@ const Tool6 = props => {
       conSkills: JSON.parse(conSkills),
       proAttitudes: JSON.parse(proAttitudes),
       conAttitudes: JSON.parse(conAttitudes),
-      roleTotals: roleTotals
+      roleTotals: roleTotals,
+      isAnonymous: authUser.isAnonymous ? authUser.isAnonymous : ""
     }).then(() => {
       props.firebase.user(authUser.uid).once('value')
       .then(snapshot => {
