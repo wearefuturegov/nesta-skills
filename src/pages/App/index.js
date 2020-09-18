@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, useLocation } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications'
+import ReactGA from 'react-ga';
 
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
@@ -37,12 +38,13 @@ const PageWrapper = styled.div`
     max-width: calc(${theme.xl} - 200px);
   }
 `
-
 const App = () => {
   let state = {
     data
   }
 
+  ReactGA.initialize('UA-99320279-3');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   
   let getDocument = (collection, name) =>
   state.data[collection] &&
