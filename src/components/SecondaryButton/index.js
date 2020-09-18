@@ -22,6 +22,11 @@ const styles = `
         color: ${theme.white};
     }
 
+    &.asblock {
+        display: block;
+        margin: 0 auto;
+    }
+
     &:hover {
         text-decoration: none;
         opacity: 0.8;

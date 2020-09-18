@@ -15,6 +15,8 @@ const ButtonContainer = styled.button`
     border: none;
     margin-top: 10px; 
     cursor: pointer;
+    width: 100%;
+    text-align: center;
 
     &:focus {
         outline: none;
@@ -28,6 +30,9 @@ const ButtonContainer = styled.button`
         cursor: no-drop;
         font-weight: normal;
     }
+    @media screen and (min-width: ${theme.m}){
+        width: auto;
+    }
 `
 
 const LinkContainer = styled(Link)`
@@ -39,6 +44,8 @@ const LinkContainer = styled(Link)`
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: ${theme.standardSpace}px;
+    width: calc(100% - 50px);
+    text-align: center;
 
     &:focus {
         outline: none;
@@ -46,6 +53,10 @@ const LinkContainer = styled(Link)`
         background: ${props => props.bg};
         box-shadow: 0 0px 0px 3px ${theme.black}, 0 0px 0px 5px ${theme.focus};
     }    
+
+    @media screen and (min-width: ${theme.m}){
+        width: auto;
+    }
 `
 
 export const Button = ({isButton, to, background, onClick, external, reverse, children, ...props}) => (

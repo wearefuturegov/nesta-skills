@@ -22,12 +22,6 @@ import {
   withEmailVerification,
 } from '../Session';
 
-
-const MoreBtn = styled(Button)`
-  margin: 0 auto;
-  display: block;
-  width: fit-content;
-`
 const Section = styled.section`
 `
 const ColouredSection = styled.section`
@@ -35,7 +29,7 @@ const ColouredSection = styled.section`
   color: ${props => props.reverseText ? theme.white : theme.black};
   margin-top: ${props => props.topOfPage ? "-25px" : "50px"};
   margin-bottom: 50px;
-  padding: 50px 0;
+  padding: 25px 0;
   position: relative;
   h1 {
     margin-top: 0;
@@ -224,11 +218,11 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                           {parsedTotals && parsedTotals.slice(3,parsedTotals.length).map(role => (
                             <SingleRole key={role.title} role={role} />
                           ))}
-                          <MoreBtn onClick={() => setShowRoles(false)}>Hide roles</MoreBtn>
+                          <SecondaryButton classes="asblock" onClick={() => setShowRoles(false)}>Hide roles</SecondaryButton>
                         </>
                       }
                     </RolesList>
-                    {!showRoles &&<MoreBtn onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</MoreBtn>}
+                    {!showRoles &&<SecondaryButton classes="asblock" onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</SecondaryButton>}
                   </ColouredSection>
                   <Section> 
                     <h3>{title_2}</h3>

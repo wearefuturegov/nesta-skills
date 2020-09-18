@@ -75,6 +75,10 @@ const RoleTitle = styled.h2`
 const RoleSubTitle = styled.h3`
     margin-top: 0;
     margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    font-weight: bold;
     text-align: center;
     color: ${props => props.color ? props.color : theme.white};
     text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
@@ -105,7 +109,7 @@ const RoleInformation = styled.div`
 const BreakTitle = styled.h4`
     text-transform: uppercase;
     color: ${props => props.color};
-    margin-top: 35px;
+    margin-top: 15px;
     margin-bottom: 20px;
     text-align: center;
     font-size: 0.8rem;
@@ -127,6 +131,10 @@ const BreakTitle = styled.h4`
     &:after {
         margin: 0 0 0 10px;
     }
+
+    @media screen and (min-width: ${theme.m}){
+        margin-top: 35px;
+    }
 `
 const CompetencyList = styled.div`
     display: flex;
@@ -136,54 +144,87 @@ const CompetencyList = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
+    padding: 15px;
+    justify-content: center;
+
+    @media screen and (min-width: ${theme.m}){
+        padding: 0;
+    }
 `
 const SingleCompetency = styled.div`
     background: ${props => props.brand};
     color: ${theme.white};
     border-radius: 100%;
     font-weight: bold;
-    width: 140px;
-    height: 140px;
+    position: relative;
     text-align: center;
+    padding-top: 40%;    
+    width: calc(40% - 10px);
     margin-right: 10px;
+    margin-bottom: 10px;
 
-    &:last-of-type {
+    &:nth-type(2n) {
         margin-right: 0;
     }
+
     .text {
         text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
         line-height: 1.3;
         top: 50%;
-        transform: translateY(-50%);
-        position: relative;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        position: absolute;
         padding: 10px;
+    }
+    @media screen and (min-width: ${theme.m}){
+        flex: calc(25% - 8px);
+        margin-right: 10px;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
     }
 `
 const AttitudeList = styled(CompetencyList)`
 `
 const SingleAttitude = styled.div`
     border: 3px solid ${theme.darkPurple};
-    width: calc(25% - 44px);
     margin-right: 10px;
     text-align: center;
     font-weight: bold;
     padding: 10px 15px;
     display: flex;
     align-items: center;
+    width: calc(50% - 46px);
+    margin-bottom: 10px;
+    &:nth-type(2n) {
+        margin-right: 0;
+    }
+
     span {
         display: block;
         width: 100%;
     }
-    &:last-of-type {
-        margin-right: 0;
+    
+    @media screen and (min-width: ${theme.m}){
+        width: calc(25% - 44px);
+        margin-bottom: 0px;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
     }
+
 `
 const SWContainer = styled.div`
     display: flex;
-    margin-top: 35px;
+    margin-top: 15px;
     margin-bottom: 25px;
     span {
         font-weight: bold;
+    }
+    @media screen and (min-width: ${theme.m}){
+        margin-top: 35px;
     }
 `
 const SWInner = styled.div`
