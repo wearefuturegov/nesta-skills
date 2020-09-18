@@ -50,6 +50,7 @@ const Landing = ({verified = false, fields}) => {
   const history = useHistory();
 
   if(verified) {
+    console.log('landing page verified: ', verified)
     if(currentStep === 5) {
       history.push(ROUTES.SAVERESULTS);
     } else {

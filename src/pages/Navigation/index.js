@@ -99,7 +99,11 @@ const NavigationAuth = ({ authUser, currentStep }) => (
             }
           </NavItem>
           <NavItem>
-            <Link to={ROUTES.ACCOUNT} className="account_link">Account</Link>
+            {!authUser.isAnonymous ? 
+              <Link to={ROUTES.ACCOUNT} className="account_link">Account</Link>
+              :
+              <Link to={ROUTES.SIGN_UP} className="account_link">Sign up</Link>
+            }
           </NavItem>
           {authUser.roles.includes(ROLES.ADMIN) && (
             <NavItem>

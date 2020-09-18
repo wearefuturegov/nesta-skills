@@ -75,7 +75,16 @@ const Tool6 = props => {
   } 
 
   const saveResults = authUser => {
-    console.log(authUser);
+    console.log('saveResults', authUser);
+    // TODO these are getting wiped when going to results page
+
+    console.log('proSkills', proSkills);
+      console.log('conSkills', conSkills);
+      console.log('proAttitudes', proAttitudes);
+      console.log('conAttitudes', conAttitudes);
+      console.log('roleTotals', roleTotals);
+
+      
     props.firebase.user(authUser.uid).set({
       username: authUser.username ? authUser.username : "",
       email: authUser.email ? authUser.email : "",
@@ -91,6 +100,7 @@ const Tool6 = props => {
     }).then(() => {
       props.firebase.user(authUser.uid).once('value')
       .then(snapshot => {
+        console.log('snapshot', snapshot)
         setTimeout(function() {
           history.push(ROUTES.RESULTS)
         }.bind(this), 1000)

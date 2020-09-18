@@ -49,10 +49,10 @@ const StartPage = ({restart, fields}, props) => {
   // if its a flagged as a restart - empty local storage of previously selected values
   useEffect(() => {
     if (restart) {
-      window.localStorage.setItem("nesta_pro_skills", "");
-      window.localStorage.setItem("nesta_con_skills", "");
-      window.localStorage.setItem("nesta_pro_attitudes", "");
-      window.localStorage.setItem("nesta_con_attitudes", "");
+      // window.localStorage.setItem("nesta_pro_skills", "");
+      // window.localStorage.setItem("nesta_con_skills", "");
+      // window.localStorage.setItem("nesta_pro_attitudes", "");
+      // window.localStorage.setItem("nesta_con_attitudes", "");
     }
     setCurrentStep(0);
   }, []);

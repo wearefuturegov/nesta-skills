@@ -34,14 +34,14 @@ class Firebase {
   doSignInWithEmailAndPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
 
-    doSignOut = () => {
-      this.auth.signOut();
-      window.localStorage.setItem("nesta_progress", "");
-      window.localStorage.setItem("nesta_pro_skills", "");
-      window.localStorage.setItem("nesta_con_skills", "");
-      window.localStorage.setItem("nesta_pro_attitudes", "");
-      window.localStorage.setItem("nesta_con_attitudes", "");
-    }
+  doSignOut = () => {
+    this.auth.signOut();
+    window.localStorage.setItem("nesta_progress", "");
+    window.localStorage.setItem("nesta_pro_skills", "");
+    window.localStorage.setItem("nesta_con_skills", "");
+    window.localStorage.setItem("nesta_pro_attitudes", "");
+    window.localStorage.setItem("nesta_con_attitudes", "");
+  }
 
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
@@ -52,6 +52,13 @@ class Firebase {
 
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
+
+  doLinkWithCredential = (credential) => 
+    this.auth.currentUser.linkWithCredential(credential);
+
+  getEmailAuthProviderCredential = (email, password) => 
+    this.emailAuthProvider.credential(email, password)
+
     
 
   // *** Merge Auth and DB User API *** //
