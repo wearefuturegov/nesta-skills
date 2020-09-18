@@ -198,6 +198,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                 role="button" 
                 aria-pressed={isActive ? "true" : "false"}
                 isButton={2}
+                id={`skill_${skill.id}`}
             >
                 <Inner>
                     <SkillTitle>{skill.title}</SkillTitle>

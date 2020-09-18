@@ -179,6 +179,7 @@ const SingleCompetency = styled.div`
     @media screen and (min-width: ${theme.m}){
         flex: calc(25% - 8px);
         margin-right: 10px;
+        padding-top: 25%;    
 
         &:last-of-type {
             margin-right: 0;
