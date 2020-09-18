@@ -47,6 +47,7 @@ const withEmailVerification = Component => {
                 <h1>Verify your E-Mail</h1>
                 {this.state.isSent && <ConfirmationText>Email sent</ConfirmationText>}
                 <p>Check you E-Mails (including your spam folder) for a confirmation email.</p>
+                <p><strong>Click the link in the email to verify and log in.</strong></p>
                 <SecondaryButton
                   isButton
                   type="button"

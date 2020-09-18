@@ -292,7 +292,7 @@ export const SkillCardDevelopment = ({skill}) => {
                     <ModalTitle>{skill.title}</ModalTitle>
                     <ModalLead>{skill.text}</ModalLead>
 
-                    {(skill.read || skill.watch || skill.use) && 
+                    {(skill.read || skill.watch || skill.use) ?
                         <>
                         <h3>Development resources</h3> 
                         <ResourcesContainer>
@@ -329,6 +329,8 @@ export const SkillCardDevelopment = ({skill}) => {
                         </ResourcesContainer>
                         <hr />
                         </>
+                        :
+                        <p><strong>There are not any resources currently for this skill, please check back later.</strong></p>
                     }
                     <h3>{`About ${skill.title}`}</h3>
                     <Content source={skill.content} />

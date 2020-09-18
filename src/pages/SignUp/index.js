@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import styled from "styled-components";
 import theme from "../../_theme";
 import { Button } from "../../components/Button";
+import { SecondaryButton } from '../../components/SecondaryButton';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -39,6 +40,9 @@ const Label = styled.label`
     @media screen and (min-width: ${theme.m}){
       width: auto;
     }
+  }
+  .hidden-field {
+    display: none;
   }
 `
 
@@ -118,9 +122,40 @@ class SignUpFormBase extends Component {
   };
 
   onChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    if(event.target.name === "orgType") {
+      if(event.target.value.slice(0, 5) === "Other" || event.target.value.slice(0, 14) === "Not government") {
+        this.setState({ [event.target.name]: event.target.value });
+        if(event.target.id === "orgType") {
+          event.target.classList.add("hidden-field");
+          document.getElementById("other1").classList.remove("hidden-field");
+        }
+      } else {
+        this.setState({ [event.target.name]: event.target.value });
+      }
+    } else if(event.target.name === "position") {
+      if(event.target.value.slice(0, 5) === "Other") {
+        this.setState({ [event.target.name]: event.target.value });
+        if(event.target.id === "position") {
+          event.target.classList.add("hidden-field");
+          document.getElementById("other2").classList.remove("hidden-field");
+        }
+      } else {
+        this.setState({ [event.target.name]: event.target.value });
+      }
+    } else {
+      this.setState({ [event.target.name]: event.target.value });
+    }
   };
-
+  changeOption1 = event => {
+    event.preventDefault()
+    document.getElementById("other1").classList.add("hidden-field");
+    document.getElementById("orgType").classList.remove("hidden-field");
+  };
+  changeOption2 = event => {
+    event.preventDefault()
+    document.getElementById("other2").classList.add("hidden-field");
+    document.getElementById("position").classList.remove("hidden-field");
+  };
   onChangeCheckbox = event => {
     this.setState({ [event.target.name]: event.target.checked });
   };
@@ -187,33 +222,69 @@ class SignUpFormBase extends Component {
           />
         </Label>
         <Label>
-          Your organisation type (optional)
+          What ‘level’ of government would you use to describe where you work (optional)
           <select
             name="orgType"
+            id="orgType"
             value={orgType}
             onChange={this.onChange}
           >
-            <option value="">Prefer not to say</option>
-            <option value="Multi-national government">Multi-national government</option>
-            <option value="Federal government">Federal government</option>
-            <option value="Regional government">Regional government</option>
-            <option value="Local government">Local government</option>
-            <option value="Other">Other</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+            <option value="National or central">National or central</option>
+            <option value="State or regional">State or regional</option>
+            <option value="Local or city">Local or city</option>
+            <option value="Other - " className="withFreeText">Other</option>
+            <option value="Not government - " className="withFreeText">I don’t work directly for government</option>
           </select>
+          <div
+            id="other1"
+            className="hidden-field"
+          >
+            <SecondaryButton onClick={this.changeOption1}>Choose a dfferent option</SecondaryButton>
+
+            <Label>
+              <small>Please provide more information</small>
+              <input
+                name="orgType"
+                value={orgType}
+                onChange={this.onChange}
+                type="text"
+                placeholder="Please provide more information"
+              />
+            </Label>
+          </div>
         </Label>
         <Label>
           Your position (optional)
           <select 
             name="position"
+            id="position"
             value={position}
             onChange={this.onChange}
           >
-            <option value="">Prefer not to say</option>
+            <option value="Prefer not to say">Prefer not to say</option>
             <option value="Executive">Executive</option>
             <option value="Management">Management</option>
             <option value="Project delivery">Project delivery</option>
-            <option value="Other">Other</option>
+            <option value="Other - ">Other</option>
           </select>
+          <div
+            id="other2"
+            className="hidden-field"
+          >
+            <SecondaryButton onClick={this.changeOption2}>Choose a dfferent option</SecondaryButton>
+
+            <Label>
+              <small>Please provide more information</small>
+              <input
+                name="position"
+                value={position}
+                onChange={this.onChange}
+                type="text"
+                placeholder="Please provide more information"
+              />
+            </Label>
+          </div>
         </Label>
         <Label>
           Your location (optional)
