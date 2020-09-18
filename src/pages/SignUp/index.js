@@ -4,6 +4,7 @@ import styled from "styled-components";
 import theme from "../../_theme";
 import { Button } from "../../components/Button";
 import { SecondaryButton } from '../../components/SecondaryButton';
+import { AuthUserContext } from '../Session';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -47,10 +48,20 @@ const Label = styled.label`
   }
 `
 
+
+
 const SignUpPage = () => (
   <div>
     <h1>SignUp</h1>
-    <SignUpForm />
+
+    <AuthUserContext.Consumer>
+            {authUser => (
+              authUser ?  
+                <SignUpForm isAnon={true} />
+                :
+                <SignUpForm />
+            )}
+          </AuthUserContext.Consumer>
   </div>
 );
 
@@ -69,11 +80,14 @@ const INITIAL_STATE = {
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
-
+    this.isAnon = (props.isAnon) ? true : false;
     this.state = { ...INITIAL_STATE };
   }
 
   onSubmit = event => {
+
+    
+    // TODO get the results here too
     const { username, email, passwordOne, isAdmin, orgType, position, location } = this.state;
     const roles = [];
 
@@ -81,6 +95,33 @@ class SignUpFormBase extends Component {
       roles.push(ROLES.ADMIN);
     }
 
+    if(this.isAnon) {
+    let credential = this.props.firebase.getEmailAuthProviderCredential(email, passwordOne);
+    this.props.firebase.doLinkWithCredential(credential).then((authUser) => {
+        var user = authUser.user;
+        console.log("Anonymous account successfully upgraded", user);
+        // Create the user in your Firebase realtime database
+        return this.props.firebase.user(authUser.user.uid).set({
+          username,
+          email,
+          roles,
+          orgType, 
+          position, 
+          location
+        });
+      })
+      .then(() => {
+        return this.props.firebase.doSendEmailVerification();
+      })
+      .then(() => {
+        this.setState({ ...INITIAL_STATE });
+        this.props.history.push(ROUTES.SAVERESULTS);
+      }).catch(function(error) {
+      console.log("Error upgrading anonymous account", error);
+    });
+
+    } else {
+   
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
@@ -109,6 +150,7 @@ class SignUpFormBase extends Component {
         this.setState({ error });
       });
 
+    }
     event.preventDefault();
   };
 
@@ -172,6 +214,9 @@ class SignUpFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
+        {this.isAnon && 
+          <p>To save your results and return later complete the form below.</p>
+        }
         <Label>
           Name
           <input

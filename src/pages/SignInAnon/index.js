@@ -19,12 +19,9 @@ import * as ROUTES from '../../constants/routes';
 const SignInAnonButtonBase = (props) => {
 
   const signInAnon = () => {
-
-    console.log(props);
     props.firebase
     .doSignInAnonymously()
     .then(authUser => {
-      console.log(authUser);
       // Create a user in your Firebase realtime database
       return props.firebase.user(authUser.user.uid).set({
         isAnonymous: true,
@@ -36,7 +33,6 @@ const SignInAnonButtonBase = (props) => {
       props.history.push(ROUTES.SAVERESULTS);
     })
     .catch(error => {
-      console.log(error)
       if (error.code === ERRORS.ERROR_CODE_ACCOUNT_EXISTS) {
         error.message = ERRORS.ERROR_MSG_ACCOUNT_EXISTS;
       }

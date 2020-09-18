@@ -162,10 +162,10 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
     if(currentStep !== 6) {
       history.push(ROUTES.LANDING);
     } else {
-      window.localStorage.setItem("nesta_pro_skills", "");
-      window.localStorage.setItem("nesta_con_skills", "");
-      window.localStorage.setItem("nesta_pro_attitudes", "");
-      window.localStorage.setItem("nesta_con_attitudes", "");
+      // window.localStorage.setItem("nesta_pro_skills", "");
+      // window.localStorage.setItem("nesta_con_skills", "");
+      // window.localStorage.setItem("nesta_pro_attitudes", "");
+      // window.localStorage.setItem("nesta_con_attitudes", "");
     }
   }, []);
 
@@ -187,9 +187,12 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
     <BodyClassName className="results_page">
       <AuthUserContext.Consumer>
         {authUser => {
+          console.log(authUser)
           if(currentStep !== 6) {
+            console.log('auth user current step !== 6')
             history.push(ROUTES.LANDING)
           } else {
+            console.log('auth user - parse totals');
             let parsedTotals = false;
             let parsedProSkills = false;
             let parsedConSkills = false;
