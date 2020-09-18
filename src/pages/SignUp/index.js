@@ -147,12 +147,12 @@ class SignUpFormBase extends Component {
     }
   };
   changeOption1 = event => {
-    event.preventDefault()
+    event.preventDefault();
     document.getElementById("other1").classList.add("hidden-field");
     document.getElementById("orgType").classList.remove("hidden-field");
   };
   changeOption2 = event => {
-    event.preventDefault()
+    event.preventDefault();
     document.getElementById("other2").classList.add("hidden-field");
     document.getElementById("position").classList.remove("hidden-field");
   };

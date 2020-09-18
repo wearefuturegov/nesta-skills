@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import { RemoveScrollBar } from "react-remove-scroll-bar"
 import Content from '../../components/Content'
 import { SecondaryButton } from '../../components/SecondaryButton';
+import { ReadIcon, WatchIcon, UseIcon } from '../../pages/ResultsSkillsDevelopmentPage/Icons';
 
 export const SkillsContainer = styled.ul`
     list-style-type: none;
@@ -133,6 +134,7 @@ const ResourcesContainer = styled.div`
     -ms-flex-direction: row;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: -25px;
 `
 const ResourcesInner = styled.div`
     width: 100%;
@@ -146,12 +148,25 @@ const ResourcesInner = styled.div`
     }
 `
 const ResourcesTitle = styled.h4`
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+    color: ${theme.darkPurple};
+    margin-bottom: 15px;
+    svg {
+        vertical-align: sub;
+        height: 25px;
+        width: auto;
+        margin-right: 10px;
+    }
 `
 
 const ResourcesList = styled.ul`
-
+    margin-top: 10px;
+    padding-left: 20px;
 `
 const Resource = styled.li`
+    margin-bottom: 10px;
 `
 
 function getBranding(brand) {
@@ -298,7 +313,10 @@ export const SkillCardDevelopment = ({skill}) => {
                         <ResourcesContainer>
                             {skill.read &&
                                 <ResourcesInner>
-                                    <ResourcesTitle>Read</ResourcesTitle>
+                                    <ResourcesTitle>
+                                        <ReadIcon />
+                                        Read
+                                    </ResourcesTitle>
                                     <ResourcesList>
                                         {skill.read.map(resource => 
                                             <Resource><a href={resource.url} target="_blank" title="Open link in new tab">{resource.text}</a></Resource>    
@@ -308,7 +326,9 @@ export const SkillCardDevelopment = ({skill}) => {
                             }
                             {skill.watch &&
                                 <ResourcesInner>
-                                    <ResourcesTitle>Watch</ResourcesTitle>
+                                    <ResourcesTitle>
+                                        <WatchIcon />
+                                        Watch</ResourcesTitle>
                                     <ResourcesList>
                                         {skill.watch.map(resource => 
                                             <Resource><a href={resource.url} target="_blank" title="Open link in new tab">{resource.text}</a></Resource>    
@@ -318,7 +338,10 @@ export const SkillCardDevelopment = ({skill}) => {
                             }
                             {skill.use &&
                                 <ResourcesInner>
-                                    <ResourcesTitle>Use</ResourcesTitle>
+                                    <ResourcesTitle>
+                                        <UseIcon />
+                                        Use
+                                    </ResourcesTitle>
                                     <ResourcesList>
                                         {skill.use.map(resource => 
                                             <Resource><a href={resource.url} target="_blank" title="Open link in new tab">{resource.text}</a></Resource>    
