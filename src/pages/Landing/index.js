@@ -50,6 +50,7 @@ const Landing = ({verified = false, fields}) => {
   const history = useHistory();
 
   if(verified) {
+    console.log('landing page verified: ', verified)
     if(currentStep === 5) {
       history.push(ROUTES.SAVERESULTS);
     } else {
@@ -72,8 +73,7 @@ const Landing = ({verified = false, fields}) => {
               authUser ?
                 <div>
                   <h1>{authUser.username && `Welcome - ${authUser.username}`}</h1>
-
-                  {authUser.roleTotals && authUser.roleTotals.length > 0 && currentStep === 6 ?
+                  {authUser.roleTotals || currentStep === 6 ?
                     <>
                       <p>You have already completed this app.</p>
                       <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>

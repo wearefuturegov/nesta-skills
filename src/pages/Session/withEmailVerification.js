@@ -3,7 +3,7 @@ import styled from "styled-components";
 import theme from "../../_theme";
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
-import { SecondaryButton } from "../../components/SecondaryButton";
+import { ButtonSecondary } from "../../components/ButtonSecondary";
 
 const EmailVerify = styled.div`
   max-width: 400px;
@@ -48,14 +48,14 @@ const withEmailVerification = Component => {
                 {this.state.isSent && <ConfirmationText>Email sent</ConfirmationText>}
                 <p>Check you E-Mails (including your spam folder) for a confirmation email.</p>
                 <p><strong>Click the link in the email to verify and log in.</strong></p>
-                <SecondaryButton
+                <ButtonSecondary
                   isButton
                   type="button"
                   onClick={this.onSendEmailVerification}
                   disabled={this.state.isSent}
                 >
                   Re-send confirmation E-Mail
-                </SecondaryButton>
+                </ButtonSecondary>
                 {/* <SignOutButton /> */}
               </EmailVerify>
             ) : (

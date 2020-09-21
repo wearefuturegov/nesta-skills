@@ -1,9 +1,8 @@
-import React from 'react';
 import styled from "styled-components"
 import { Link } from 'react-router-dom';
 import theme from "../../_theme"
 
-const styles = `
+export const styles = `
     display: block;
     background: transparent;
     border: none;
@@ -39,16 +38,9 @@ const styles = `
         color: ${theme.black} !important;
     }
 `
-const ButtonContainer = styled(Link)`
+export const ButtonContainer = styled(Link)`
     ${styles}
 `
-const FakeButtonContainer = styled.button`
+export const FakeButtonContainer = styled.button`
     ${styles}
 `
-
-export const SecondaryButton = ({to, background, onClick, classes, children, ...props}) => (
-    to ?
-        <ButtonContainer className={classes} onClick={onClick} to={to} bg={background ? background : theme.darkPurple }  {...props}>{children}</ButtonContainer>
-        :
-        <FakeButtonContainer className={classes} onClick={onClick} bg={background ? background : theme.darkPurple }  {...props}>{children}</FakeButtonContainer>
-);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { compose } from 'recompose';
+import { Label, ErrorMessage } from '../../components/Forms/formsStyles';
+import { Button } from "../../components/Button";
 
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
@@ -9,7 +11,7 @@ import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    <h1>Sign In</h1>
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
@@ -47,7 +49,7 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(currentStep === 0 || currentStep === "" ? ROUTES.LANDING : currentStep === 5 ? ROUTES.SAVERESULTS : `/step_${currentStep}`);
+        this.props.history.push(currentStep === 0 || currentStep === "" || currentStep === null ? ROUTES.LANDING : currentStep === 5 ? ROUTES.SAVERESULTS : `/step_${currentStep}`);
       })
       .catch(error => {
         this.setState({ error });
@@ -67,27 +69,34 @@ class SignInFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-          autoComplete="email"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-          autoComplete="current-password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+        {error && <ErrorMessage>{error.message}</ErrorMessage>}
 
-        {error && <p>{error.message}</p>}
+        <Label>
+          Email
+          <input
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+            autoComplete="email"
+          />
+        </Label>
+        <Label>
+          Password
+          <input
+            name="password"
+            value={password}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+            autoComplete="current-password"
+          />
+        </Label>
+        
+        <Button disabled={isInvalid} type="submit" isButton>
+          Sign In
+        </Button>
       </form>
     );
   }

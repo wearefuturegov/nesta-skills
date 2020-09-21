@@ -1,55 +1,32 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import styled from "styled-components";
-import theme from "../../_theme";
 import { Button } from "../../components/Button";
-import { SecondaryButton } from '../../components/SecondaryButton';
+import { ButtonSecondary } from '../../components/ButtonSecondary';
+import { AuthUserContext } from '../Session';
+import SignOutButton from '../SignOut';
+import { Label, ErrorMessage } from '../../components/Forms/formsStyles';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
-
-const Label = styled.label`
-  font-weight: bold;
-  display: block;
-  margin-bottom: 15px;
-
-  input, select {
-    display: block;
-    width: 100%;
-    min-width: 400px;
-    margin-top: 5px;
-    padding: 5px;
-    font-size: 1rem;
-    border: 2px solid ${theme.black};
-    @media screen and (min-width: ${theme.m}){
-      width: auto;
-    }
-    &:hover {
-      border-color: rgba(${theme.black}, 0.7);
-    }
-    &:focus {
-      outline: none;
-      border-radius: 0;
-      box-shadow: 0px 0px 0px 3px ${theme.focus};
-    }
-  }
-  input {
-    width: calc(100% - 14px);
-    min-width: 386px;
-    @media screen and (min-width: ${theme.m}){
-      width: auto;
-    }
-  }
-  .hidden-field {
-    display: none;
-  }
-`
+import * as ERRORS from '../../constants/errors';
 
 const SignUpPage = () => (
   <div>
-    <h1>SignUp</h1>
-    <SignUpForm />
+    <h1>Sign Up</h1>
+
+    <AuthUserContext.Consumer>
+      {authUser => (
+        authUser && authUser.isAnonymous ?  
+          <>
+            <SignUpForm isAnon={true} proSkills={authUser.proSkills} conSkills={authUser.conSkills} proAttitudes={authUser.proAttitudes} conAttitudes={authUser.conAttitudes} roleTotals={authUser.roleTotals} />
+            <h2>You are currently signed in as an anonymous user.</h2>
+            <SignOutButton />
+          </>
+          :
+          <SignUpForm />
+      )}
+    </AuthUserContext.Consumer>
   </div>
 );
 
@@ -65,24 +42,22 @@ const INITIAL_STATE = {
   location: ''
 };
 
-const ERROR_CODE_ACCOUNT_EXISTS = 'auth/email-already-in-use';
-
-const ERROR_MSG_ACCOUNT_EXISTS = `
-  An account with this E-Mail address already exists.
-  Try to login with this account instead. If you think the
-  account is already used from one of the social logins, try
-  to sign in with one of them. Afterward, associate your accounts
-  on your personal account page.
-`;
-
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
-
+    this.isAnon = (props.isAnon) ? true : false;
+    this.proSkills = props.proSkills;
+    this.conSkills = props.conSkills;
+    this.proAttitudes = props.proAttitudes;
+    this.conAttitudes = props.conAttitudes;
+    this.roleTotals = props.roleTotals;
     this.state = { ...INITIAL_STATE };
   }
 
   onSubmit = event => {
+
+    
+    // TODO get the results here too
     const { username, email, passwordOne, isAdmin, orgType, position, location } = this.state;
     const roles = [];
 
@@ -90,6 +65,43 @@ class SignUpFormBase extends Component {
       roles.push(ROLES.ADMIN);
     }
 
+    if(this.isAnon) {
+      
+      let credential = this.props.firebase.getEmailAuthProviderCredential(email, passwordOne);
+      this.props.firebase.doLinkWithCredential(credential)
+        .then((authUser) => {
+          console.log("Anonymous account successfully upgraded", authUser);
+          // Create the user in your Firebase realtime database
+          return this.props.firebase.user(authUser.user.uid).set({
+            username: username,
+            email: email,
+            roles: roles,
+            orgType: orgType, 
+            position: position, 
+            location: location,
+            proSkills: this.proSkills ? this.proSkills : "",
+            conSkills: this.conSkills ? this.conSkills : "",
+            proAttitudes: this.proAttitudes ? this.proAttitudes : "",
+            conAttitudes: this.conAttitudes ? this.conAttitudes : "",
+            roleTotals: this.roleTotals ? this.roleTotals : "",
+            isAnonymous: false
+          });
+        })
+        .then(() => {
+          return this.props.firebase.doSendEmailVerification();
+        })
+        .then(() => {
+          this.setState({ ...INITIAL_STATE });
+          this.props.history.push(ROUTES.RESULTS);
+        }).catch(error => {
+          if (error.code === ERRORS.ERROR_CODE_ACCOUNT_EXISTS) {
+            error.message = ERRORS.ERROR_MSG_ACCOUNT_EXISTS;
+          }
+  
+          this.setState({ error });
+        });
+    } else {
+   
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
@@ -111,13 +123,14 @@ class SignUpFormBase extends Component {
         this.props.history.push(ROUTES.SAVERESULTS);
       })
       .catch(error => {
-        if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
-          error.message = ERROR_MSG_ACCOUNT_EXISTS;
+        if (error.code === ERRORS.ERROR_CODE_ACCOUNT_EXISTS) {
+          error.message = ERRORS.ERROR_MSG_ACCOUNT_EXISTS;
         }
 
         this.setState({ error });
       });
 
+    }
     event.preventDefault();
   };
 
@@ -181,6 +194,10 @@ class SignUpFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
+        {this.isAnon && 
+          <p>To save your results and return later complete the form below.</p>
+        }
+        {error && <ErrorMessage>{error.message}</ErrorMessage>}
         <Label>
           Name
           <input
@@ -244,7 +261,7 @@ class SignUpFormBase extends Component {
             id="other1"
             className="hidden-field"
           >
-            <SecondaryButton onClick={this.changeOption1}>Choose a dfferent option</SecondaryButton>
+            <ButtonSecondary onClick={this.changeOption1}>Choose a dfferent option</ButtonSecondary>
 
             <Label>
               <small>Please provide more information</small>
@@ -276,7 +293,7 @@ class SignUpFormBase extends Component {
             id="other2"
             className="hidden-field"
           >
-            <SecondaryButton onClick={this.changeOption2}>Choose a dfferent option</SecondaryButton>
+            <ButtonSecondary onClick={this.changeOption2}>Choose a dfferent option</ButtonSecondary>
 
             <Label>
               <small>Please provide more information</small>
@@ -566,8 +583,6 @@ class SignUpFormBase extends Component {
         <Button type="submit" isButton>
           Sign Up
         </Button>
-
-        {error && <p>{error.message}</p>}
       </form>
     );
   }

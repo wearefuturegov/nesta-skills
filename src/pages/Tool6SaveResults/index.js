@@ -10,6 +10,7 @@ import {
   withEmailVerification,
 } from '../Session';
 import { withFirebase } from '../Firebase';
+import { auth } from 'firebase';
 
 const Tool6 = props => {
   const rolesContent = props.rolesContent;
@@ -21,22 +22,29 @@ const Tool6 = props => {
   const [conSkills, setconSkills] = useLocalStorage("nesta_con_skills")
   const [proAttitudes, setproAttitudes] = useLocalStorage("nesta_pro_attitudes")
   const [conAttitudes, setconAttitudes] = useLocalStorage("nesta_con_attitudes")
-  const [roleTotals, setRoleTotals] = useState([0,0,0,0,0,0,0,0,0])
+  const [roleTotals, setRoleTotals] = useState([1,0,0,0,0,0,0,0,0])
+  const [activate, setActivate] = useState(false)
 
   useEffect(() => {
     if(currentStep !== 5) {
       history.push(ROUTES.LANDING);
-    } else {
-      setCurrentStep(currentStepNo);
-
-      rolesContent.map(role => {
-        let array = roleTotals;
-        let newTotal = sumRating(role.skillsMapping, role.subSkillsMapping, role.attitudesMapping).toString();
-        array[role.id] = newTotal;
-        setRoleTotals(array);
-      }) 
     }
   }, []);
+
+  useEffect(() => {
+    setCurrentStep(currentStepNo);
+
+    rolesContent.map((role, index) => {
+      let array = roleTotals;
+      let newTotal = sumRating(role.skillsMapping, role.subSkillsMapping, role.attitudesMapping).toString();
+      array[role.id] = newTotal;
+      
+      if(index === 8) {
+        array[0] = 0;
+        setRoleTotals(array);
+      }
+    }) 
+  }, [activate]);
 
   const sumRating = (skills, subSkills, attitudes) => {
     skills = (skills === null) ? [] : skills;
@@ -46,22 +54,28 @@ const Tool6 = props => {
     let total = 0;
     skills.length > 0 && skills.forEach(skill => {
       if(proSkills.includes(skill.toString())) {
+        // console.log(`skill ${skill} is positive`)
         total+= 20;
       } else if(conSkills.includes(skill.toString())) {
+        // console.log(`skill ${skill} is negative`)
         total-= 20;
       } 
     });
     subSkills.length > 0 && subSkills.forEach(skill => {
       if(proSkills.includes(skill.toString())) {
+        // console.log(`sub skill ${skill} is positive`)
         total+= 10;
       } else if(conSkills.includes(skill.toString())) {
+        // console.log(`sub skill ${skill} is negative`)
         total-= 10;
       } 
     });
-    attitudes.length > 0 && attitudes.forEach(attitudes => {
-      if(proAttitudes.includes(attitudes.toString())) {
+    attitudes.length > 0 && attitudes.forEach(attitude => {
+      if(proAttitudes.includes(attitude.toString())) {
+        // console.log(`attitude ${attitude} is positive`)
         total+= 5;
-      } else if(conAttitudes.includes(attitudes.toString())) {
+      } else if(conAttitudes.includes(attitude.toString())) {
+        // console.log(`attitude ${attitude} is negative`)
         total-= 5;
       } 
     });
@@ -69,32 +83,44 @@ const Tool6 = props => {
   } 
 
   const saveResults = authUser => {
-    props.firebase.user(authUser.uid).set({
-      username: authUser.username ? authUser.username : "",
-      email: authUser.email ? authUser.email : "",
-      orgType: authUser.orgType ? authUser.orgType : "", 
-      position: authUser.position ? authUser.position : "", 
-      location: authUser.location ? authUser.location : "",
-      proSkills: JSON.parse(proSkills),
-      conSkills: JSON.parse(conSkills),
-      proAttitudes: JSON.parse(proAttitudes),
-      conAttitudes: JSON.parse(conAttitudes),
-      roleTotals: roleTotals
-    }).then(() => {
-      props.firebase.user(authUser.uid).once('value')
-      .then(snapshot => {
-        setTimeout(function() {
-          history.push(ROUTES.RESULTS)
-        }.bind(this), 1000)
-      });
-    })
+    console.log('proSkills', proSkills);
+    console.log('conSkills', conSkills);
+    console.log('proAttitudes', proAttitudes);
+    console.log('conAttitudes', conAttitudes);
+    console.log('roleTotals', roleTotals);
+
+    if(roleTotals[0] === 0) {
+      console.log('saveResults', authUser);
+      
+      props.firebase.user(authUser.uid).set({
+        username: authUser.username ? authUser.username : "",
+        email: authUser.email ? authUser.email : "",
+        orgType: authUser.orgType ? authUser.orgType : "", 
+        position: authUser.position ? authUser.position : "", 
+        location: authUser.location ? authUser.location : "",
+        proSkills: JSON.parse(proSkills),
+        conSkills: JSON.parse(conSkills),
+        proAttitudes: JSON.parse(proAttitudes),
+        conAttitudes: JSON.parse(conAttitudes),
+        roleTotals: roleTotals,
+        isAnonymous: authUser.isAnonymous ? authUser.isAnonymous : ""
+      }).then(() => {
+        props.firebase.user(authUser.uid).once('value')
+        .then(snapshot => {
+          console.log('snapshot', snapshot)
+          setTimeout(function() {
+            history.push(ROUTES.RESULTS)
+          }.bind(this), 1000)
+        });
+      })
+    }
   }
   
   return(
     <AuthUserContext.Consumer>
       {authUser => {
-        currentStep === 5 &&
-          saveResults(authUser)
+        setActivate(true)
+        saveResults(authUser)
         return(<p>Loading...</p>)
       }}
     </AuthUserContext.Consumer>

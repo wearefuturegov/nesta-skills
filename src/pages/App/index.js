@@ -29,7 +29,6 @@ import Tool6 from '../Tool6SaveResults';
 import ResultsPage from '../Results';
 import ResultsTeamActivitesPage from '../ResultsTeamActivitesPage';
 import ResultsSkillsDevelopmentPage from '../ResultsSkillsDevelopmentPage';
-import MockFinalStep from '../MockFinalStep';
 
 const PageWrapper = styled.div`
   padding: 0 15px;
@@ -76,8 +75,6 @@ const App = () => {
             <Route path={ROUTES.STEP3}  component={() => <Tool3 fields={getDocument('pages', '03-strong-attitudes')} attitudes={getDocuments('attitudes')} />} />
             <Route path={ROUTES.STEP4}  component={() => <Tool4 fields={getDocument('pages', '04-weak-attitudes')} attitudes={getDocuments('attitudes')} />} />
             <Route path={ROUTES.STEP5}  component={() => <Tool5 fields={getDocument('pages', '05-sign-up')} />}/>
-
-            <Route path="/beentheredonethat"  component={() => <MockFinalStep fields={getDocument('pages', '05-sign-up')} />}/>
 
             <Route path={ROUTES.SAVERESULTS} component={() => <Tool6 rolesContent={getDocuments('roles')} />} />
             <Route path={ROUTES.RESULTS} component={() => 

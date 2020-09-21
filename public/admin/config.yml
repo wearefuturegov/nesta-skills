@@ -66,6 +66,9 @@ collections:
         fields:
           - {label: Title, name: title, widget: string, required: true}
           - {label: Content, name: body, widget: markdown}
+          - {label: No account Title, name: not_signed_up_title, widget: string, hint: This text will only be displayed to a user who has chosen not to sign up with an account }
+          - {label: No account Text, name: not_signed_up_body, widget: string}
+          - {label: Your Skills Title, name: title_2, widget: string}
           - {label: Your Skills Title, name: title_2, widget: string}
           - {label: Your Skills Content, name: body_2, widget: markdown}
           - {label: What next Title, name: title_3, widget: string}

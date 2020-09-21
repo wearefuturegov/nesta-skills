@@ -91,7 +91,7 @@ const NavigationAuth = ({ authUser, currentStep }) => (
       <Nav>
         <NavList>
           <NavItem>
-            {authUser.roleTotals && authUser.roleTotals.length > 0 && currentStep === 6 ?
+            {authUser.roleTotals || currentStep === 6 ?
               <Link to={ROUTES.RESULTS} className="results_link">Results</Link>
               :
               currentStep === 0 &&
@@ -99,7 +99,11 @@ const NavigationAuth = ({ authUser, currentStep }) => (
             }
           </NavItem>
           <NavItem>
-            <Link to={ROUTES.ACCOUNT} className="account_link">Account</Link>
+            {!authUser.isAnonymous ? 
+              <Link to={ROUTES.ACCOUNT} className="account_link">Account</Link>
+              :
+              <Link to={ROUTES.SIGN_UP} className="account_link">Sign up</Link>
+            }
           </NavItem>
           {authUser.roles.includes(ROLES.ADMIN) && (
             <NavItem>

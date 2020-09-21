@@ -1,5 +1,7 @@
 ---
 title: Your Results
+not_signed_up_title: You don't currently have an account
+not_signed_up_body: Without an account these results are not saved. You will be able to see them while on this device, however if you want to come back to see the results you will need to sign up for an account.
 title_2: Your skills selection
 body_2: These are the choices you made throughout this tool.
 title_3: What next?

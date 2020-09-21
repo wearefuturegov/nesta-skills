@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as ROUTES from '../../constants/routes';
 import { compose } from 'recompose';
 import styled from "styled-components";
@@ -13,7 +13,7 @@ import BodyClassName from 'react-body-classname';
 import { Button } from '../../components/Button';
 import Content from '../../components/Content';
 import { RemoveScrollBar } from "react-remove-scroll-bar"
-import { SecondaryButton } from '../../components/SecondaryButton';
+import { ButtonSecondary } from '../../components/ButtonSecondary';
 import { SkillCardLite, SkillsContainer } from "../../components/SkillCard";
 
 import {
@@ -57,7 +57,7 @@ const PieContainer = styled.div`
     z-index: -1;
   }
 `
-const CloseModal = styled(SecondaryButton)`
+const CloseModal = styled(ButtonSecondary)`
 
 `
 const ModalActions = styled.div`
@@ -103,7 +103,7 @@ const WeakSkillsContainer = styled.div`
 `
 
 const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
-  const { title, body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5 } = fields;
+  const { title, body, not_signed_up_title, not_signed_up_body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5 } = fields;
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
@@ -159,14 +159,6 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
       window.location = window.location + '#loaded';
       window.location.reload();
     }
-    if(currentStep !== 6) {
-      history.push(ROUTES.LANDING);
-    } else {
-      window.localStorage.setItem("nesta_pro_skills", "");
-      window.localStorage.setItem("nesta_con_skills", "");
-      window.localStorage.setItem("nesta_pro_attitudes", "");
-      window.localStorage.setItem("nesta_con_attitudes", "");
-    }
   }, []);
 
   function openModal(event) {
@@ -187,9 +179,9 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
     <BodyClassName className="results_page">
       <AuthUserContext.Consumer>
         {authUser => {
-          if(currentStep !== 6) {
-            history.push(ROUTES.LANDING)
-          } else {
+          console.log(authUser)
+          if(authUser.roleTotals || currentStep === 6) {
+            console.log('auth user - parse totals');
             let parsedTotals = false;
             let parsedProSkills = false;
             let parsedConSkills = false;
@@ -207,6 +199,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                 <>
                   <ColouredSection topOfPage>
                     <h1>{title}</h1>
+                    
                     <Content source={body} />
 
                     <RolesList>
@@ -218,13 +211,21 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                           {parsedTotals && parsedTotals.slice(3,parsedTotals.length).map(role => (
                             <SingleRole key={role.title} role={role} />
                           ))}
-                          <SecondaryButton classes="asblock" onClick={() => setShowRoles(false)}>Hide roles</SecondaryButton>
+                          <ButtonSecondary classes="asblock" onClick={() => setShowRoles(false)}>Hide roles</ButtonSecondary>
                         </>
                       }
                     </RolesList>
-                    {!showRoles &&<SecondaryButton classes="asblock" onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</SecondaryButton>}
+                    {!showRoles &&<ButtonSecondary classes="asblock" onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</ButtonSecondary>}
                   </ColouredSection>
                   <Section> 
+                    {authUser.isAnonymous &&
+                      <>
+                        <h3>{not_signed_up_title}</h3>
+                        <p>{not_signed_up_body}</p>
+                        <Link to={ROUTES.SIGN_UP}>Sign up for an account to save your results</Link>
+                        <br />
+                      </>
+                    }
                     <h3>{title_2}</h3>
                     <Content source={body_2} />
                     <Button onClick={openModal}>View your skills selection</Button>
@@ -345,7 +346,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                   <ColouredSection reverseText bg={theme.darkPurple}>
                     <h3>{title_4}</h3>
                     <Content source={body_4} />
-                    <Button reverse to={ROUTES.RESULTSTEAM}>See team activites</Button>
+                    <Button reverse="true" to={ROUTES.RESULTSTEAM}>See team activites</Button>
                   </ColouredSection>
                   <Section>
                     <h3>{title_5}</h3>
@@ -354,8 +355,12 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                   </Section>
                 </>
               :
-              <p>Loading...</p>
+              <>
+                <p>Loading...</p>
+              </>
             )
+          } else {
+            history.push(ROUTES.LANDING)
           }
         }}
       </AuthUserContext.Consumer>
