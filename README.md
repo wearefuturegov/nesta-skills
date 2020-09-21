@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b24a1f1e-19c1-43aa-973d-75961888f47e/deploy-status)](https://app.netlify.com/sites/nesta-skills/deploys)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
