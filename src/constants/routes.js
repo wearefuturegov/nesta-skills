@@ -4,7 +4,7 @@ export const SIGN_IN = '/signin';
 export const SIGN_IN_ANON = '/signinanon';
 export const ACCOUNT = '/account';
 export const PASSWORD_FORGET = '/pw-forget';
-export const ADMIN = '/admin';
+export const ADMIN = '/siteadmin';
 export const ADMIN_DETAILS = '/admin/:id';
 
 export const START = '/start';
