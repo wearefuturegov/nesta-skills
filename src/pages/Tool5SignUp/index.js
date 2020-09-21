@@ -15,6 +15,9 @@ import { SignInAnonButton } from '../SignInAnon';
 const Section = styled.section`
 
 `
+export const SubTitle = styled.h2`
+  margin-bottom: 0;
+`
 
 const Tool5 = ({fields}) => {
 
@@ -42,11 +45,12 @@ const Tool5 = ({fields}) => {
               </Section>
               <Section>
               
-                <SignInAnonButton />
-                <br />
                 <SignUpForm />
-                <br />
                 <SignInLink />
+
+                <SubTitle>See your results without signing up</SubTitle>
+                <SignInAnonButton />
+
               </Section>
             </>
           )

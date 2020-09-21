@@ -5,6 +5,7 @@ import { withFirebase } from '../Firebase';
 import * as ERRORS from '../../constants/errors';
 import * as ROUTES from '../../constants/routes';
 
+import { Small } from '../../components/Forms/formsStyles';
 
  /**
    * When we click to sign in anonymously we need to call doSignInAnonymously
@@ -43,7 +44,8 @@ const SignInAnonButtonBase = (props) => {
  
 return (
   <React.Fragment>
-    <Button onClick={signInAnon}>Continue without registration</Button>  (You can choose to register an account later)
+    <Button onClick={signInAnon}>Continue without registration</Button> 
+    <Small>(You can choose to register an account later)</Small>
   </React.Fragment>
 )
 

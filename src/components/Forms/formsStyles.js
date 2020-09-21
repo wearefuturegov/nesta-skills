@@ -42,3 +42,11 @@ export const ErrorMessage = styled.p`
   color: ${theme.red};
   font-weight: bold;
 `
+
+export const Small = styled.p`
+  margin-top: -15px;
+  font-size: 0.8rem;
+`
+export const SubTitle = styled.h2`
+  margin-top: 0;
+`
