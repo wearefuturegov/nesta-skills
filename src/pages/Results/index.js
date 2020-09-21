@@ -188,7 +188,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
       <AuthUserContext.Consumer>
         {authUser => {
           console.log(authUser)
-          if(currentStep !== 6) {
+          if(!authUser.roleTotals) {
             console.log('auth user current step !== 6')
             history.push(ROUTES.LANDING)
           } else {
