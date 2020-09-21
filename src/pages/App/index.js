@@ -17,9 +17,14 @@ import { withAuthentication } from '../Session';
 import styled from "styled-components"
 import theme from "../../_theme"
 
-import data from '../../data.json'
+import { getDocument, getDocuments } from './../../util/cms-utils'
+// import data from '../../data.json'
 
 import ScrollToTop from '../../components/ScrollToTop'
+
+
+import ToolSteps from '../ToolSteps';
+
 
 import StartPage from '../Tool0Start';
 import Tool1 from '../Tool1StrongSkills';
@@ -41,18 +46,12 @@ const PageWrapper = styled.div`
   }
 `
 const App = () => {
-  let state = {
-    data
-  }
+
 
   ReactGA.initialize('UA-99320279-3');
   ReactGA.pageview(window.location.pathname + window.location.search);
 
-  let getDocument = (collection, name) =>
-  state.data[collection] &&
-  state.data[collection].filter(page => page.name === name)[0]
-
-  let getDocuments = collection => state.data[collection] || []
+  
 
   return(
     <Router>
@@ -69,9 +68,16 @@ const App = () => {
             <Route path={ROUTES.ACCOUNT} component={AccountPage} />
             <Route path={ROUTES.ADMIN} component={AdminPage} />
 
+            
+
             <Route path={ROUTES.START} component={() => <StartPage fields={getDocument('pages', '00-start')} />} />
             <Route path={ROUTES.RESTART} component={() => <StartPage fields={getDocument('pages', '00-start')} restart={true} />} />
             <Route path={ROUTES.VERIFIED} component={() => <LandingPage verified={true} fields={getDocument('pages', 'landing-page')} />} />
+
+
+            <Route path={ROUTES.STEPS} component={ToolSteps} />
+
+
             <Route path={ROUTES.STEP1} component={() => <Tool1 fields={getDocument('pages', '01-strong-skills')} skills={getDocuments('skills')} />} />
             <Route path={ROUTES.STEP2} component={() => <Tool2 fields={getDocument('pages', '02-weak-skills')} skills={getDocuments('skills')} />} />
             <Route path={ROUTES.STEP3}  component={() => <Tool3 fields={getDocument('pages', '03-strong-attitudes')} attitudes={getDocuments('attitudes')} />} />

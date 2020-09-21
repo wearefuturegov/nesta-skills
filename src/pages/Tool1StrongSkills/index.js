@@ -8,7 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import BodyClassName from 'react-body-classname';
 import Content from '../../components/Content'
 
-import { CurrentStep } from '../../components/CurrentStep';
+import CurrentStep from '../../components/CurrentStep';
 import { SkillCard, SkillsContainer } from "../../components/SkillCard";
 import { SkillDot } from "../../components/SkillDot";
 import { TrackingBar } from "../../components/TrackingBar";

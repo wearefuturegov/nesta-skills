@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 import { Button } from '../Button';
+import { ModalActions } from '../SkillCard/SkillCardStyles';
 import { SkillDot } from "../SkillDot";
 
 import { Outer, Inner, Desktop, PreviousButton, BlankSpace, Middle, Buttons, Mobile, NextButton } from './TrackingBarStyles'
 
 
 
-export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, nextLink, children}) => {
+export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, nextLink, clickAction, children}) => {
     function createBlankDots() {
         let Dots = []
         for (let i = 0; i < (maxSelectionNo - chosenSkills.length); i++) {
@@ -15,14 +16,17 @@ export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, n
         }
         return Dots
     }
+    function clickButton(type) {
+        console.log('clickButton');
+        clickAction(type);
+    }
     return(
         <Outer>
             <Inner>
-                
                 <Desktop>
                     {previousLink ? 
                         <PreviousButton className={""}>
-                            <Button className="back-button" to={previousLink}>Back</Button>
+                            <Button className="back-button"  onClick={() => clickButton()}>Back</Button>
                         </PreviousButton>
                         :
                         <BlankSpace />
@@ -47,7 +51,7 @@ export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, n
                     </Mobile>
                     {nextLink ? 
                         <NextButton className={chosenSkills.length === maxSelectionNo ? "" : "disabled"}>
-                            <Button className="next-button" to={chosenSkills.length === maxSelectionNo ? nextLink : ""}>Next</Button>
+                            <Button className="next-button" onClick={() => clickButton('increase')}>Next</Button>
                         </NextButton>
                         :
                         <BlankSpace />

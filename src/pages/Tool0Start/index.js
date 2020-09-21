@@ -1,49 +1,22 @@
 import React, { useEffect } from 'react';
-import styled from "styled-components";
+
 import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import Content from '../../components/Content'
 
-const BlockContainer = styled.ul`
-  padding: 0;
-  list-style: none;
-  display: flex;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  flex-wrap: wrap;
-`
-const Block = styled.li`
-  width: 100%;
-  padding: 15px;
-  background: ${props => props.color};
-  color: ${theme.white};
-  margin-bottom: ${theme.standardSpace}px;
+import { BlockContainer, Block, BlockTitle, BlockText } from './Tool0StartStyles'
 
-  @media screen and (min-width: ${theme.s}){
-      flex: 1 1 0px;
-      margin-right: ${theme.standardSpace}px;
-
-      &:nth-of-type(3n) {
-        margin-right: 0;
-      }
-  }
-`
-const BlockTitle = styled.h2`
-  margin-top: 0;
-`
-const BlockText = styled.div`
-  
-`
 
 const StartPage = ({restart, fields}, props) => {
   // page content @todo -probably doesnt need this many fields now that we have wysiwyg option
   const { title, top_content, bottom_content, block_one_title, block_one_content, block_two_title, block_two_content, block_three_title, block_three_content } = fields;
-  const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   
+
+  // setup storage
+  const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
+
 
   // on page load set current step to 0
   // if its a flagged as a restart - empty local storage of previously selected values
@@ -84,7 +57,7 @@ const StartPage = ({restart, fields}, props) => {
       <Content source={bottom_content} />
 
       
-      <Button to={ROUTES.STEP1}>Start</Button>
+      <Button to={ROUTES.STEPS}>Start</Button>
     </div>
   )
 }
