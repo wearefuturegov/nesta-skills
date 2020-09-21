@@ -149,16 +149,16 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
   }
   
   useEffect(() => {
-    if(!window.localStorage.getItem("nesta_results_reload")) {
-      window.localStorage.setItem("nesta_results_reload", true);
-      window.location.reload();
-    } else {
-      window.localStorage.removeItem("nesta_results_reload");
-    }
-    // if(!window.location.hash) {
-    //   window.location = window.location + '#loaded';
-    //   window.location.reload();
+    // if(!window.localStorage.getItem("nesta_results_reload")) {
+    //   window.localStorage.setItem("nesta_results_reload", true);
+    //   // window.location.reload();
+    // } else {
+    //   window.localStorage.removeItem("nesta_results_reload");
     // }
+    if(!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+    }
     if(currentStep !== 6) {
       history.push(ROUTES.LANDING);
     } else {
