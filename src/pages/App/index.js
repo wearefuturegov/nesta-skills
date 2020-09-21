@@ -19,6 +19,8 @@ import theme from "../../_theme"
 
 import data from '../../data.json'
 
+import ScrollToTop from '../../components/ScrollToTop'
+
 import StartPage from '../Tool0Start';
 import Tool1 from '../Tool1StrongSkills';
 import Tool2 from '../Tool2WeakSkills';
@@ -96,15 +98,3 @@ const App = () => {
 }
 
 export default withAuthentication(App);
-
-
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
