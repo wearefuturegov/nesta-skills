@@ -18,7 +18,7 @@ const Inner = styled.div`
     max-width: ${theme.l};
     margin: 0 auto;
 
-    a.back-button, a.next-button {
+    a.back-button, .next-button {
         margin: 0 5px;
     }
 
@@ -27,7 +27,7 @@ const Inner = styled.div`
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        a.back-button, a.next-button {
+        a.back-button, .next-button {
             width: fit-content;
         }
     }
@@ -53,7 +53,7 @@ const NextButton = styled.div`
     @media screen and (min-width: ${theme.m}) {
         display: block;
     }
-    a.back-button, a.next-button {
+    a.back-button, .next-button {
         margin-bottom: 0;
     }
     &.disabled {

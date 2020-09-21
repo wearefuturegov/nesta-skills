@@ -73,7 +73,7 @@ class SignInFormBase extends Component {
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
-          autocomplete="email"
+          autoComplete="email"
         />
         <input
           name="password"
@@ -81,7 +81,7 @@ class SignInFormBase extends Component {
           onChange={this.onChange}
           type="password"
           placeholder="Password"
-          autocomplete="current-password"
+          autoComplete="current-password"
         />
         <button disabled={isInvalid} type="submit">
           Sign In
