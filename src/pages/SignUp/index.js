@@ -5,6 +5,7 @@ import theme from "../../_theme";
 import { Button } from "../../components/Button";
 import { SecondaryButton } from '../../components/SecondaryButton';
 import { AuthUserContext } from '../Session';
+import SignOutButton from '../SignOut';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -52,16 +53,21 @@ const Label = styled.label`
 
 const SignUpPage = () => (
   <div>
-    <h1>SignUp</h1>
+    <h1>Sign Up</h1>
 
     <AuthUserContext.Consumer>
-            {authUser => (
-              authUser ?  
-                <SignUpForm isAnon={true} />
-                :
-                <SignUpForm />
-            )}
-          </AuthUserContext.Consumer>
+      {authUser => (
+        authUser && authUser.isAnonymous ?  
+          <>
+            <SignUpForm isAnon={true} />
+            
+            <h2>You are currently signed in as an anonymous user.</h2>
+            <SignOutButton />
+          </>
+          :
+          <SignUpForm />
+      )}
+    </AuthUserContext.Consumer>
   </div>
 );
 
