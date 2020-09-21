@@ -93,7 +93,8 @@ const Tool6 = props => {
   return(
     <AuthUserContext.Consumer>
       {authUser => {
-        saveResults(authUser)
+        currentStep === 5 &&
+          saveResults(authUser)
         return(<p>Loading...</p>)
       }}
     </AuthUserContext.Consumer>
