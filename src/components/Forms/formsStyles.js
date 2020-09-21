@@ -47,6 +47,3 @@ export const Small = styled.p`
   margin-top: -15px;
   font-size: 0.8rem;
 `
-export const SubTitle = styled.h2`
-  margin-top: 0;
-`
