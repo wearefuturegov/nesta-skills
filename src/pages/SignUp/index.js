@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import styled from "styled-components";
 import theme from "../../_theme";
 import { Button } from "../../components/Button";
-import { SecondaryButton } from '../../components/SecondaryButton';
+import { ButtonSecondary } from '../../components/ButtonSecondary';
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 
@@ -306,7 +306,7 @@ class SignUpFormBase extends Component {
             id="other1"
             className="hidden-field"
           >
-            <SecondaryButton onClick={this.changeOption1}>Choose a dfferent option</SecondaryButton>
+            <ButtonSecondary onClick={this.changeOption1}>Choose a dfferent option</ButtonSecondary>
 
             <Label>
               <small>Please provide more information</small>
@@ -338,7 +338,7 @@ class SignUpFormBase extends Component {
             id="other2"
             className="hidden-field"
           >
-            <SecondaryButton onClick={this.changeOption2}>Choose a dfferent option</SecondaryButton>
+            <ButtonSecondary onClick={this.changeOption2}>Choose a dfferent option</ButtonSecondary>
 
             <Label>
               <small>Please provide more information</small>

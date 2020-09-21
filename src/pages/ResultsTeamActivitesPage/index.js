@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import Content from '../../components/Content'
-import { SecondaryButton } from '../../components/SecondaryButton';
+import { ButtonSecondary } from '../../components/ButtonSecondary';
 
 
 const ResultsTeamActivitesPage = ({fields}) => {
@@ -10,7 +10,7 @@ const ResultsTeamActivitesPage = ({fields}) => {
 
   return(
     <section>
-      <SecondaryButton to={ROUTES.RESULTS}>Back to your results</SecondaryButton>
+      <ButtonSecondary to={ROUTES.RESULTS}>Back to your results</ButtonSecondary>
 
       <h1>{title}</h1>
       <Content source={body} />

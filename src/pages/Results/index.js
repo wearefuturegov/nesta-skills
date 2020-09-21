@@ -13,7 +13,7 @@ import BodyClassName from 'react-body-classname';
 import { Button } from '../../components/Button';
 import Content from '../../components/Content';
 import { RemoveScrollBar } from "react-remove-scroll-bar"
-import { SecondaryButton } from '../../components/SecondaryButton';
+import { ButtonSecondary } from '../../components/ButtonSecondary';
 import { SkillCardLite, SkillsContainer } from "../../components/SkillCard";
 
 import {
@@ -57,7 +57,7 @@ const PieContainer = styled.div`
     z-index: -1;
   }
 `
-const CloseModal = styled(SecondaryButton)`
+const CloseModal = styled(ButtonSecondary)`
 
 `
 const ModalActions = styled.div`
@@ -221,11 +221,11 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                           {parsedTotals && parsedTotals.slice(3,parsedTotals.length).map(role => (
                             <SingleRole key={role.title} role={role} />
                           ))}
-                          <SecondaryButton classes="asblock" onClick={() => setShowRoles(false)}>Hide roles</SecondaryButton>
+                          <ButtonSecondary classes="asblock" onClick={() => setShowRoles(false)}>Hide roles</ButtonSecondary>
                         </>
                       }
                     </RolesList>
-                    {!showRoles &&<SecondaryButton classes="asblock" onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</SecondaryButton>}
+                    {!showRoles &&<ButtonSecondary classes="asblock" onClick={() => setShowRoles(true)}>View all {parsedTotals.length} roles</ButtonSecondary>}
                   </ColouredSection>
                   <Section> 
                     <h3>{title_2}</h3>

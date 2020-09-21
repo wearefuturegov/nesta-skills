@@ -9,7 +9,7 @@ import { withFirebase } from '../Firebase';
 import { SignUpForm } from '../SignUp';
 import { SignInLink } from '../SignIn';
 import Content from '../../components/Content';
-import { SecondaryButton } from '../../components/SecondaryButton';
+import { ButtonSecondary } from '../../components/ButtonSecondary';
 import { SignInAnonButton } from '../SignInAnon';
 
 const Section = styled.section`
@@ -34,7 +34,7 @@ const Tool5 = ({fields}) => {
             history.push(ROUTES.SAVERESULTS)
           ) : (
             <>
-              <SecondaryButton to={ROUTES.STEP4}>Previous step</SecondaryButton>
+              <ButtonSecondary to={ROUTES.STEP4}>Previous step</ButtonSecondary>
 
               <Section>
                 <h1>{title}</h1>
