@@ -49,6 +49,10 @@ const Label = styled.label`
   }
 `
 
+const ErrorMessage = styled.p`
+  color: ${theme.red};
+  font-weight: bold;
+`
 
 
 const SignUpPage = () => (
@@ -59,8 +63,7 @@ const SignUpPage = () => (
       {authUser => (
         authUser && authUser.isAnonymous ?  
           <>
-            <SignUpForm isAnon={true} />
-            
+            <SignUpForm isAnon={true} proSkills={authUser.proSkills} conSkills={authUser.conSkills} proAttitudes={authUser.proAttitudes} conAttitudes={authUser.conAttitudes} roleTotals={authUser.roleTotals} />
             <h2>You are currently signed in as an anonymous user.</h2>
             <SignOutButton />
           </>
@@ -87,6 +90,11 @@ class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
     this.isAnon = (props.isAnon) ? true : false;
+    this.proSkills = props.proSkills;
+    this.conSkills = props.conSkills;
+    this.proAttitudes = props.proAttitudes;
+    this.conAttitudes = props.conAttitudes;
+    this.roleTotals = props.roleTotals;
     this.state = { ...INITIAL_STATE };
   }
 
@@ -102,30 +110,40 @@ class SignUpFormBase extends Component {
     }
 
     if(this.isAnon) {
-    let credential = this.props.firebase.getEmailAuthProviderCredential(email, passwordOne);
-    this.props.firebase.doLinkWithCredential(credential).then((authUser) => {
-        var user = authUser.user;
-        console.log("Anonymous account successfully upgraded", user);
-        // Create the user in your Firebase realtime database
-        return this.props.firebase.user(authUser.user.uid).set({
-          username,
-          email,
-          roles,
-          orgType, 
-          position, 
-          location
+      
+      let credential = this.props.firebase.getEmailAuthProviderCredential(email, passwordOne);
+      this.props.firebase.doLinkWithCredential(credential)
+        .then((authUser) => {
+          console.log("Anonymous account successfully upgraded", authUser);
+          // Create the user in your Firebase realtime database
+          return this.props.firebase.user(authUser.user.uid).set({
+            username: username,
+            email: email,
+            roles: roles,
+            orgType: orgType, 
+            position: position, 
+            location: location,
+            proSkills: this.proSkills ? this.proSkills : "",
+            conSkills: this.conSkills ? this.conSkills : "",
+            proAttitudes: this.proAttitudes ? this.proAttitudes : "",
+            conAttitudes: this.conAttitudes ? this.conAttitudes : "",
+            roleTotals: this.roleTotals ? this.roleTotals : "",
+            isAnonymous: false
+          });
+        })
+        .then(() => {
+          return this.props.firebase.doSendEmailVerification();
+        })
+        .then(() => {
+          this.setState({ ...INITIAL_STATE });
+          this.props.history.push(ROUTES.RESULTS);
+        }).catch(error => {
+          if (error.code === ERRORS.ERROR_CODE_ACCOUNT_EXISTS) {
+            error.message = ERRORS.ERROR_MSG_ACCOUNT_EXISTS;
+          }
+  
+          this.setState({ error });
         });
-      })
-      .then(() => {
-        return this.props.firebase.doSendEmailVerification();
-      })
-      .then(() => {
-        this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.SAVERESULTS);
-      }).catch(function(error) {
-      console.log("Error upgrading anonymous account", error);
-    });
-
     } else {
    
     this.props.firebase
@@ -223,6 +241,8 @@ class SignUpFormBase extends Component {
         {this.isAnon && 
           <p>To save your results and return later complete the form below.</p>
         }
+        {error && <ErrorMessage>{error.message}</ErrorMessage>}
+
         <Label>
           Name
           <input
@@ -608,8 +628,6 @@ class SignUpFormBase extends Component {
         <Button type="submit" isButton>
           Sign Up
         </Button>
-
-        {error && <p>{error.message}</p>}
       </form>
     );
   }
