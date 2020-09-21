@@ -44,7 +44,7 @@ class Firebase {
 
   doSendEmailVerification = () =>
     this.auth.currentUser.sendEmailVerification({
-      url: "https://nesta-skills.netlify.app/" + ROUTES.VERIFIED,
+      url: "https://nesta-skills.netlify.app" + ROUTES.VERIFIED,
     });
 
   doPasswordUpdate = password =>
