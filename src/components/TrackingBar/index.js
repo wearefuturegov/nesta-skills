@@ -18,11 +18,18 @@ const Inner = styled.div`
     max-width: ${theme.l};
     margin: 0 auto;
 
+    a.back-button, .next-button {
+        margin: 0 5px;
+    }
+
     @media screen and (min-width: ${theme.m}) {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        a.back-button, .next-button {
+            width: fit-content;
+        }
     }
     @media screen and (min-width: ${theme.xl}){
         max-width: calc(${theme.xl} - 200px);
@@ -32,13 +39,25 @@ const Inner = styled.div`
 const Middle = styled.div`
 
 `
-
+const Buttons = styled.div`
+    @media screen and (max-width: ${theme.m}) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5px;
+    }
+`
 const NextButton = styled.div`
-    a {
+    display: inline-block;
+    @media screen and (min-width: ${theme.m}) {
+        display: block;
+    }
+    a.back-button, .next-button {
         margin-bottom: 0;
     }
     &.disabled {
-        a {
+        button {
             background: ${theme.grey};
             cursor: not-allowed;
         }
@@ -56,7 +75,18 @@ const BlankSpace = styled.div`
         display: block;
     }
 `
-
+const Mobile = styled.div`
+    display: inline-block;
+    @media screen and (min-width: ${theme.m}) {
+        display: none;
+    }
+`
+const Desktop = styled.div`
+    display: none;
+    @media screen and (min-width: ${theme.m}) {
+        display: block;
+    }
+`
 export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, nextLink, children}) => {
     function createBlankDots() {
         let Dots = []
@@ -68,13 +98,16 @@ export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, n
     return(
         <Outer>
             <Inner>
-                {previousLink ? 
-                    <PreviousButton className={""}>
-                        <Button to={previousLink}>Back</Button>
-                    </PreviousButton>
-                    :
-                    <BlankSpace />
-                }
+                
+                <Desktop>
+                    {previousLink ? 
+                        <PreviousButton className={""}>
+                            <Button className="back-button" to={previousLink}>Back</Button>
+                        </PreviousButton>
+                        :
+                        <BlankSpace />
+                    }
+                </Desktop>
                 <Middle>
                     <p>Choose <strong>{maxSelectionNo - chosenSkills.length}</strong> more {type}</p>
                     {children}
@@ -82,13 +115,24 @@ export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, n
                         createBlankDots()
                     }
                 </Middle>
-                {nextLink ? 
-                    <NextButton className={chosenSkills.length === maxSelectionNo ? "" : "disabled"}>
-                        <Button to={nextLink}>Next</Button>
-                    </NextButton>
-                    :
-                    <BlankSpace />
-                }
+                <Buttons>
+                    <Mobile>
+                        {previousLink ? 
+                            <PreviousButton className={""}>
+                                <Button className="back-button" to={previousLink}>Back</Button>
+                            </PreviousButton>
+                            :
+                            <BlankSpace />
+                        }
+                    </Mobile>
+                    {nextLink ? 
+                        <NextButton className={chosenSkills.length === maxSelectionNo ? "" : "disabled"}>
+                            <Button className="next-button" to={chosenSkills.length === maxSelectionNo ? nextLink : ""}>Next</Button>
+                        </NextButton>
+                        :
+                        <BlankSpace />
+                    }
+                </Buttons>
             </Inner>
         </Outer>            
     );

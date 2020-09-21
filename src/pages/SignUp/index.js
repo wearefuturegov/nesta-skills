@@ -251,6 +251,7 @@ class SignUpFormBase extends Component {
             onChange={this.onChange}
             type="text"
             placeholder="Your name"
+            autoComplete="name"
           />
         </Label>
         <Label>
@@ -261,6 +262,7 @@ class SignUpFormBase extends Component {
             onChange={this.onChange}
             type="email"
             placeholder="Email Address"
+            autoComplete="email"
           />
         </Label>
         <Label>
@@ -271,6 +273,7 @@ class SignUpFormBase extends Component {
             onChange={this.onChange}
             type="password"
             placeholder="Password"
+            autoComplete="new-password"
           />
         </Label>
         <Label>
@@ -281,6 +284,7 @@ class SignUpFormBase extends Component {
             onChange={this.onChange}
             type="password"
             placeholder="Confirm Password"
+            autoComplete="new-password"
           />
         </Label>
         <Label>

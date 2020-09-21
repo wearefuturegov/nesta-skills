@@ -198,6 +198,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                 role="button" 
                 aria-pressed={isActive ? "true" : "false"}
                 isButton={2}
+                id={`skill_${skill.id}`}
             >
                 <Inner>
                     <SkillTitle>{skill.title}</SkillTitle>
@@ -270,6 +271,10 @@ export const SkillCardDevelopment = ({skill}) => {
             <Outer 
                 bg={getBranding(skill.brand)} 
                 isButton={1}
+                onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && openModal(e)}
+                tabIndex="0" 
+                role="button" 
+                isButton={2}
             >
                 <Inner>
                     <SkillTitle>{skill.title}</SkillTitle>

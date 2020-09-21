@@ -4,10 +4,11 @@ import theme from "../../_theme"
 
 const Outer = styled.div`
     text-align: center;
+    margin-bottom: 10px;
 `
 
 export const CurrentStep = ({step, max}) => (
     <Outer>
-        <p>Step {step} of {max}</p>
+        Step {step} of {max}
     </Outer>
 );
