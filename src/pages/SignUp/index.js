@@ -242,7 +242,6 @@ class SignUpFormBase extends Component {
           <p>To save your results and return later complete the form below.</p>
         }
         {error && <ErrorMessage>{error.message}</ErrorMessage>}
-
         <Label>
           Name
           <input

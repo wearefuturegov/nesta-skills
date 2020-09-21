@@ -159,14 +159,6 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
       window.location = window.location + '#loaded';
       window.location.reload();
     }
-    if(currentStep !== 6) {
-      history.push(ROUTES.LANDING);
-    } else {
-      // window.localStorage.setItem("nesta_pro_skills", "");
-      // window.localStorage.setItem("nesta_con_skills", "");
-      // window.localStorage.setItem("nesta_pro_attitudes", "");
-      // window.localStorage.setItem("nesta_con_attitudes", "");
-    }
   }, []);
 
   function openModal(event) {
@@ -188,10 +180,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
       <AuthUserContext.Consumer>
         {authUser => {
           console.log(authUser)
-          if(!authUser.roleTotals) {
-            console.log('auth user current step !== 6')
-            history.push(ROUTES.LANDING)
-          } else {
+          if(authUser.roleTotals || currentStep === 6) {
             console.log('auth user - parse totals');
             let parsedTotals = false;
             let parsedProSkills = false;
@@ -357,8 +346,12 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                   </Section>
                 </>
               :
-              <p>Loading...</p>
+              <>
+                <p>Loading...</p>
+              </>
             )
+          } else {
+            history.push(ROUTES.LANDING)
           }
         }}
       </AuthUserContext.Consumer>
