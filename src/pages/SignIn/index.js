@@ -1,22 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { compose } from 'recompose';
 import { Label, ErrorMessage } from '../../components/Forms/formsStyles';
 import { Button } from "../../components/Button";
+import { useToasts } from 'react-toast-notifications';
 
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
-const SignInPage = () => (
-  <div>
-    <h1>Sign In</h1>
-    <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
-  </div>
-);
+const SignInPage = () => {
+  const { addToast } = useToasts()
+
+  useEffect(() => {
+    let deletedResponse = window.localStorage.getItem("nesta_user_deleted");
+    if(deletedResponse) {
+      if(deletedResponse === "true") {
+        addToast("Sucessfully deleted all user data", {
+          appearance: 'success',
+          autoDismiss: true,
+          autoDismissTimeout: 2500
+        })
+      } else if(deletedResponse === "error") {
+        addToast("Sorry an error occurred, you may not have logged in recently enough to delete your data. Log out and back in in order to retry this.", {
+          appearance: 'error',
+          autoDismiss: false
+        })
+      }
+      window.localStorage.setItem("nesta_user_deleted", "")
+    }
+  });
+    
+  return(
+    <div>
+      <h1>Sign In</h1>
+      <SignInForm />
+      <PasswordForgetLink />
+      <SignUpLink />
+    </div>
+  )
+};
 
 const INITIAL_STATE = {
   email: '',

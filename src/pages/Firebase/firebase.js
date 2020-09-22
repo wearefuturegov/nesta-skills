@@ -59,7 +59,24 @@ class Firebase {
   getEmailAuthProviderCredential = (email, password) => 
     this.emailAuthProvider.credential(email, password)
 
-    
+  doDeleteCurrentUser = () => {
+    this.user(this.auth.currentUser.uid).set({
+      archived: "Account deleted by user"
+    }).then(
+      this.auth.currentUser.delete()
+      .then(function() {
+        window.localStorage.setItem("nesta_progress", "");
+        window.localStorage.setItem("nesta_pro_skills", "");
+        window.localStorage.setItem("nesta_con_skills", "");
+        window.localStorage.setItem("nesta_pro_attitudes", "");
+        window.localStorage.setItem("nesta_con_attitudes", "");
+        window.localStorage.setItem("nesta_user_deleted", "true");
+      }).catch(function(error) {
+        window.localStorage.setItem("nesta_user_deleted", "error");
+      })
+    );
+  }
+
 
   // *** Merge Auth and DB User API *** //
 
