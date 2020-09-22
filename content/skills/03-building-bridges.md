@@ -3,6 +3,15 @@ title: Building bridges
 id: 3
 brand: working_together
 text: Orchestrating interaction to find common ground and create shared ownership
+read:
+  - text: "Everything starts with trust "
+    url: https://hbr.org/2020/05/begin-with-trust
+watch:
+  - text: Building and burning bridges
+    url: https://youtu.be/PigFuOlHG84
+use:
+  - text: Building partnerships
+    url: https://media.nesta.org.uk/documents/Resources_2017_version_03.pdf
 ---
 
 By reaching out and making new connections between different groups, you help stakeholders with different interests find common ground and orient them towards a shared goal.
