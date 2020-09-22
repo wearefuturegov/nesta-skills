@@ -31,7 +31,11 @@ const SignInAnonButtonBase = (props) => {
       });
     })
     .then(() => {
-      props.history.push(ROUTES.SAVERESULTS);
+      if(window.localStorage.getItem("nesta_progress") === 5) {
+        props.history.push(ROUTES.SAVERESULTS);
+      } else {
+        props.history.push(ROUTES.LANDING);
+      }
     })
     .catch(error => {
       if (error.code === ERRORS.ERROR_CODE_ACCOUNT_EXISTS) {

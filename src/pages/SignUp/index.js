@@ -120,7 +120,11 @@ class SignUpFormBase extends Component {
       })
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.SAVERESULTS);
+        if(window.localStorage.getItem("nesta_progress") === 5) {
+          this.props.history.push(ROUTES.SAVERESULTS);
+        } else {
+          this.props.history.push(ROUTES.LANDING);
+        }
       })
       .catch(error => {
         if (error.code === ERRORS.ERROR_CODE_ACCOUNT_EXISTS) {
