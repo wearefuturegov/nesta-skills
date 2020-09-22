@@ -3,6 +3,12 @@ title: Tech literacy
 id: 9
 brand: learning
 text: Testing ideas and systematically improving them
+read:
+  - url: https://www.ey.com/en_gl/government-public-sector/how-does-digital-government-become-better-government
+    text: How does digital government become better government?
+use:
+  - url: https://media.nesta.org.uk/documents/Nesta_Playbook_001_Web.pdf
+    text: Collective intelligence playbook
 ---
 You recognise the potential in tech developments, but know that the tech isn’t the ‘innovation’ or necessarily the answer per se, rather a tool to help you get closer to a solution.
 
