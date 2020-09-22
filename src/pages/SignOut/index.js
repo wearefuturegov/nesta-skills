@@ -5,7 +5,7 @@ import theme from "../../_theme";
 import { withFirebase } from '../Firebase';
 
 const SignOutButton = ({ firebase }) => (
-  <Button type="button" onClick={firebase.doSignOut} bg={theme.red}>
+  <Button type="button" onClick={firebase.doSignOut} background={theme.accessibleRed}>
     Sign Out
   </Button>
 );

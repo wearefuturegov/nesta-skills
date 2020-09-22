@@ -11,6 +11,7 @@ export default {
     darkPurple: "#3C1252",
     orange: "#FF5A00",
     red: "#FF0041",
+    accessibleRed: "#EB003B",
     purple: "#9B00C3",
     focus: "#FFF71A",
     green: "#2d9a21",

@@ -72,22 +72,22 @@ const Landing = ({verified = false, fields}) => {
             {authUser => (
               authUser ?
                 <div>
-                  <h1>{authUser.username && `Welcome - ${authUser.username}`}</h1>
+                  {authUser.username && authUser.username !== "anonymous" && <h2>{`Welcome - ${authUser.username}`}</h2>}
                   {authUser.roleTotals || currentStep === 6 ?
                     <>
                       <p>You have already completed this app.</p>
                       <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
-                      <Button to={`/results`} background={theme.red}>View your results</Button>
+                      <Button to={`/results`} background={theme.accessibleRed}>View your results</Button>
                     </>
                     :
                     currentStep > 0 ? 
                       <>
                         <p>It looks like you have already started</p>
                         <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
-                        <Button to={`/step_${currentStep}`} background={theme.red}>Continue</Button>
+                        <Button to={`/step_${currentStep}`} background={theme.accessibleRed}>Continue</Button>
                       </>
                       :
-                      <Button to={ROUTES.START} background={theme.red}>Get started</Button>
+                      <Button to={ROUTES.START} background={theme.accessibleRed}>Get started</Button>
                   }
                 </div>
                 :
@@ -95,10 +95,10 @@ const Landing = ({verified = false, fields}) => {
                   <>
                     <p>It looks like you have already started</p>
                     <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
-                    <Button to={`/step_${currentStep}`} background={theme.red}>Continue</Button>
+                    <Button to={`/step_${currentStep}`} background={theme.accessibleRed}>Continue</Button>
                   </>
                   :
-                  <Button to={ROUTES.START} background={theme.red}>Get started</Button>
+                  <Button to={ROUTES.START} background={theme.accessibleRed}>Get started</Button>
             )}
           </AuthUserContext.Consumer>
 
