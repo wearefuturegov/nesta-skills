@@ -19,7 +19,6 @@ import { SkillCardLite, SkillsContainer } from "../../components/SkillCard";
 import {
   AuthUserContext,
   withAuthorization,
-  withEmailVerification,
 } from '../Session';
 
 const Section = styled.section`
@@ -372,6 +371,5 @@ const condition = authUser => !!authUser;
 
 export default compose(
   withFirebase,
-  withEmailVerification,
   withAuthorization(condition),
 )(ResultsPage);
