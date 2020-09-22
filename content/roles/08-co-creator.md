@@ -29,6 +29,7 @@ skillsMapping:
 subSkillsMapping:
   - 3
   - 13
+  - 14
 attitudesMapping: 
   - 1
   - 2

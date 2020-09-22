@@ -28,6 +28,7 @@ skillsMapping:
   - 11
   - 12
   - 13
+  - 14
 subSkillsMapping:
   - 3
   - 5
