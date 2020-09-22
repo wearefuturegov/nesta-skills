@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, useLocation, Switch } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications'
 import ReactGA from 'react-ga';
 
 import Navigation from '../Navigation';
+import Footer from '../Footer';
 import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
@@ -36,6 +37,9 @@ const PageWrapper = styled.div`
   padding: 0 15px;
   max-width: ${theme.l};
   margin: 0 auto;
+  flex: 1 0 auto;
+  width: 100%;
+
   @media screen and (min-width: ${theme.xl}){
     max-width: calc(${theme.xl} - 200px);
   }
@@ -93,6 +97,7 @@ const App = () => {
           </Switch>
         </ToastProvider>
       </PageWrapper>
+      <Footer />
     </Router>
   )
 }
