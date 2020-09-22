@@ -3,6 +3,15 @@ title: Systems thinking
 id: 8
 brand: learning
 text: Combining micro and macro perspectives to grasp complexity
+read:
+  - text: Tools for Systems Thinkers
+    url: https://medium.com/disruptive-design/tools-for-systems-thinkers-the-6-fundamental-concepts-of-systems-thinking-379cdac3dc6a
+watch:
+  - text: "Systems thinking! "
+    url: https://www.youtube.com/watch?v=GPW0j2Bo_eY&feature=youtu.be
+use:
+  - text: "Activity Triangles "
+    url: https://www.artsfwd.org/activity-triangles/
 ---
 You understand that the details of an issue are as important as how they fit in the ‘big picture’. You recognise that problems often involve an interconnected mess of small actions in large complex systems, and so considering the relationship between them is crucial. You explore how change at one scale might affect a whole system over time.
 
