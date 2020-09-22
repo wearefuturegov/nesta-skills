@@ -13,6 +13,8 @@ import { SkillCard } from "../../components/SkillCard";
 import { SkillDot } from "../../components/SkillDot";
 import { TrackingBar } from "../../components/TrackingBar";
 
+import { safeJsonParse } from "../../util/utils";
+
 const SkillsContainer = styled.ul`
   list-style-type: none;
   padding: 0;
@@ -35,7 +37,7 @@ const Tool2 = ({fields, skills}) => {
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [storedSkills, setStoredSkills] = useLocalStorage("nesta_pro_skills");
   const [storedWeakness, setStoredWeakness] = useLocalStorage("nesta_con_skills");
-  const [chosenSkills, setChosenSkills] = useState(storedWeakness ? JSON.parse(storedWeakness) : []);
+  const [chosenSkills, setChosenSkills] = useState(storedWeakness ? safeJsonParse(storedWeakness) : []);
   const { addToast } = useToasts()
 
   useEffect(() => {
@@ -79,7 +81,7 @@ const Tool2 = ({fields, skills}) => {
 
         <SkillsContainer>
           {skills.map((skill) =>
-            JSON.parse(storedSkills).includes(skill.id) === false &&
+            safeJsonParse(storedSkills).includes(skill.id) === false &&
               <SkillCard 
                 key={skill.id} 
                 skill={skill} 

@@ -4,6 +4,8 @@ import { compose } from 'recompose';
 import { useHistory } from "react-router-dom";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
+import { safeJsonParse } from "../../util/utils";
+
 import {
   AuthUserContext,
   withAuthorization,
@@ -96,10 +98,10 @@ const Tool6 = props => {
         orgType: authUser.orgType ? authUser.orgType : "", 
         position: authUser.position ? authUser.position : "", 
         location: authUser.location ? authUser.location : "",
-        proSkills: JSON.parse(proSkills),
-        conSkills: JSON.parse(conSkills),
-        proAttitudes: JSON.parse(proAttitudes),
-        conAttitudes: JSON.parse(conAttitudes),
+        proSkills: safeJsonParse(proSkills),
+        conSkills: safeJsonParse(conSkills),
+        proAttitudes: safeJsonParse(proAttitudes),
+        conAttitudes: safeJsonParse(conAttitudes),
         roleTotals: roleTotals,
         isAnonymous: authUser.isAnonymous ? authUser.isAnonymous : ""
       }).then(() => {

@@ -13,6 +13,9 @@ import { SkillCard } from "../../components/SkillCard";
 import { SkillDot } from "../../components/SkillDot";
 import { TrackingBar } from "../../components/TrackingBar";
 
+import { safeJsonParse } from "../../util/utils";
+
+
 const SkillsContainer = styled.ul`
   list-style-type: none;
   padding: 0;
@@ -35,7 +38,7 @@ const Tool4 = ({fields, attitudes}) => {
   const [proAttitudes, setProAttitudes] = useLocalStorage("nesta_pro_attitudes");
   const [conAttitudes, setConAttitudes] = useLocalStorage("nesta_con_attitudes");
   
-  const [chosenSkills, setChosenSkills] = useState(conAttitudes ? JSON.parse(conAttitudes) : []);
+  const [chosenSkills, setChosenSkills] = useState(conAttitudes ? safeJsonParse(conAttitudes) : []);
   const { addToast } = useToasts()
 
   useEffect(() => {
@@ -80,7 +83,7 @@ const Tool4 = ({fields, attitudes}) => {
         
         <SkillsContainer>
           {attitudes.map((skill) =>
-            JSON.parse(proAttitudes).includes(skill.id) === false &&
+            safeJsonParse(proAttitudes).includes(skill.id) === false &&
               <SkillCard 
                 key={skill.id} 
                 skill={skill} 
