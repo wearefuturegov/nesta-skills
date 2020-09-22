@@ -6,6 +6,9 @@ text: Testing ideas and systematically improving them
 read:
   - url: https://www.ey.com/en_gl/government-public-sector/how-does-digital-government-become-better-government
     text: How does digital government become better government?
+watch:
+  - url: https://www.ted.com/talks/beth_noveck_demand_a_more_open_source_government
+    text: "Beth Noveck: Demand a more open-source government"
 use:
   - url: https://media.nesta.org.uk/documents/Nesta_Playbook_001_Web.pdf
     text: Collective intelligence playbook
