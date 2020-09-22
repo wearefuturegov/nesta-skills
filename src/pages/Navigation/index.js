@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from "styled-components"
 import theme from "../../_theme"
@@ -68,7 +68,7 @@ const Logo = styled(logoSvg)`
 
 
 const Navigation = () => {
-  const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
+  const currentStep = useLocalStorage("nesta_progress");
 
   return(
     <AuthUserContext.Consumer>

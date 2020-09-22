@@ -9,7 +9,6 @@ import {
   withAuthorization,
 } from '../Session';
 import { withFirebase } from '../Firebase';
-import { auth } from 'firebase';
 
 const Tool6 = props => {
   const rolesContent = props.rolesContent;

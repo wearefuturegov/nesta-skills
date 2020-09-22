@@ -1,11 +1,11 @@
-import React, { useEffect, useState, Component } from 'react';
+import React from 'react';
 import styled from "styled-components"
 import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import BodyClassName from 'react-body-classname';
 import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { Switch, Route, Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import {
   AuthUserContext

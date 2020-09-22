@@ -170,9 +170,6 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
       event.stopPropagation();
       setShowModal(false);
   }
-  function keyPressed(condition) {
-      setShowModal(condition ? false : true);
-  }
 
   return(
     <BodyClassName className="results_page">

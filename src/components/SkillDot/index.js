@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import theme from "../../_theme"
 
 import {Outer, BlankOuter} from './SkillDotStyles';

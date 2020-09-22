@@ -1,11 +1,9 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components"
 import * as ROUTES from '../../constants/routes';
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import BodyClassName from 'react-body-classname';
 import { AuthUserContext } from '../Session';
-import { Link, useHistory } from 'react-router-dom';
-import { withFirebase } from '../Firebase';
+import { useHistory } from 'react-router-dom';
 import { SignUpForm } from '../SignUp';
 import { SignInLink } from '../SignIn';
 import Content from '../../components/Content';

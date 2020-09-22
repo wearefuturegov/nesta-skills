@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { compose } from 'recompose';
 import SignOutButton from '../SignOut';
 import BodyClassName from 'react-body-classname';
@@ -8,16 +8,7 @@ import {
   withAuthorization,
   withEmailVerification,
 } from '../Session';
-import { withFirebase } from '../Firebase';
-import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
-
-const SIGN_IN_METHODS = [
-  {
-    id: 'password',
-    provider: null,
-  }
-];
 
 const AccountPage = () => (
   <BodyClassName className="account_page">
