@@ -26,7 +26,7 @@ export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, n
                 <Desktop>
                     {previousLink ? 
                         <PreviousButton className={""}>
-                            <Button className="back-button"  onClick={() => clickButton()}>Back</Button>
+                            <Button className="back-button" to={null} onClick={(e) => {e.preventDefault(); clickButton()}}>Back</Button>
                         </PreviousButton>
                         :
                         <BlankSpace />
@@ -43,7 +43,7 @@ export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, n
                     <Mobile>
                         {previousLink ? 
                             <PreviousButton className={""}>
-                                <Button className="back-button" to={previousLink}>Back</Button>
+                                <Button className="back-button"  to={null} onClick={(e) => {e.preventDefault(); clickButton()}}>Back</Button>
                             </PreviousButton>
                             :
                             <BlankSpace />
@@ -51,7 +51,7 @@ export const TrackingBar = ({maxSelectionNo, chosenSkills, type, previousLink, n
                     </Mobile>
                     {nextLink ? 
                         <NextButton className={chosenSkills.length === maxSelectionNo ? "" : "disabled"}>
-                            <Button className="next-button" onClick={() => clickButton('increase')}>Next</Button>
+                            <Button className="next-button" to={null} onClick={(e) => {e.preventDefault(); clickButton('increase')}}>Next</Button>
                         </NextButton>
                         :
                         <BlankSpace />
