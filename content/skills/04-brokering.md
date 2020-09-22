@@ -4,6 +4,12 @@ id: 4
 brand: working_together
 text: Mediating contrasting interests and reducing friction between multiple
   stakeholders
+read:
+  - text: "Want collaboration? Accept - and effectively manage - conflict. "
+    url: https://hbr.org/2005/03/want-collaboration-accept-and-actively-manage-conflict
+watch:
+  - url: https://www.youtube.com/watch?v=2l-AOBz69KU
+    text: "Why there's so much conflict at work, and what you can do about it. "
 ---
 You can recognise differences and manage potential tensions to avoid individual interests dominating collaborative efforts.
 
