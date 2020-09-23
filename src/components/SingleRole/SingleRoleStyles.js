@@ -156,7 +156,7 @@ font-weight: bold;
 position: relative;
 text-align: center;
 padding-top: 40%;    
-width: calc(40% - 10px);
+width: calc(45% - 10px);
 margin-right: 10px;
 margin-bottom: 10px;
 
@@ -177,6 +177,7 @@ margin-bottom: 10px;
     flex: calc(25% - 8px);
     margin-right: 10px;
     padding-top: 25%;    
+    width: calc(40% - 10px);
 
     &:last-of-type {
         margin-right: 0;

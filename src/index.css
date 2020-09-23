@@ -80,3 +80,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@media screen and (max-width: 550px){
+  .ReactModal__Content {
+    padding-bottom: 40px !important;
+  }
+}

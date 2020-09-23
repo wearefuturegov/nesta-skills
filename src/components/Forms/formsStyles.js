@@ -9,7 +9,7 @@ export const Label = styled.label`
   input, select {
     display: block;
     width: 100%;
-    min-width: 400px;
+    min-width: 0;
     margin-top: 5px;
     padding: 5px;
     font-size: 1rem;
@@ -25,11 +25,16 @@ export const Label = styled.label`
       border-radius: 0;
       box-shadow: 0px 0px 0px 3px ${theme.focus};
     }
+    @media screen and (min-width: ${theme.m}){
+      min-width: 400px;
+    }
   }
   input {
     width: calc(100% - 14px);
-    min-width: 386px;
+    min-width: 0;
+    
     @media screen and (min-width: ${theme.m}){
+      min-width: 386px;
       width: auto;
     }
   }
