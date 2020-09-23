@@ -37,9 +37,9 @@ const StyledH1 = styled.h1`
 `
 const StyledH2 = styled.h2`
   line-height: 1.2;
-  max-width: 450px;
+  max-width: 500px;
   margin 0 auto;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   font-size: 1.75rem;
   
   @media screen and (min-width: ${theme.m}){
@@ -153,7 +153,7 @@ const Circles = styled.img`
 `
 
 const Landing = ({verified = false, fields}) => {
-  const { _1_strapline, _2_paragraph_1, _3_sub_title, _4_paragraph_2, _5_sub_title_2, _6_paragraph_3 } = fields;
+  const { _1_strapline, _2_paragraph_1, _3_sub_title } = fields;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const history = useHistory();
 
@@ -182,9 +182,6 @@ const Landing = ({verified = false, fields}) => {
             </Section>
             <CenteredSection>
               <StyledH2>{_3_sub_title}</StyledH2>
-              <LeadP>
-                <Content source={_4_paragraph_2} />
-              </LeadP>
               <CirclesContainer>
                 <Circle bg={orangeCircle}>
                   <CircleInner>
