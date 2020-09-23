@@ -65,7 +65,8 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                     onRequestClose={() => setShowModal(false)}
                     style={{
                         overlay: {
-                          backgroundColor: 'rgba(60,18,82,0.8)'
+                          backgroundColor: 'rgba(60,18,82,0.8)',
+                          zIndex: '998'
                         },
                         content: {
                             transform: 'translate(-50%, -50%)',
@@ -78,7 +79,8 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                             border: `5px solid ${getBranding(skill.brand)}`,
                             borderRadius: '0',
                             maxHeight: 'calc(100vh - 70px)',
-                            overflow: 'scroll'
+                            overflow: 'scroll',
+                            zIndex: '999'
                         }
                     }}
                 >
@@ -141,7 +143,8 @@ export const SkillCardDevelopment = ({skill}) => {
                     onRequestClose={() => setShowModal(false)}
                     style={{
                         overlay: {
-                          backgroundColor: 'rgba(60,18,82,0.8)'
+                          backgroundColor: 'rgba(60,18,82,0.8)',
+                          zIndex: '998'
                         },
                         content: {
                             transform: 'translate(-50%, -50%)',
@@ -154,7 +157,8 @@ export const SkillCardDevelopment = ({skill}) => {
                             border: `5px solid ${getBranding(skill.brand)}`,
                             borderRadius: '0',
                             maxHeight: 'calc(100vh - 70px)',
-                            overflow: 'scroll'
+                            overflow: 'scroll',
+                            zIndex: '999'
                         }
                     }}
                 >

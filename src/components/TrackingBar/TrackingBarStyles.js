@@ -10,7 +10,7 @@ export const Outer = styled.div`
     padding: 15px;
     background: ${theme.white};
     text-align: center;
-    z-index: 999;
+    z-index: 900;
 `
 
 export const Inner = styled.div`
