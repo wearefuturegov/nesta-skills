@@ -58,7 +58,7 @@ const LeadP = styled.p`
 `
 
 const Section = styled.section`
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 
   a {
     color: ${theme.white};
@@ -167,88 +167,86 @@ const Landing = ({verified = false, fields}) => {
   }
   return(
     <BodyClassName className="landing_page">
-      <>
-      <Circles src={colouredCircles} alt="" />
-      <MainWrapper role="main">
-        <Section>
-          <StyledH1>{_1_strapline}</StyledH1>
-          <LeadP>
-            <Content source={_2_paragraph_1} />
-          </LeadP>
-        </Section>
-        
-        <br />
+      <AuthUserContext.Consumer>
+      {authUser => (
+        <>
+          <Circles src={colouredCircles} alt="" />
+          <MainWrapper role="main">
+            <Section>
+              <StyledH1>{_1_strapline}</StyledH1>
+              <LeadP>
+                <Content source={_2_paragraph_1} />
+              </LeadP>
+            
+              <LandingPageCTA authUser={authUser} currentStep={currentStep} />
+            </Section>
+            <CenteredSection>
+              <StyledH2>{_3_sub_title}</StyledH2>
+              <LeadP>
+                <Content source={_4_paragraph_2} />
+              </LeadP>
+              <CirclesContainer>
+                <Circle bg={orangeCircle}>
+                  <CircleInner>
+                    <CircleTitle>Learn</CircleTitle>
+                    <CircleText>more about the skills and attitudes</CircleText>
+                  </CircleInner>
+                </Circle>
+                <Circle bg={redCircle}>
+                  <CircleInner>
+                    <CircleTitle>Explore</CircleTitle>
+                    <CircleText>your own skills and attitudes</CircleText>
+                  </CircleInner>
+                </Circle>
+                <Circle bg={purpleCircle}>
+                  <CircleInner>
+                    <CircleTitle>Build</CircleTitle>
+                    <CircleText>a picture of your team’s skills and attitudes</CircleText>
+                  </CircleInner>
+                </Circle>
+              </CirclesContainer>
 
-        <CenteredSection>
-          <StyledH2>{_3_sub_title}</StyledH2>
-          <LeadP>
-            <Content source={_4_paragraph_2} />
-          </LeadP>
-
-          <AuthUserContext.Consumer>
-            {authUser => (
-              authUser ?
-                <div>
-                  {authUser.username && authUser.username !== "anonymous" && <h2>{`Welcome - ${authUser.username}`}</h2>}
-                  {authUser.roleTotals || currentStep === 6 ?
-                    <>
-                      <p>You have already completed this app.</p>
-                      <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
-                      <Button to={`/results`} background={theme.accessibleRed}>View your results</Button>
-                    </>
-                    :
-                    currentStep > 0 ? 
-                      <>
-                        <p>It looks like you have already started</p>
-                        <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
-                        <Button to={`/step_${currentStep}`} background={theme.accessibleRed}>Continue</Button>
-                      </>
-                      :
-                      <Button to={ROUTES.START} background={theme.accessibleRed}>Get started</Button>
-                  }
-                </div>
-                :
-                currentStep > 0 ? 
-                  <>
-                    <p>It looks like you have already started</p>
-                    <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
-                    <Button to={`/step_${currentStep}`} background={theme.accessibleRed}>Continue</Button>
-                  </>
-                  :
-                  <Button to={ROUTES.START} background={theme.accessibleRed}>Get started</Button>
-            )}
-          </AuthUserContext.Consumer>
-        </CenteredSection>
-        <CenteredSection>
-          <StyledH2>{_5_sub_title_2}</StyledH2>
-          <LeadP>
-            <Content source={_6_paragraph_3} />
-          </LeadP>
-          <CirclesContainer>
-            <Circle bg={orangeCircle}>
-              <CircleInner>
-                <CircleTitle>Learn</CircleTitle>
-                <CircleText>more about the skills and attitudes</CircleText>
-              </CircleInner>
-            </Circle>
-            <Circle bg={redCircle}>
-              <CircleInner>
-                <CircleTitle>Explore</CircleTitle>
-                <CircleText>your own skills and attitudes</CircleText>
-              </CircleInner>
-            </Circle>
-            <Circle bg={purpleCircle}>
-              <CircleInner>
-                <CircleTitle>Build</CircleTitle>
-                <CircleText>a picture of your team’s skills and attitudes</CircleText>
-              </CircleInner>
-            </Circle>
-          </CirclesContainer>
-        </CenteredSection>
-      </MainWrapper>
-      </>
+              <br />
+              <br />
+              <LandingPageCTA authUser={authUser} currentStep={currentStep} />
+            </CenteredSection>
+          </MainWrapper>
+        </>
+      )}
+      </AuthUserContext.Consumer>
     </BodyClassName>
   )
 };
+
+const LandingPageCTA = ({authUser, currentStep}) =>
+  authUser ?
+    <div>
+    {authUser.username && authUser.username !== "anonymous" && <h2>{`Welcome - ${authUser.username}`}</h2>}
+    {authUser.roleTotals || currentStep === 6 ?
+      <>
+        <p>You have already completed this app.</p>
+        <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
+        <Button to={`/results`} background={theme.accessibleRed}>View your results</Button>
+      </>
+      :
+      currentStep > 0 ? 
+        <>
+          <p>It looks like you have already started</p>
+          <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
+          <Button to={`/step_${currentStep}`} background={theme.accessibleRed}>Continue</Button>
+        </>
+        :
+        <Button to={ROUTES.START} background={theme.accessibleRed}>Get started</Button>
+    }
+    </div>
+  :
+  currentStep > 0 ? 
+  <>
+    <p>It looks like you have already started</p>
+    <RestartLink to={ROUTES.RESTART}>Start again</RestartLink>
+    <Button to={`/step_${currentStep}`} background={theme.accessibleRed}>Continue</Button>
+  </>
+  :
+  <Button to={ROUTES.START} background={theme.accessibleRed}>Get started</Button>
 
 export default Landing;
