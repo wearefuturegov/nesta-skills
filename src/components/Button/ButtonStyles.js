@@ -31,12 +31,18 @@ export const ButtonContainer = styled.button`
         cursor: no-drop;
         font-weight: normal;
     }
-    @media screen and (min-width: ${theme.m}){
-        width: auto;
-    }
+
 
     & + .button {
-        margin-left: 15px;
+        display: block;
+        margin-left: 0px;
+    }
+    @media screen and (min-width: ${theme.m}){
+        width: auto;
+
+        & + .button {
+            margin-left: 15px;
+        }
     }
 `
 
@@ -59,10 +65,17 @@ export const LinkContainer = styled(Link)`
         box-shadow: 0 0px 0px 3px ${theme.black}, 0 0px 0px 5px ${theme.focus};
     }    
 
+    
+    & + .button {
+        display: block;
+        margin-left: 0px;
+    }
+
     @media screen and (min-width: ${theme.m}){
         width: auto;
-    }
-    & + .button {
-        margin-left: 15px;
+
+        & + .button {
+            margin-left: 15px;
+        }
     }
 `
