@@ -3,6 +3,15 @@ title: Intrapreneurship
 id: 12
 brand: leading_change
 text: Being entrepreneurial within an organisation to create new opportunities
+read:
+  - text: "Intrapreneurship: Career development tools"
+    url: https://www.mindtools.com/pages/article/intrapreneurship.htm
+watch:
+  - text: "Get comfortable with being uncomfortable "
+    url: https://youtu.be/QijH4UAqGD8
+use:
+  - text: The Intrapreneur's Compass
+    url: https://www.leagueofintrapreneurs.com/resources/
 ---
 You question and challenge the status quo and create opportunities for change within an organisation. You take calculated risks to develop and embed new ideas and business models for the benefit of an organisation and those it serves. You are entrepreneurial within an organisation - hence ‘intrapreneurship’.
 
