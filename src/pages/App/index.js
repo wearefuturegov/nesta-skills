@@ -32,6 +32,7 @@ import Tool6 from '../Tool6SaveResults';
 import ResultsPage from '../Results';
 import ResultsTeamActivitesPage from '../ResultsTeamActivitesPage';
 import ResultsSkillsDevelopmentPage from '../ResultsSkillsDevelopmentPage';
+import PrivacyPage from '../PrivacyPage';
 
 const PageWrapper = styled.div`
   padding: 0 15px;
@@ -97,6 +98,9 @@ const App = () => {
             />
             <Route path={ROUTES.RESULTSTEAM} component={() => <ResultsTeamActivitesPage fields={getDocument('pages', '07-results-team-activites')} />} />
             <Route path={ROUTES.RESULTSSKILLS} component={() => <ResultsSkillsDevelopmentPage skills={getDocuments('skills')} fields={getDocument('pages', '08-results-skills-development')} />} />
+            
+            
+            <Route path={ROUTES.PRIVACY} component={PrivacyPage} />
             <Route component={NotFound} />
           </Switch>
         </ToastProvider>

@@ -12,6 +12,10 @@ const Outer = styled.footer`
   padding: 25px 15px;
   color: ${theme.white};
   flex-shrink: 0;
+
+  a {
+    color: ${theme.white};
+  }
 `
 const Inner = styled.div`
   max-width: ${theme.l};
@@ -27,7 +31,7 @@ const Inner = styled.div`
 const Footer = () => (
   <Outer>
     <Inner>
-      Footer
+      <Link to={ROUTES.PRIVACY} title="View our privacy policy">Privacy policy</Link>
     </Inner>
   </Outer>
 );
