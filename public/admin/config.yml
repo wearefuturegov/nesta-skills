@@ -19,9 +19,7 @@ collections:
           - {label: Main title strapline, name: _1_strapline, widget: string, required: true}
           - {label: Lead paragraph, name: _2_paragraph_1, widget: markdown, required: true}
           - {label: 1st subtitle, name: _3_sub_title, widget: string, required: true}
-          - {label: 1st paragraph, name: _4_paragraph_2, widget: markdown, required: true}
-          - {label: 2nd subtitle, name: _5_sub_title_2, widget: string, required: true}
-          - {label: 2nd paragraph, name: _6_paragraph_3, widget: markdown, required: true}
+          - {label: About subtitle, name: _4_about_title, wåidget: string, required: true}
       - file: "content/pages/00-start.md"
         label: "Tool start page"
         name: "00-start"
@@ -35,6 +33,15 @@ collections:
           - {label: Block three title, name: block_three_title, widget: string, required: true}
           - {label: Block three content, name: block_three_content, widget: string, required: true}
           - {label: Bottom content, name: bottom_content, widget: markdown, required: true}
+      - file: "content/pages/about-page.md"
+        label: "About page"
+        name: "about-page"
+        fields:
+          - {label: Title, name: title, widget: string, required: true}
+          - {label: Content, name: body, widget: markdown}
+          - {label: Competency Framework PDF, name: file_link, widget: file}
+          - {label: 2nd section title, name: about_title, widget: string, required: true}
+          - {label: 2nd section content, name: about_body, widget: markdown}
       - file: "content/pages/01-strong-skills.md"
         label: "Tool Step 1 - strong skills"
         name: "01-strong-skills"

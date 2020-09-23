@@ -6,6 +6,7 @@ import ReactGA from 'react-ga';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
 import LandingPage from '../Landing';
+import AboutPage from '../About';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
@@ -72,6 +73,8 @@ const App = () => {
         <ToastProvider>
           <Switch>
             <Route exact path={ROUTES.LANDING} component={() => <LandingPage fields={getDocument('pages', 'landing-page')} />} /> 
+            <Route path={ROUTES.ABOUT} component={() => <AboutPage fields={getDocument('pages', 'about-page')} />}  />
+
             <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
             <Route path={ROUTES.SIGN_IN} component={SignInPage} />
             <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
