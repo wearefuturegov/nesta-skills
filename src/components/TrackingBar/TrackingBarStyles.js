@@ -3,13 +3,14 @@ import theme from "../../_theme"
 
 
 export const Outer = styled.div`
-position: fixed;
-bottom: 0;
-left: 0;
-width: calc(100% - 30px);
-padding: 15px;
-background: ${theme.white};
-text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 30px);
+    padding: 15px;
+    background: ${theme.white};
+    text-align: center;
+    z-index: 999;
 `
 
 export const Inner = styled.div`

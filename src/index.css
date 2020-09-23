@@ -50,7 +50,9 @@ body.landing_page .nesta_logo svg {
 
 body.step_1, body.step_2, body.step_3, body.step_4 {
   background: #F9F9F9;
-  padding-bottom: 100px;
+}
+body.step_1 footer, body.step_2 footer, body.step_3 footer, body.step_4 footer {
+  margin-bottom: 90px;
 }
 
 body.results_page .results_link {
