@@ -219,7 +219,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                         <h3>{not_signed_up_title}</h3>
                         <p>{not_signed_up_body}</p>
                         <Link to={ROUTES.SIGN_UP}>Sign up for an account to save your results</Link>
-                        <br />
+                        <hr />
                       </>
                     }
                     <h3>{title_2}</h3>
