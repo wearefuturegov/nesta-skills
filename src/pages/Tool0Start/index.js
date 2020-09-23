@@ -4,8 +4,12 @@ import { Button } from '../../components/Button';
 import * as ROUTES from '../../constants/routes';
 import theme from "../../_theme"
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import Content from '../../components/Content'
+import Content from '../../components/Content';
+import blackCircles from "./black_circles.svg";
 
+const WrappedPageContainer = styled.div`
+  position: relative;
+`
 const BlockContainer = styled.ul`
   padding: 0;
   list-style: none;
@@ -21,7 +25,8 @@ const Block = styled.li`
   padding: 15px;
   background: ${props => props.color};
   color: ${theme.white};
-  margin-bottom: ${theme.standardSpace}px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 
   @media screen and (min-width: ${theme.s}){
       flex: 1 1 0px;
@@ -31,12 +36,38 @@ const Block = styled.li`
         margin-right: 0;
       }
   }
+  @media screen and (min-width: ${theme.m}){
+    padding: 25px;
+  }
+
 `
 const BlockTitle = styled.h2`
   margin-top: 0;
+  margin-bottom: 10px;
 `
 const BlockText = styled.div`
-  
+  font-size: 1.25rem;
+`
+const CenteredText = styled.div`
+  text-align: center;
+  margin-bottom: 0px;
+  @media screen and (min-width: ${theme.m}){
+    margin-bottom: 125px;
+  }
+`
+
+const Circles = styled.img`
+  position: absolute;
+  width: 800px;
+  height: auto;
+  bottom: -200px;
+  z-index: -1;
+  opacity: 0.6;
+  display: none;
+  @media screen and (min-width: ${theme.m}){
+    display: block;
+    left: -300px;
+  }
 `
 
 const StartPage = ({restart, fields}, props) => {
@@ -58,7 +89,7 @@ const StartPage = ({restart, fields}, props) => {
   }, []);
 
   return(
-    <div>
+    <WrappedPageContainer>
       <h1>{title}</h1>
 
 
@@ -83,9 +114,12 @@ const StartPage = ({restart, fields}, props) => {
 
       <Content source={bottom_content} />
 
-      
-      <Button to={ROUTES.STEP1}>Start</Button>
-    </div>
+      <CenteredText>
+        <Button to={ROUTES.STEP1}>Get started</Button>
+      </CenteredText>
+
+      <Circles src={blackCircles} alt="" />
+    </WrappedPageContainer>
   )
 }
 
