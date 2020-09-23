@@ -122,7 +122,7 @@ const NavigationAuth = ({ authUser, currentStep }) => (
 const NavigationNonAuth = () => (
   <Outer>
     <Inner>
-      <Link to={ROUTES.LANDING}><Logo alt="Nesta" /></Link>
+      <Link to={ROUTES.LANDING} title="Nesta Skills &amp; Innovation"><Logo alt="Nesta" /></Link>
       <Nav>
         <NavList>
           <NavItem>
