@@ -1,6 +1,6 @@
 ---
 title: Starting a conversation in your team
-pdf: /images/uploads/role-cards_app.pdf
+pdf: /images/uploads/competency-framework-guide_team-activities.pdf
 ---
 
 There isn’t a single way to use the competency framework, but they work best when a team comes together to reflect on them. 
