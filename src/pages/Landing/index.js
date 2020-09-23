@@ -60,7 +60,7 @@ const LeadP = styled.p`
 const Section = styled.section`
   margin-bottom: 25px;
 
-  a {
+  a:not(.button) {
     color: ${theme.white};
     font-weight: bold;
   }
@@ -153,7 +153,7 @@ const Circles = styled.img`
 `
 
 const Landing = ({verified = false, fields}) => {
-  const { _1_strapline, _2_paragraph_1, _3_sub_title } = fields;
+  const { _1_strapline, _2_paragraph_1, _3_sub_title, _4_about_title, _4_about_text } = fields;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const history = useHistory();
 
@@ -206,6 +206,15 @@ const Landing = ({verified = false, fields}) => {
               <br />
               <br />
               <LandingPageCTA authUser={authUser} currentStep={currentStep} />
+            </CenteredSection>
+            <br />
+            <CenteredSection>
+              <StyledH2>{_4_about_title}</StyledH2>
+              <LeadP>
+                <Content source={_4_about_text} />
+              </LeadP>
+
+              <Button to={ROUTES.ABOUT} title="Open about page" reverse="true">About us</Button>
             </CenteredSection>
           </MainWrapper>
         </>

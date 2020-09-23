@@ -20,6 +20,7 @@ collections:
           - {label: Lead paragraph, name: _2_paragraph_1, widget: markdown, required: true}
           - {label: 1st subtitle, name: _3_sub_title, widget: string, required: true}
           - {label: About subtitle, name: _4_about_title, wåidget: string, required: true}
+          - {label: About text, name: _4_about_text, widget: markdown, required: true}
       - file: "content/pages/00-start.md"
         label: "Tool start page"
         name: "00-start"

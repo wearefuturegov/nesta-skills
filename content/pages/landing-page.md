@@ -14,5 +14,6 @@ _2_paragraph_1: >-
   with governments and innovation experts from Portugal and Colombia to Canada
   and Australia.
 _3_sub_title: This app takes you through the framework to help you
-_4_about_title: About title
+_4_about_title: About us
+_4_about_text: Find out more about how and why we created this tool
 ---
