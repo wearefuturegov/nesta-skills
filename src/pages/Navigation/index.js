@@ -91,6 +91,9 @@ const NavigationAuth = ({ authUser, currentStep }) => (
       <Nav>
         <NavList>
           <NavItem>
+            <Link to={ROUTES.ABOUT} className="about_link">About</Link>
+          </NavItem>
+          <NavItem>
             {authUser.roleTotals || currentStep === 6 ?
               <Link to={ROUTES.RESULTS} className="results_link">Results</Link>
               :
@@ -122,6 +125,9 @@ const NavigationNonAuth = () => (
       <Link to={ROUTES.LANDING}><Logo alt="Nesta" /></Link>
       <Nav>
         <NavList>
+          <NavItem>
+            <Link to={ROUTES.ABOUT} className="about_link">About</Link>
+          </NavItem>
           <NavItem>
             <Link to={ROUTES.SIGN_IN}>Sign In</Link>
           </NavItem>

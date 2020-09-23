@@ -62,6 +62,10 @@ body.account_page .account_link {
   border-bottom: 2px solid white !important;
 }
 
+body.about_page .about_link {
+  border-bottom: 2px solid white !important;
+}
+
 a {
   color: #3C1252;
 }
