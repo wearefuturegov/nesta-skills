@@ -44,8 +44,8 @@ body.landing_page {
 body.landing_page header {
   background: transparent;
 }
-body.landing_page .nesta_logo {
-  width: 175px;
+body.landing_page .nesta_logo svg {
+  width: 160px;
 }
 
 body.step_1, body.step_2, body.step_3, body.step_4 {

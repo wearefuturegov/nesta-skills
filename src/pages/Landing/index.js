@@ -8,6 +8,9 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { Link, useHistory } from 'react-router-dom';
 import Content from '../../components/Content';
 import colouredCircles from "./coloured_circles.svg";
+import orangeCircle from "./orange_circle.svg";
+import redCircle from "./red_circle.svg";
+import purpleCircle from "./purple_circle.svg";
 
 import {
   AuthUserContext
@@ -18,7 +21,7 @@ const MainWrapper = styled.div`
 const StyledH1 = styled.h1`
   margin-top: 10px;
   line-height: 1.2;
-
+  margin-bottom: 25px;
   max-width: 75%;
   font-size: 2rem;
   
@@ -50,12 +53,17 @@ const LeadP = styled.p`
 
   @media screen and (min-width: ${theme.m}){
     font-size: 1.5rem;
-    max-width: 660px;
+    max-width: 890px;
   }
 `
 
 const Section = styled.section`
   margin-bottom: 50px;
+
+  a {
+    color: ${theme.white};
+    font-weight: bold;
+  }
 
   @media screen and (min-width: ${theme.m}){
     margin-bottom: 75px;
@@ -70,16 +78,46 @@ const CenteredSection = styled(Section)`
   }
 `
 const CirclesContainer = styled.div`
-
+  
+  @media screen and (min-width: ${theme.m}){
+    display: flex;
+    justify-content: center;
+  }
 `
 const Circle = styled.div`
-
+  background: url(${props => props.bg}) no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  width: 200px;
+  height: 193px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  @media screen and (min-width: ${theme.m}){
+    margin: 0;
+    margin-right: 35px;
+    width: 246px;
+    height: 238px;  
+  }
+`
+const CircleInner = styled.div`
+  padding: 15px;
+  padding-right: 20px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 `
 const CircleTitle = styled.h3`
-
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  margin-bottom: 0px;
+  margin-top: 0;
+  @media screen and (min-width: ${theme.m}){
+    margin-bottom: 10px;
+  }
 `
 const CircleText = styled.p`
-
+  font-size: 1.2rem;
+  margin-bottom: 0;
 `
 
 const RestartLink = styled(Link)`
@@ -187,17 +225,23 @@ const Landing = ({verified = false, fields}) => {
             <Content source={_6_paragraph_3} />
           </LeadP>
           <CirclesContainer>
-            <Circle>
-              <CircleTitle>Learn</CircleTitle>
-              <CircleText>more about the skills and attitudes</CircleText>
+            <Circle bg={orangeCircle}>
+              <CircleInner>
+                <CircleTitle>Learn</CircleTitle>
+                <CircleText>more about the skills and attitudes</CircleText>
+              </CircleInner>
             </Circle>
-            <Circle>
-              <CircleTitle>Explore</CircleTitle>
-              <CircleText>about your own skills and attitudes</CircleText>
+            <Circle bg={redCircle}>
+              <CircleInner>
+                <CircleTitle>Explore</CircleTitle>
+                <CircleText>your own skills and attitudes</CircleText>
+              </CircleInner>
             </Circle>
-            <Circle>
-              <CircleTitle>Build</CircleTitle>
-              <CircleText>a picture of your team’s skills and attitudes</CircleText>
+            <Circle bg={purpleCircle}>
+              <CircleInner>
+                <CircleTitle>Build</CircleTitle>
+                <CircleText>a picture of your team’s skills and attitudes</CircleText>
+              </CircleInner>
             </Circle>
           </CirclesContainer>
         </CenteredSection>

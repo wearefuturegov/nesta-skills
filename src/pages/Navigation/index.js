@@ -86,7 +86,7 @@ const Navigation = () => {
 const NavigationAuth = ({ authUser, currentStep }) => (
   <Outer className="header">
     <Inner>
-      <Link to={ROUTES.LANDING} title="Nesta Skills &amp; Innovation"><Logo className="nesta_logo" fill={theme.white} alt="Nesta" /></Link>
+      <Link className="nesta_logo" to={ROUTES.LANDING} title="Nesta Skills &amp; Innovation"><Logo fill={theme.white} alt="Nesta" /></Link>
       
       <Nav>
         <NavList>

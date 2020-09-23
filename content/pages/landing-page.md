@@ -8,7 +8,7 @@ _2_paragraph_1: Innovation in the public sector often focuses on learning new
 _3_sub_title: Nesta’s Competency Framework
 _4_paragraph_2: Nesta’s Competency Framework helps you understand and explore
   the skills and attitudes that help public sector teams solve innovation in the
-  public sector
+  public sector.
 _5_sub_title_2: You can use this interactive app to help you
 _6_paragraph_3: >-
   We developed the Competency Framework through interviews and research with
