@@ -41,6 +41,7 @@ export const ButtonContainer = styled.button`
         width: auto;
 
         & + .button {
+            display: inline-block;
             margin-left: 15px;
         }
     }
@@ -75,6 +76,7 @@ export const LinkContainer = styled(Link)`
         width: auto;
 
         & + .button {
+            display: inline-block;
             margin-left: 15px;
         }
     }
