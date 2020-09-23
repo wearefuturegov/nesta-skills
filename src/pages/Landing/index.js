@@ -111,7 +111,7 @@ const Landing = ({verified = false, fields}) => {
               <CircleText>more about the skills and attitudes</CircleText>
             </Circle>
             <Circle>
-              <CircleTitle>Exmplore</CircleTitle>
+              <CircleTitle>Explore</CircleTitle>
               <CircleText>about your own skills and attitudes</CircleText>
             </Circle>
             <Circle>

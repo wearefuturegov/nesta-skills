@@ -76,6 +76,12 @@ collections:
           - {label: Team activites Content, name: body_4, widget: markdown}
           - {label: Develop skills Title, name: title_5, widget: string}
           - {label: Develop skills Content, name: body_5, widget: markdown}
+          - {label: Downloads Title, name: title_6, widget: string}
+          - {label: Downloads Content, name: body_6, widget: markdown}
+          - {label: Competency Framework PDF, name: pdf_1, widget: file}
+          - {label: Practice Guide PDF, name: pdf_2, widget: file}
+          - {label: Contact us Title, name: title_7, widget: string}
+          - {label: contact us Content, name: body_7, widget: markdown}
       - file: "content/pages/07-results-team-activites.md"
         label: "Results - team activites"
         name: "07-results-team-activites"
