@@ -1,6 +1,6 @@
 ---
 title: Catalyst
-sub_title: Operationalises visions
+sub_title: Inspires Change
 id: 2
 action: Pragmatic
 brand: leading_change
@@ -14,16 +14,26 @@ competencies:
   - text: Future Acumen
     brand: learning
 strengths:
-  - text: Often have bold visions for improvement, and have the courage to challenge the status quo
+  - text: Often have bold visions for improvement, and have the courage to challenge
+      the status quo
   - text: Are not put off by failures, and will persevere
   - text: Can often excite and mobalise other people
 weaknesses:
-  - text: Can at times be impatient and restless, wanting to see change happen quickly without taking the time to establish relationships
+  - text: Can at times be impatient and restless, wanting to see change happen
+      quickly without taking the time to establish relationships
 attitudes:
   - text: Action Orientated
   - text: Courageous
   - text: Imaginative
   - text: Resilient
+attitudesMapping:
+  - 1
+  - 2
+  - 3
+  - 5
+  - 6
+  - 7
+  - 8
 skillsMapping:
   - 11
   - 12
@@ -33,14 +43,6 @@ subSkillsMapping:
   - 3
   - 5
   - 10
-attitudesMapping: 
-  - 1
-  - 2
-  - 3
-  - 5
-  - 6
-  - 7
-  - 8
 ---
 
 
