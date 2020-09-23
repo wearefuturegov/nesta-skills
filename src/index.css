@@ -41,6 +41,13 @@ body.landing_page {
   background: #3C1252;
   color: #FFF;
 }
+body.landing_page header {
+  background: transparent;
+}
+body.landing_page .nesta_logo {
+  width: 175px;
+}
+
 body.step_1, body.step_2, body.step_3, body.step_4 {
   background: #F9F9F9;
   padding-bottom: 100px;

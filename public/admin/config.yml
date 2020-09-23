@@ -16,11 +16,12 @@ collections:
         label: "Landing Page"
         name: "landing-page"
         fields:
-          - {label: _1_strapline, name: _1_strapline, widget: string, required: true}
-          - {label: _2_paragraph_1, name: _2_paragraph_1, widget: markdown, required: true}
-          - {label: _3_sub_title, name: _3_sub_title, widget: string, required: true}
-          - {label: _4_paragraph_2, name: _4_paragraph_2, widget: markdown, required: true}
-          - {label: _5_sub_title_2, name: _5_sub_title_2, widget: string, required: true}
+          - {label: Main title strapline, name: _1_strapline, widget: string, required: true}
+          - {label: Lead paragraph, name: _2_paragraph_1, widget: markdown, required: true}
+          - {label: 1st subtitle, name: _3_sub_title, widget: string, required: true}
+          - {label: 1st paragraph, name: _4_paragraph_2, widget: markdown, required: true}
+          - {label: 2nd subtitle, name: _5_sub_title_2, widget: string, required: true}
+          - {label: 2nd paragraph, name: _6_paragraph_3, widget: markdown, required: true}
       - file: "content/pages/00-start.md"
         label: "Tool start page"
         name: "00-start"

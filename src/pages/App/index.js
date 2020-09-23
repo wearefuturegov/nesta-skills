@@ -41,6 +41,9 @@ const PageWrapper = styled.div`
   width: 100%;
   max-width: calc(100% - 30px);
 
+  @media screen and (min-width: ${theme.m}){
+    max-width: 1040px;  
+  }
   @media screen and (min-width: ${theme.xl}){
     max-width: calc(${theme.xl} - 200px);
   }
