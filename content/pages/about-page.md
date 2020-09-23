@@ -3,6 +3,7 @@ title: About us
 file_link: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
 about_title: About Nesta and States of Change
 about_content: content needed...
+about_body: content needed...
 ---
 ## How we created the framework
 
@@ -11,6 +12,8 @@ partners, from governments to leading innovation practitioners. We interviewed o
 innovation happen in government, and since then we’ve tested the framework with governments and innovation experts, from Portugal and Colombia to Canada and Australia.
 
 ## Introducing the framework
+
+![Nesta competency framework ](/images/uploads/nesta_pps_competency_framework_jpeg.jpg)
 
 There are three parts to the framework:
 
