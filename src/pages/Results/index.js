@@ -102,7 +102,7 @@ const WeakSkillsContainer = styled.div`
 `
 
 const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
-  const { title, body, not_signed_up_title, not_signed_up_body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5 } = fields;
+  const { title, body, not_signed_up_title, not_signed_up_body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5, title_6, body_6, pdf_1, pdf_2, title_7, body_7 } = fields;
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
@@ -332,22 +332,33 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                           <CloseModal onClick={closeModal}>Close Modal</CloseModal>
                       </ModalActions>
                     </Modal>
-                    
-                    <hr />
-
-                    <h2>{title_3}</h2>
-                    <Content source={body_3} />
-
                   </Section>
                   <ColouredSection reverseText bg={theme.darkPurple}>
+                    <h2>{title_3}</h2>
+                    <Content source={body_3} />
+                  </ColouredSection>
+                  <Section>
                     <h3>{title_4}</h3>
                     <Content source={body_4} />
-                    <Button reverse="true" to={ROUTES.RESULTSTEAM}>See team activites</Button>
-                  </ColouredSection>
+                    <Button to={ROUTES.RESULTSTEAM}>See team activites</Button>
+                  </Section>
+                  <hr />  
                   <Section>
                     <h3>{title_5}</h3>
                     <Content source={body_5} />
                     <Button to={ROUTES.RESULTSSKILLS}>Develop your skills</Button>
+                  </Section>
+                  <hr />  
+                  <Section>
+                    <h3>{title_6}</h3>
+                    <Content source={body_6} />
+                    <Button to={pdf_1} external>Download Competency Framework PDF</Button>
+                    <Button to={pdf_2} external>Download Practice Guide PDF</Button>
+                  </Section>
+                  <hr />  
+                  <Section>
+                    <h3>{title_7}</h3>
+                    <Content source={body_7} />
                   </Section>
                 </>
               :
