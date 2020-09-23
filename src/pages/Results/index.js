@@ -26,8 +26,8 @@ const Section = styled.section`
 const ColouredSection = styled.section`
   background: ${props => props.bg ? props.bg : theme.lightGrey};
   color: ${props => props.reverseText ? theme.white : theme.black};
-  margin-top: ${props => props.topOfPage ? "-25px" : "50px"};
-  margin-bottom: 50px;
+  margin-top: ${props => props.topOfPage ? "-25px" : props.connected ? "-50px" : "50px"};
+  margin-bottom: ${props => props.connected ? "-50px" : "50px"};
   padding: 25px 0;
   position: relative;
   h1 {
@@ -337,29 +337,31 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                     <h2>{title_3}</h2>
                     <Content source={body_3} />
                   </ColouredSection>
-                  <Section>
-                    <h3>{title_4}</h3>
-                    <Content source={body_4} />
-                    <Button to={ROUTES.RESULTSTEAM}>See team activites</Button>
-                  </Section>
-                  <hr />  
-                  <Section>
-                    <h3>{title_5}</h3>
-                    <Content source={body_5} />
-                    <Button to={ROUTES.RESULTSSKILLS}>Develop your skills</Button>
-                  </Section>
-                  <hr />  
-                  <Section>
-                    <h3>{title_6}</h3>
-                    <Content source={body_6} />
-                    <Button to={pdf_1} external>Download Competency Framework PDF</Button>
-                    <Button to={pdf_2} external>Download Practice Guide PDF</Button>
-                  </Section>
-                  <hr />  
-                  <Section>
-                    <h3>{title_7}</h3>
-                    <Content source={body_7} />
-                  </Section>
+                  <ColouredSection connected>
+                    <Section>
+                      <h3>{title_4}</h3>
+                      <Content source={body_4} />
+                      <Button to={ROUTES.RESULTSTEAM}>See team activites</Button>
+                    </Section>
+                    <hr />  
+                    <Section>
+                      <h3>{title_5}</h3>
+                      <Content source={body_5} />
+                      <Button to={ROUTES.RESULTSSKILLS}>Develop your skills</Button>
+                    </Section>
+                    <hr />  
+                    <Section>
+                      <h3>{title_6}</h3>
+                      <Content source={body_6} />
+                      <Button to={pdf_1} external>Download Competency Framework PDF</Button>
+                      <Button to={pdf_2} external>Download Practice Guide PDF</Button>
+                    </Section>
+                    <hr />  
+                    <Section>
+                      <h3>{title_7}</h3>
+                      <Content source={body_7} />
+                    </Section>
+                  </ColouredSection>
                 </>
               :
               <>
