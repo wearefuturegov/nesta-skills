@@ -1,10 +1,10 @@
 ---
 title: Introduction to the skills
 top_content: >-
-  This tool should take around 10 minutes to complete.
+  This tool should take around 10 minutes to complete. 
 
 
-  Our research has shown that when teams have skills and behaviours in the following three  areas, they’re more likely to be successful at experimenting and problem solving. This means they are more effective, efficient and impactful in their work.
+  Our research has shown that when teams have skills and behaviours in the following three areas, they’re more likely to be successful at experimenting and problem solving. This means they are more effective, efficient and impactful in their work.
 
 
   For us, experimenting means a continual process of exploring problems from new perspectives, and testing and iterating possible solutions to learn what works and what doesn’t.
@@ -23,4 +23,7 @@ bottom_content: >-
 
 
   You as an individual might still have a range of these skills (at varying degrees of strength) across all three areas. Or you may naturally gravitate to only one or two of them.
+
+
+  Over the next few pages, you'll be asked to select both your strongest and least strong skills and attitudes. From this, we'll then show you
 ---
