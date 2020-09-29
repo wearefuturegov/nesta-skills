@@ -1,5 +1,5 @@
 ---
-title: Your Results
+title: Your results
 pdf_1: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
 pdf_2: /images/uploads/competency-framework-guide_practice-guide.pdf
 "Based upon the strengths you have provided, these are the roles we think you are best suited to play": null
@@ -17,9 +17,9 @@ body_4: The competency framework focuses on teams, rather than individuals. Find
   out how to run an activity with your team to develop a picture of your skills
   as a whole.
 title_5: Develop your skills
-body_5: For each skill we have created a list of resources that you can use to
-  help develop any of the skills whether you want to learn more and strengthen
-  your weaker skills or further develop your strongest skills.
+body_5: For each skill, we have created a list of resources. You can use these
+  to help develop any of the skills, whether you want to strengthen your weaker
+  skills or further develop your strongest skills.
 title_6: Links title needed
 body_6: To further develop ........ content needed. Download our practice guide
   to find guidence on how to embed skills in your practice, and download the
