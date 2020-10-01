@@ -1,6 +1,6 @@
 ---
 title: Landing page
-_1_strapline: Skills, attitudes and behaviours that fuel public sector innovation
+_1_strapline: Skills, attitudes and behaviours that fuel public innovation
 _2_paragraph_1: >-
   Welcome to our skills and attitudes tool! This tool will help you reflect on
   and develop the skills you need to innovate in the public sector.
