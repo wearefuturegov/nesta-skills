@@ -11,6 +11,7 @@ _2_paragraph_1: >-
 
   We developed the framework with leading innovation practitioners from across the globe. Since then, with our partners [States of Change](https://states-of-change.org/) we’ve tested it with government teams and innovation experts in the UK, Portugal, Colombia, Canada, Australia and more.
 _3_sub_title: "This tool helps you to:"
-_4_about_title: About us
-_4_about_text: Find out more about how and why we created this tool
+_4_about_title: Find out more
+_4_about_text: Take a look at the competency framework, read about how we
+  created it and find out more about Nesta and States of Change.
 ---
