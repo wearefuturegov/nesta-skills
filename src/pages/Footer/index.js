@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from "styled-components"
 import theme from "../../_theme"
 import * as ROUTES from '../../constants/routes';
@@ -65,7 +64,7 @@ const Footer = () => (
         <a href="https://www.nesta.org.uk/" title="Go to Nesta's website" external><NestaLogo src={nestaLogoSvg} alt="Nesta logo" /></a>
         <a href="https://states-of-change.org/" title="Go to State's of Change's website" external><SoCLogo src={soCLogoSvg} alt="States of Change logo" /></a>
       </Logos>
-      <Link to={ROUTES.PRIVACY} title="View our privacy policy">Privacy policy</Link>
+      <a href="https://www.nesta.org.uk/privacy/" target="_blank" title="View our privacy policy">Privacy policy</a>
     </Inner>
   </Outer>
 );

@@ -20,5 +20,3 @@ export const SAVERESULTS = '/save_results';
 export const RESULTS = '/results';
 export const RESULTSTEAM = '/results-team-activities';
 export const RESULTSSKILLS = '/results-skills-development';
-
-export const PRIVACY = '/privacy-policy';
