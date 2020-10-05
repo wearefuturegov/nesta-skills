@@ -39,7 +39,7 @@ export const SingleRole = ({role}) => {
         >
             <RoleTitle>{role.title}</RoleTitle>
             <RoleSubTitle>{role.sub_title}</RoleSubTitle>
-            <RoleSumary>{role.summary_text}</RoleSumary>
+            {role.summary_text && <RoleSumary>{role.summary_text}</RoleSumary>}
             <RoleRating>
                 <strong>
                     {role.total > 60 ? 
