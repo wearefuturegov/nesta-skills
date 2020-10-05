@@ -112,7 +112,8 @@ collections:
         name: "08-results-skills-development"
         fields:
           - {label: Title, name: title, widget: string, required: true}
-          - {label: Content, name: body, widget: markdown}      
+          - {label: Content, name: body, widget: markdown}  
+          - {label: All resources PDF, name: resources_pdf, widget: file}
 
   - name: skills
     label: Skills
