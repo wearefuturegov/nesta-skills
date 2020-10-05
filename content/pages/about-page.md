@@ -13,16 +13,12 @@ We interviewed over 30 people experienced in making innovation happen in governm
 
 ## Introducing the framework
 
-![Nesta competency framework ](/images/uploads/nesta_pps_competency_framework_jpeg.jpg)
+![Nesta competency framework ](/images/uploads/nesta_competency_framework.jpg)
 
 There are three parts to the framework:
 
 1. **The central circle:** this contains the core aim of innovative teams: to solve public problems through experimenting. 
-
-
 2. **Attitudes:** These surround the core aim, and create the fertile ground for experimenting and public problem solving. Attitudes can change, but they tend to be deeply ingrained so they don’t change easily. It takes a significant amount of time to develop certain attitudes (we’re talking about years, not weeks or months). That’s why we believe it’s important to take attitudes into account when hiring people for roles.
-
-
 3. **Skills:** These are three distinct skill areas: Work Together, Accelerating Learning and Leading Change. They enable our key aim of experimenting and public problem solving, and feature crucial skills that make up each area. Skills are easier to learn and develop than attitudes. Obviously, you recruit for skills as well but think of them as things that can be developed, learned or taught.
 
 For more detail on the framework, download our full guide which includes behaviours and reflection questions for each skill.
