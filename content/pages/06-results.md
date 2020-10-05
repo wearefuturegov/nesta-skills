@@ -1,5 +1,6 @@
 ---
 title: Your results
+pdf_0: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
 pdf_1: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
 pdf_2: /images/uploads/competency-framework-guide_practice-guide.pdf
 "Based upon the strengths you have provided, these are the roles we think you are best suited to play": null

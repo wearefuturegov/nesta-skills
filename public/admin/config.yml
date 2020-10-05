@@ -83,6 +83,7 @@ collections:
           - {label: Title, name: title, widget: string, required: true}
           - {label: Content, name: body, widget: markdown}
           - {label: Start of ratings explaination sentance, name: RatingExplaination, widget: string}
+          - {label: All roles PDF, name: pdf_0, widget: file}
           - {label: No account Title, name: not_signed_up_title, widget: string, hint: This text will only be displayed to a user who has chosen not to sign up with an account }
           - {label: No account Text, name: not_signed_up_body, widget: string}
           - {label: Your Skills Title, name: title_2, widget: string}

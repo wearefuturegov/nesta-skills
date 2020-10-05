@@ -104,15 +104,20 @@ const WeakSkillsContainer = styled.div`
   margin-top: -96px;
 `
 
-export const RatingIcon = styled.img`
-    vertical-align: middle;
-    margin-left: 3px;
-    margin-right: -1px;
-    margin-top: -3px;
+const Actions = styled.div`
+  width: 100%;
+  text-align: center;
+`
+
+const RatingIcon = styled.img`
+  vertical-align: middle;
+  margin-left: 3px;
+  margin-right: -1px;
+  margin-top: -3px;
 `
 
 const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
-  const { title, body, RatingExplaination, not_signed_up_title, not_signed_up_body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5, title_6, body_6, pdf_1, pdf_2, title_7, body_7 } = fields;
+  const { title, body, RatingExplaination, pdf_0, not_signed_up_title, not_signed_up_body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5, title_6, body_6, pdf_1, pdf_2, title_7, body_7 } = fields;
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
@@ -226,7 +231,10 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                           {parsedTotals && parsedTotals.slice(3,parsedTotals.length).map(role => (
                             <SingleRole key={role.title} role={role} />
                           ))}
-                          <ButtonSecondary classes="asblock" onClick={() => setShowRoles(false)}>Hide roles</ButtonSecondary>
+                          <Actions>
+                            <Button to={pdf_0} external>Download all roles PDF</Button>
+                            <ButtonSecondary classes="asblock" onClick={() => setShowRoles(false)}>Hide roles</ButtonSecondary>
+                          </Actions>
                         </>
                       }
                     </RolesList>
