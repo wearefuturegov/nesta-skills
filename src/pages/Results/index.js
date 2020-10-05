@@ -232,7 +232,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                             <SingleRole key={role.title} role={role} />
                           ))}
                           <Actions>
-                            <Button to={pdf_0} external>Download all roles PDF</Button>
+                            {pdf_0 && <Button to={pdf_0} external>Download all roles PDF</Button>}
                             <ButtonSecondary classes="asblock" onClick={() => setShowRoles(false)}>Hide roles</ButtonSecondary>
                           </Actions>
                         </>

@@ -6,6 +6,7 @@ import Content from '../../components/Content'
 import { ButtonSecondary } from '../../components/ButtonSecondary';
 import { SkillCardDevelopment, SkillsContainer } from "../../components/SkillCard";
 import { ReadIcon, WatchIcon, UseIcon } from './Icons';
+import { Button } from '../../components/Button';
 
 const Section = styled.section`
 
@@ -37,9 +38,12 @@ const SkillSection = styled.div`
     color: ${theme.darkPurple};
   }
 `
-
+const Actions = styled.div`
+  width: 100%;
+  text-align: center;
+`
 const ResultsSkillsDevelopmentPage = ({fields, skills}) => {
-  const { title, body } = fields;
+  const { title, body, resources_pdf } = fields;
 
   return(
     <>
@@ -76,6 +80,8 @@ const ResultsSkillsDevelopmentPage = ({fields, skills}) => {
           />
         )}
       </SkillsContainer>
+
+      <Actions>{resources_pdf && <Button to={resources_pdf} external>Download all resources</Button>}</Actions>
     </Section>
     </>
   )
