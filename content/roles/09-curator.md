@@ -1,6 +1,7 @@
 ---
 title: Curator
 sub_title: Mobilises People
+summary_text: Summary text needed
 id: 9
 action: Mobilises
 brand: working_together

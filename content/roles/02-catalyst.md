@@ -1,6 +1,7 @@
 ---
 title: Catalyst
 sub_title: Inspires Change
+summary_text: Summary text needed
 id: 2
 action: Pragmatic
 brand: leading_change

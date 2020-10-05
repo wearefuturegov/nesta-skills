@@ -1,6 +1,8 @@
 ---
 title: Ambassador
 sub_title: Creates mandate
+summary_text: Summary text needed
+test: Summary text needed
 id: 1
 action: Relational
 brand: leading_change

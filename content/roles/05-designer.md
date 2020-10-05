@@ -1,6 +1,7 @@
 ---
 title: Designer
 sub_title: Develops solutions
+summary_text: Summary text needed
 id: 5
 action: Synthesis
 brand: learning

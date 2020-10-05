@@ -15,6 +15,9 @@ import Content from '../../components/Content';
 import { RemoveScrollBar } from "react-remove-scroll-bar"
 import { ButtonSecondary } from '../../components/ButtonSecondary';
 import { SkillCardLite, SkillsContainer } from "../../components/SkillCard";
+import mostIcon from './mostBlack.svg';
+import likelyIcon from './likelyBlack.svg';
+import leastIcon from './leastBlack.svg';
 
 import {
   AuthUserContext,
@@ -101,8 +104,15 @@ const WeakSkillsContainer = styled.div`
   margin-top: -96px;
 `
 
+export const RatingIcon = styled.img`
+    vertical-align: middle;
+    margin-left: 3px;
+    margin-right: -1px;
+    margin-top: -3px;
+`
+
 const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
-  const { title, body, not_signed_up_title, not_signed_up_body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5, title_6, body_6, pdf_1, pdf_2, title_7, body_7 } = fields;
+  const { title, body, RatingExplaination, not_signed_up_title, not_signed_up_body, title_2, body_2, title_3, body_3, title_4, body_4, title_5, body_5, title_6, body_6, pdf_1, pdf_2, title_7, body_7 } = fields;
   const history = useHistory();
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const [showModal, setShowModal] = useState(false)
@@ -117,6 +127,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
         total: parseInt(array[index+1]),
         title: role.title,
         sub_title: role.sub_title,
+        summary_text: role.summary_text,
         brand: role.brand,
         competencies: role.competencies,
         strengths: role.strengths,
@@ -197,6 +208,14 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                     <h1>{title}</h1>
                     
                     <Content source={body} />
+
+                    <p>
+                      {RatingExplaination}
+                      <strong> <RatingIcon src={mostIcon} alt="" /> most</strong>,
+                      <strong> <RatingIcon src={likelyIcon} alt="" /> quite</strong> or
+                      <strong> <RatingIcon src={leastIcon} alt="" /> least </strong>
+                      likely to suit you.
+                    </p>
 
                     <RolesList>
                       {parsedTotals && parsedTotals.slice(0,3).map(role => (

@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { RemoveScrollBar } from "react-remove-scroll-bar"
 import { ButtonSecondary } from '../../components/ButtonSecondary';
-import { getBranding } from '../../util/utils'
-import { Outer, RoleTitle, RoleSubTitle, RoleSumary, RoleInformation, BreakTitle, CompetencyList, SingleCompetency, AttitudeList, SingleAttitude, SWContainer, SWInner, SWList, SWItem, ModalActions, CloseModal, List }  from './SingleRoleStyles'
-
+import { getBranding } from '../../util/utils';
+import mostIcon from './most.svg';
+import likelyIcon from './likely.svg';
+import leastIcon from './least.svg';
+import mostBlackIcon from './mostBlack.svg';
+import likelyBlackIcon from './likelyBlack.svg';
+import leastBlackIcon from './leastBlack.svg';
+import { Outer, RoleTitle, RoleSubTitle, RoleSumary, RoleRating, RatingIcon, RatingIconBig, RoleInformation, BreakTitle, CompetencyList, SingleCompetency, AttitudeList, SingleAttitude, SWContainer, SWInner, SWList, SWItem, ModalActions, CloseModal, List }  from './SingleRoleStyles'
 
 export const SingleRole = ({role}) => {
     Modal.setAppElement('body')
@@ -34,7 +39,17 @@ export const SingleRole = ({role}) => {
         >
             <RoleTitle>{role.title}</RoleTitle>
             <RoleSubTitle>{role.sub_title}</RoleSubTitle>
-            <RoleSumary>Based on your selection you are <strong>{role.total > 60 ? "most" : role.total > 20 ? "quite" : "least"} likely</strong> to fit this role.</RoleSumary>
+            <RoleSumary>{role.summary_text}</RoleSumary>
+            <RoleRating>
+                <strong>
+                    {role.total > 60 ? 
+                        <><RatingIcon src={mostIcon} alt="" /> Most likely</>
+                    : role.total > 20 ? 
+                        <><RatingIcon src={likelyIcon} alt="" /> Quite likely</>
+                        : 
+                        <><RatingIcon src={leastIcon} alt="" /> Least likely</>} 
+                </strong>
+            </RoleRating>
             <ButtonSecondary classes="white-button" onClick={openModal} onKeyPress={(e) => e.key === 'Enter' && e.stopPropagation()}>Read more</ButtonSecondary>
 
             <Modal 
@@ -65,6 +80,15 @@ export const SingleRole = ({role}) => {
                     <RoleTitle color={getBranding(role.brand)}>{role.title}</RoleTitle>
                     <RoleSubTitle color={getBranding(role.brand)}>{role.sub_title}</RoleSubTitle>
                     {role.content && <p>{role.content}</p>}
+
+                    <p>
+                        {role.total > 60 ? 
+                            <><strong><RatingIconBig src={mostBlackIcon} alt="" /> Most likely</strong> to suit this role</>
+                        : role.total > 20 ? 
+                            <><strong><RatingIconBig src={likelyBlackIcon} alt="" /> Quite likely</strong> to suit this role</>
+                            : 
+                            <><strong><RatingIconBig src={leastBlackIcon} alt="" /> Least likely</strong> to suit this role</>} 
+                    </p>
 
                     <BreakTitle color={getBranding(role.brand)}>Competencies</BreakTitle>
                     {role.competencies && 

@@ -30,5 +30,6 @@ body_7: |-
   contact us text
 
   here is a link: [email@domain.com](mail-to:email@domain.com)
+RatingExplaination: Each role is rated based on your choices to show you which is
 ---
-Based upon the strengths you have provided, these are the roles we think you are best suited to play:
+Based upon the strengths you have provided, these are the roles we think you are best suited to play

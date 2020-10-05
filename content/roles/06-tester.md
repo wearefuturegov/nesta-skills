@@ -1,6 +1,7 @@
 ---
 title: Tester
 sub_title: Improves and Validates
+summary_text: Summary text needed
 id: 6
 action: Critical
 brand: learning

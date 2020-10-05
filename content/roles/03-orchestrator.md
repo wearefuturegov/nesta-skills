@@ -1,6 +1,7 @@
 ---
 title: Orchestrator
 sub_title: Operationalises visions
+summary_text: Summary text needed
 id: 3
 action: Pragmatic
 brand: leading_change

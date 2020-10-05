@@ -243,3 +243,16 @@ export const SWItem = styled.li`
 export const CloseModal = styled(ButtonSecondary)`
 
 `
+
+export const RoleRating = styled(RoleSumary)`
+
+`
+export const RatingIcon = styled.img`
+    vertical-align: middle;
+    margin-right: 3px;
+    margin-top: -3px;
+`
+export const RatingIconBig = styled(RatingIcon)`
+    width: 15px;
+    height: auto;
+`

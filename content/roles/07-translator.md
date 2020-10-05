@@ -1,6 +1,7 @@
 ---
 title: Translater
 sub_title: Creates common ground
+summary_text: Summary text needed
 id: 7
 action: Empathic
 brand: working_together

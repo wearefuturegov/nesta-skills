@@ -1,6 +1,7 @@
 ---
 title: Investigator
 sub_title: Generates insights
+summary_text: Summary text needed
 id: 4
 action: Analytical
 brand: learning

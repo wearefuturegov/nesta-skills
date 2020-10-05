@@ -82,6 +82,7 @@ collections:
         fields:
           - {label: Title, name: title, widget: string, required: true}
           - {label: Content, name: body, widget: markdown}
+          - {label: Start of ratings explaination sentance, name: RatingExplaination, widget: string}
           - {label: No account Title, name: not_signed_up_title, widget: string, hint: This text will only be displayed to a user who has chosen not to sign up with an account }
           - {label: No account Text, name: not_signed_up_body, widget: string}
           - {label: Your Skills Title, name: title_2, widget: string}
@@ -154,6 +155,7 @@ collections:
     fields: # The fields each document in this collection have
       - {label: Title, name: title, widget: string}
       - {label: Sub title, name: sub_title, widget: string}
+      - {label: Short summary, name: summary_text, widget: string}
       - {label: id, name: id, widget: hidden}
       - {label: Action, name: action, widget: string}
       - {label: Content, name: body, widget: markdown}

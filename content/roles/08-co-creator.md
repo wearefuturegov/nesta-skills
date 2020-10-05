@@ -1,6 +1,7 @@
 ---
 title: Co-creator
 sub_title: Facilitates Collaboration
+summary_text: Summary text needed
 id: 8
 action: Facilitates co-creation
 brand: working_together
