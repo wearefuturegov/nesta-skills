@@ -87,14 +87,16 @@ const CirclesContainer = styled.div`
 const Circle = styled.div`
   background: url(${props => props.bg}) no-repeat;
   background-size: cover;
-  margin: 0 auto;
   width: 200px;
   height: 193px;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin: 15px auto;
+
   @media screen and (min-width: ${theme.m}){
-    margin: 0;
-    margin-right: 35px;
+    margin: 0px 20px;
+    width: 210px;
+    height: 203px;  
+  }
+  @media screen and (min-width: ${theme.l}){
     width: 246px;
     height: 238px;  
   }
@@ -153,7 +155,7 @@ const Circles = styled.img`
 `
 
 const Landing = ({verified = false, fields}) => {
-  const { _1_strapline, _2_paragraph_1, _3_sub_title, _4_about_title, _4_about_text } = fields;
+  const { _1_strapline, _2_paragraph_1, _3_sub_title, _3_circle_1_title, _3_circle_1_text, _3_circle_2_title, _3_circle_2_text, _3_circle_3_title, _3_circle_3_text, _4_about_title, _4_about_text } = fields;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const history = useHistory();
 
@@ -185,20 +187,20 @@ const Landing = ({verified = false, fields}) => {
               <CirclesContainer>
                 <Circle bg={orangeCircle}>
                   <CircleInner>
-                    <CircleTitle>Learn</CircleTitle>
-                    <CircleText>more about the skills and attitudes</CircleText>
+                    <CircleTitle>{_3_circle_1_title}</CircleTitle>
+                    <CircleText>{_3_circle_1_text}</CircleText>
                   </CircleInner>
                 </Circle>
                 <Circle bg={redCircle}>
                   <CircleInner>
-                    <CircleTitle>Explore</CircleTitle>
-                    <CircleText>your own skills and attitudes</CircleText>
+                    <CircleTitle>{_3_circle_2_title}</CircleTitle>
+                    <CircleText>{_3_circle_2_text}</CircleText>
                   </CircleInner>
                 </Circle>
                 <Circle bg={purpleCircle}>
                   <CircleInner>
-                    <CircleTitle>Build</CircleTitle>
-                    <CircleText>a picture of your team’s skills and attitudes</CircleText>
+                    <CircleTitle>{_3_circle_3_title}</CircleTitle>
+                    <CircleText>{_3_circle_3_text}</CircleText>
                   </CircleInner>
                 </Circle>
               </CirclesContainer>
