@@ -20,4 +20,5 @@ _3_circle_3_text: a picture of your team’s skills, and develop your own
 _4_about_title: Find out more
 _4_about_text: Take a look at the competency framework, read about how we
   created it and find out more about Nesta and States of Change.
+_4_about_button: About us
 ---

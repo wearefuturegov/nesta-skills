@@ -155,7 +155,7 @@ const Circles = styled.img`
 `
 
 const Landing = ({verified = false, fields}) => {
-  const { _1_strapline, _2_paragraph_1, _3_sub_title, _3_circle_1_title, _3_circle_1_text, _3_circle_2_title, _3_circle_2_text, _3_circle_3_title, _3_circle_3_text, _4_about_title, _4_about_text } = fields;
+  const { _1_strapline, _2_paragraph_1, _3_sub_title, _3_circle_1_title, _3_circle_1_text, _3_circle_2_title, _3_circle_2_text, _3_circle_3_title, _3_circle_3_text, _4_about_title, _4_about_text, _4_about_button } = fields;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
   const history = useHistory();
 
@@ -216,7 +216,7 @@ const Landing = ({verified = false, fields}) => {
                 <Content source={_4_about_text} />
               </LeadP>
 
-              <Button to={ROUTES.ABOUT} title="Open about page" reverse="true">About us</Button>
+              <Button to={ROUTES.ABOUT} title="Open about page" reverse="true">{_4_about_button}</Button>
             </CenteredSection>
           </MainWrapper>
         </>

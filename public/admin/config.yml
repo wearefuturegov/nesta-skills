@@ -19,8 +19,15 @@ collections:
           - {label: Main title strapline, name: _1_strapline, widget: string, required: true}
           - {label: Lead paragraph, name: _2_paragraph_1, widget: markdown, required: true}
           - {label: 1st subtitle, name: _3_sub_title, widget: string, required: true}
+          - {label: Orange circle title, name: _3_circle_1_title, widget: string, required: true}
+          - {label: Orange circle text, name: _3_circle_1_text, widget: string, required: true}
+          - {label: Red circle title, name: _3_circle_2_title, widget: string, required: true}
+          - {label: Red circle text, name: _3_circle_2_text, widget: string, required: true}
+          - {label: Purple circle title, name: _3_circle_3_title, widget: string, required: true}
+          - {label: Purple circle text, name: _3_circle_3_text, widget: string, required: true}
           - {label: About subtitle, name: _4_about_title, wåidget: string, required: true}
           - {label: About text, name: _4_about_text, widget: markdown, required: true}
+          - {label: About CTA, name: _4_about_button, widget: markdown, required: true}
       - file: "content/pages/00-start.md"
         label: "Tool start page"
         name: "00-start"
