@@ -1,7 +1,7 @@
 ---
 title: Catalyst
 sub_title: Inspires Change
-summary_text: Summary text needed
+summary_text: The driving force behind an innovation team/project, pushing for change
 id: 2
 action: Pragmatic
 brand: leading_change
