@@ -1,7 +1,7 @@
 ---
 title: Investigator
 sub_title: Generates insights
-summary_text: Exploring and making sense of things
+summary_text: Exploring and making sense of things to build understanding
 id: 4
 action: Analytical
 brand: learning
