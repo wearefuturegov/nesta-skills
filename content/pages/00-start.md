@@ -25,5 +25,5 @@ bottom_content: >-
   You as an individual might still have a range of these skills (at varying degrees of strength) across all three areas. Or you may naturally gravitate to only one or two of them.
 
 
-  Over the next few pages, you'll be asked to select both your strongest and least strong skills and attitudes. From this, we'll then show you
+  Over the next few pages, you'll be asked to select both your strongest and least strong skills and attitudes. From this, we'll show you the roles you're most likely to play in a team as well as how you can develop each skill.
 ---
