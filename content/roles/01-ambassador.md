@@ -1,8 +1,7 @@
 ---
 title: Ambassador
-sub_title: Creates mandate
-summary_text: Summary text needed
-test: Summary text needed
+sub_title: Creates mandate for change
+summary_text: Managing relationships and creating buy in for change
 id: 1
 action: Relational
 brand: leading_change
@@ -17,9 +16,11 @@ competencies:
     brand: learning
 strengths:
   - text: Vast experience of the political landscape & can work around the system
-  - text: Excellent listener and storyteller & can read between the lines of what people are saying
+  - text: Excellent listener and storyteller & can read between the lines of what
+      people are saying
 weaknesses:
-  - text: May at times be a people pleaser, focusing less on action, more on relationships
+  - text: May at times be a people pleaser, focusing less on action, more on
+      relationships
 attitudes:
   - text: Outcomes Focused
   - text: Courageous
@@ -39,6 +40,7 @@ skillsMapping:
 subSkillsMapping:
   - 4
   - 13
+test: Summary text needed
 ---
 
 The Ambassador creates the mandate for change. They manage the relationship between the team, internal and external stakeholders, with the aim to create buy in for change.
