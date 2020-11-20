@@ -1,7 +1,7 @@
 ---
 title: Orchestrator
 sub_title: Operationalises visions
-summary_text: Summary text needed
+summary_text: Transforming ideas and visions into tangible plans and actions
 id: 3
 action: Pragmatic
 brand: leading_change
@@ -15,7 +15,8 @@ competencies:
   - text: Future Acumen
     brand: learning
 strengths:
-  - text: Great attention to detail, able to link the smaller actions to the bigger changes
+  - text: Great attention to detail, able to link the smaller actions to the bigger
+      changes
   - text: Excellent people skills, can mobalise and encourage colleagues
 weaknesses:
   - text: Can sometimes micro manage colleagues, being overbearing and stifling
@@ -24,6 +25,14 @@ attitudes:
   - text: Outcomes Focused
   - text: Reflective
   - text: Agile
+attitudesMapping:
+  - 1
+  - 2
+  - 3
+  - 5
+  - 6
+  - 7
+  - 8
 skillsMapping:
   - 10
   - 11
@@ -31,14 +40,6 @@ skillsMapping:
 subSkillsMapping:
   - 4
   - 5
-  - 8
-attitudesMapping: 
-  - 1
-  - 2
-  - 3
-  - 5
-  - 6
-  - 7
   - 8
 ---
 
