@@ -1,13 +1,14 @@
 ---
-title: Your results
 pdf_0: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
-pdf_1: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
-pdf_2: /images/uploads/competency-framework-guide_practice-guide.pdf
-"Based upon the strengths you have provided, these are the roles we think you are best suited to play": null
-not_signed_up_title: You don't currently have an account
 not_signed_up_body: Without an account these results are not saved. You will be
   able to see them while on this device, however if you want to come back to see
   the results you will need to sign up for an account.
+pdf_1: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
+pdf_2: /images/uploads/competency-framework-guide_practice-guide.pdf
+"Based upon the strengths you have provided, these are the roles we think you are best suited to play": null
+title: Your results
+RatingExplaination: Each role is rated based on your choices to show you which is
+not_signed_up_title: You don't currently have an account
 title_2: Your skills selection
 body_2: These are the choices you made throughout this tool.
 title_3: What next?
@@ -21,16 +22,13 @@ title_5: Develop your skills
 body_5: For each skill, we have created a list of resources. You can use these
   to help develop any of the skills, whether you want to strengthen your weaker
   skills or further develop your strongest skills.
-title_6: Links title needed
-body_6: To further develop ........ content needed. Download our practice guide
-  to find guidence on how to embed skills in your practice, and download the
-  compentancy framework where you’ll find much more detail about what these
-  skills look like in practice.
+title_6: Delve deeper into the competency framework
+body_6: Our guide to the competency framework explores each skill in depth and
+  the behaviours that bring them to life, while our practice guide looks at how
+  to embed these skills in your practice. Download the PDFs to find out more.
 title_7: Contact us
-body_7: |-
-  contact us text
-
-  here is a link: [email@domain.com](mail-to:email@domain.com)
-RatingExplaination: Each role is rated based on your choices to show you which is
+body_7: If you'd like to find out more or have a chat with us about how we could
+  help you develop these skills in your team, get in touch at
+  [hello@states-of-change.org](mailto:hello@states-of-change.org.).
 ---
 Based upon the strengths you have provided, these are the roles we think you are best suited to play
