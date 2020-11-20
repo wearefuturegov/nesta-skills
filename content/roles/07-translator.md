@@ -1,7 +1,7 @@
 ---
-title: Translater
+title: Translator
 sub_title: Creates common ground
-summary_text: Summary text needed
+summary_text: Building bridges and shared understanding
 id: 7
 action: Empathic
 brand: working_together
@@ -19,12 +19,20 @@ strengths:
   - text: Can transform hard data into captivating stories
   - text: Sensitive to people they are engaging with
 weaknesses:
-  - text: Can consider themselves as master of several domains, not knowing when to call in the experts
+  - text: Can consider themselves as master of several domains, not knowing when to
+      call in the experts
 attitudes:
   - text: Resilient
   - text: Curious
   - text: Reflective
   - text: Empathic
+attitudesMapping:
+  - 1
+  - 3
+  - 4
+  - 7
+  - 8
+  - 9
 skillsMapping:
   - 1
   - 3
@@ -32,13 +40,6 @@ skillsMapping:
   - 7
 subSkillsMapping:
   - 14
-attitudesMapping: 
-  - 1
-  - 3
-  - 4
-  - 7
-  - 8
-  - 9
 ---
 
 The Translator is able to build bridges between different domains and disciplines, enabling different actors to work across silos. They do this by generating a shared understanding across domains, through communicating and articulating knowledge, experiences and perspectives surrounding the problem.
