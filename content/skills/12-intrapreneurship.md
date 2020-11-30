@@ -6,6 +6,8 @@ text: Being entrepreneurial within an organisation to create new opportunities
 read:
   - text: "Intrapreneurship: Career development tools"
     url: https://www.mindtools.com/pages/article/intrapreneurship.htm
+  - url: https://medium.com/personal-growth/the-fear-of-taking-risks-never-goes-away-feel-the-fear-and-do-it-anyway-32fbf10d973f
+    text: The fear of taking risks never goes away (feel the fear and do it anyway)
 watch:
   - text: "Get comfortable with being uncomfortable "
     url: https://youtu.be/QijH4UAqGD8
