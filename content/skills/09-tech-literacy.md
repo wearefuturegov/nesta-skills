@@ -6,6 +6,8 @@ text: Testing ideas and systematically improving them
 read:
   - url: https://www.ey.com/en_gl/government-public-sector/how-does-digital-government-become-better-government
     text: How does digital government become better government?
+  - url: https://medium.com/wogrammer/learning-new-keys-6947efd1c4ca
+    text: Learning new keys
 watch:
   - url: https://www.ted.com/talks/beth_noveck_demand_a_more_open_source_government
     text: "Beth Noveck: Demand a more open-source government"
