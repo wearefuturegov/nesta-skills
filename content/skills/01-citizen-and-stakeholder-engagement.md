@@ -11,12 +11,24 @@ read:
   - url: https://www.alliance4usefulevidence.org/publication/evidence-vs-democracy/
     text: "Evidence vs. Democracy: How ‘mini-publics’ can traverse the gap between
       citizens, experts, and evidence (Alliance for Useful Evidence) "
+  - url: https://www.nesta.org.uk/report/seven-principles-public-engagement-research-and-innovation-policymaking/why-public-engagement-important/
+    text: Why public engagement is important
 watch:
   - url: https://vimeo.com/391211147
     text: What is collective intelligence? on Vimeo
+  - text: "Bringing it home: lessons in community engagement"
+    url: https://www.youtube.com/watch?v=PQooUzvHEZc
+  - text: The importance of community engagement in a crisis
+    url: https://www.youtube.com/watch?v=LG2maTqCqOw
 use:
   - text: "Aug 24 The Community Commitment Curve: An Introduction"
     url: https://www.gathercommunityconsulting.com/blog/2018/8/16/the-community-commitment-curve
+  - text: Community impact tools
+    url: https://communitiesforimpact.org/cases-and-downloads/
+  - text: Personas
+    url: https://www.nesta.org.uk/toolkit/personas/
+  - text: Collective intelligence design playbook
+    url: https://media.nesta.org.uk/documents/Nesta_Playbook_001_Web.pdf
 ---
 You look beyond the usual suspects to engage a wide variety of citizens and stakeholders. You can find and engage with those affected by a project (whether that is directly or indirectly) and make them a vocal part of the project, from generating ideas to implementing them.
 
