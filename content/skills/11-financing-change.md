@@ -12,6 +12,8 @@ watch:
 use:
   - text: "Funding innovation: A practice guide"
     url: https://media.nesta.org.uk/documents/Funding-Innovation-Nov-18.pdf
+  - url: https://www.strategyzer.com/canvas/business-model-canvas
+    text: Business model canvas
 ---
 You are financially savvy, and can use various financial mechanisms to support innovation processes or problem solving. This could be alternative ways of financing like R&D funding, impact bonds, challenges, crowdfunding or innovation grants (and others!).
 
