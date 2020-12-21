@@ -11,6 +11,7 @@ import colouredCircles from "./coloured_circles.svg";
 import orangeCircle from "./orange_circle.svg";
 import redCircle from "./red_circle.svg";
 import purpleCircle from "./purple_circle.svg";
+import bigLogo from "./soc_logo.svg"
 
 import {
   AuthUserContext
@@ -21,7 +22,7 @@ const MainWrapper = styled.div`
 const StyledH1 = styled.h1`
   margin-top: 10px;
   line-height: 1.2;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   max-width: 75%;
   font-size: 2rem;
   
@@ -154,6 +155,9 @@ const Circles = styled.img`
   }
 `
 
+const BigLogo = styled.img`
+
+`
 const Landing = ({verified = false, fields}) => {
   const { _1_strapline, _2_paragraph_1, _3_sub_title, _3_circle_1_title, _3_circle_1_text, _3_circle_2_title, _3_circle_2_text, _3_circle_3_title, _3_circle_3_text, _4_about_title, _4_about_text, _4_about_button } = fields;
   const [currentStep, setCurrentStep] = useLocalStorage("nesta_progress");
@@ -174,6 +178,7 @@ const Landing = ({verified = false, fields}) => {
         <>
           <Circles src={colouredCircles} alt="" />
           <MainWrapper role="main">
+            <BigLogo className="soc_logo_large" src={bigLogo} alt="States of Change" />
             <Section>
               <StyledH1>{_1_strapline}</StyledH1>
               <LeadP>

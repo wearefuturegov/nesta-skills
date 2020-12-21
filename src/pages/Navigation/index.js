@@ -17,13 +17,18 @@ const Outer = styled.header`
   a {
     color: ${theme.white};
     font-weight: bold;
-
+    svg {
+      fill: ${theme.white};
+    }
     &:focus {
       color: ${theme.black};
       svg {
         fill: ${theme.black};
       }
     }
+  }
+  .soc_logo {
+    margin-top: 5px;
   }
 `
 const Inner = styled.div`
@@ -86,7 +91,7 @@ const Navigation = () => {
 const NavigationAuth = ({ authUser, currentStep }) => (
   <Outer className="header">
     <Inner>
-      <Link className="nesta_logo" to={ROUTES.LANDING} title="Nesta Skills &amp; Innovation"><Logo fill={theme.white} alt="Nesta" /></Link>
+      <Link className="soc_logo" to={ROUTES.LANDING} title="Nesta Skills &amp; Innovation"><Logo fill={theme.white} alt="Nesta" /></Link>
       
       <Nav>
         <NavList>
@@ -122,7 +127,7 @@ const NavigationAuth = ({ authUser, currentStep }) => (
 const NavigationNonAuth = () => (
   <Outer>
     <Inner>
-      <Link to={ROUTES.LANDING} title="Nesta Skills &amp; Innovation"><Logo alt="Nesta" /></Link>
+      <Link className="soc_logo" to={ROUTES.LANDING} title="Nesta Skills &amp; Innovation"><Logo alt="Nesta" /></Link>
       <Nav>
         <NavList>
           <NavItem>

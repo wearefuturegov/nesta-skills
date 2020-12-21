@@ -43,9 +43,14 @@ body.landing_page {
 }
 body.landing_page header {
   background: transparent;
+  padding-top: 30px;
 }
-body.landing_page .nesta_logo svg {
-  width: 160px;
+body.landing_page .soc_logo_large {
+  margin-top: -70px;
+  margin-bottom: 40px;
+}
+body.landing_page .soc_logo svg {
+  display: none;
 }
 
 body.step_1, body.step_2, body.step_3, body.step_4 {
