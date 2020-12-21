@@ -34,11 +34,11 @@ h3 {
 }
 hr {
   margin: 50px 0;
-  border-color: #3C1252;
+  border-color: #341B6F;
   border-color: rgba(60, 18, 82, 0.2);
 }
 body.landing_page {
-  background: #3C1252;
+  background: #341B6F;
   color: #FFF;
 }
 body.landing_page header {
@@ -72,7 +72,7 @@ body.about_page .about_link {
 }
 
 a {
-  color: #3C1252;
+  color: #341B6F;
 }
 a:hover {
   text-decoration: none;

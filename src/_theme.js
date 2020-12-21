@@ -8,12 +8,12 @@ export default {
     lightGrey: "#efefef",
     grey: "#C4C4C4",
 
-    darkPurple: "#3C1252",
+    darkPurple: "#341B6F",
 
     orange: "#0A64FF",
-    red: "#ff3c96",
-    accessibleRed: "#E00069",
-    purple: "#845fd8",
+    red: "#E60017",
+    accessibleRed: "#E60017",
+    purple: "#FF057A",
     focus: "#FFF71A",
     green: "#2d9a21",
 
