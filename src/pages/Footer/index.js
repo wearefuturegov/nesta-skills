@@ -64,7 +64,7 @@ const Footer = () => (
         <a href="https://states-of-change.org/" title="Go to State's of Change's website" external><SoCLogo src={soCLogoSvg} alt="States of Change logo" /></a>
         <a href="https://www.nesta.org.uk/" title="Go to Nesta's website" external><NestaLogo src={nestaLogoSvg} alt="Nesta logo" /></a>
       </Logos>
-      <a href="https://www.nesta.org.uk/privacy/" target="_blank" title="View our privacy policy">Privacy policy</a>
+      <a href="https://states-of-change.org/privacy-policy" target="_blank" title="View our privacy policy">Privacy policy</a>
     </Inner>
   </Outer>
 );
