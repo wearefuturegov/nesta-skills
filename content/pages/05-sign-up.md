@@ -1,9 +1,8 @@
 ---
-title: You're almost finished!
+title: Almost there
 ---
+Before seeing your results, we'd like to find out a little more information about you and set you up with an account to make it easy to return and view your results any time. 
 
-Before you see your results, we'd like to find out a little more information about you and set you up with an account so you can come back and view your results any time.
+Collecting this information helps to make your results more meaningful and also adds to our research on the skills and attitudes right across the sector. This helps us understand how best we can support it.
 
-Collecting this information helps us to make your results more meaningful, but also adds to our research on the current position of skills and attitudes within the sector so we can best support it.
-
-Most fields are not mandatory but we'd be grateful for your participation.
+Most fields are *optional* but we'd be grateful for your participation. These details aren't shared with anybody outside States of Change.
