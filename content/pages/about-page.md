@@ -1,7 +1,7 @@
 ---
-title: About us
+title: About the Competency Framework
 file_link: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
-about_title: States of Change
+about_title: About States of Change
 about_content: content needed...
 about_body: >-
   States of Change brings together the world’s best public innovation
@@ -10,14 +10,8 @@ about_body: >-
   the world.
 
 
-  States of Change was initiated by Nesta, and is now an independent non-profit that works as a collective. It is brought to life by our[ international network of fellows](https://states-of-change.org/about), our government and delivery partners and the wider community of practice.
+  We were initiated by Nesta, and are now an independent non-profit that works as a collective. It is brought to life by our [international network of fellows](https://states-of-change.org/about), our government and delivery partners and the wider community of practice.
 ---
-## How we created the framework
-
-What started as a project in Nesta’s Innovation Skills team grew into a global research project with a diverse range of partners, from governments to leading innovation practitioners. 
-
-We interviewed over 30 people experienced in making innovation happen in government, and since then we’ve tested the framework with governments and innovation experts, from Portugal and Colombia to Canada and Australia.
-
 ## Introducing the framework
 
 ![Nesta competency framework ](/images/uploads/nesta_competency_framework.jpg)
@@ -29,3 +23,9 @@ There are three parts to the framework:
 3. **Skills:** These are three distinct skill areas: Work Together, Accelerating Learning and Leading Change. They enable our key aim of experimenting and public problem solving, and feature crucial skills that make up each area. Skills are easier to learn and develop than attitudes. Obviously, you recruit for skills as well but think of them as things that can be developed, learned or taught.
 
 For more detail on the framework, download our full guide which includes behaviours and reflection questions for each skill.
+
+## How we created the framework
+
+What started as a project in Nesta’s Innovation Skills team grew into a global research project with a diverse range of partners, from governments to leading innovation practitioners. 
+
+We interviewed over 30 people experienced in making innovation happen in government, and since then we’ve tested the framework with governments and innovation experts, from Portugal and Colombia to Canada and Australia.
