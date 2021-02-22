@@ -1,9 +1,5 @@
 ### Select your strongest skills
 
-Let's build up a picture of your skills so we can understand:
+Explore the cards and pick five that you or your colleagues would describe as your best.
 
-* what strengths you bring to a team
-* what type of role this might mean you play in a team
-* what your areas for development could be
-
-**Select five cards** below that you think colleagues would describe as **your five strongest skills**.
+This helps us understand what strengths you bring to a team, what role this might mean you can play and where your areas for development are.
