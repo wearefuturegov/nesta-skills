@@ -1,5 +1,5 @@
 ---
-title: About the Competency Framework
+title: Empowering public innovators
 file_link: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
 about_title: About States of Change
 about_content: content needed...
@@ -12,7 +12,19 @@ about_body: >-
 
   We were initiated by Nesta, and are now an independent non-profit that works as a collective. It is brought to life by our [international network of fellows](https://states-of-change.org/about), our government and delivery partners and the wider community of practice.
 ---
-## Introducing the framework
+Revealing the skills and attitudes of innovative teams changing the world for good.
+
+## Why we built this
+
+We believe in the power of teams and when the chemistry is right, small groups of people can do amazing things. Government competencies regularly overlook the core ingredients of what made the most innovative teams, innovative, experimental and groundbreaking. We wanted to name them and help people excel at them; that’s why we’ve created this beta app. The app is designed to help you unearth your team's strengths and identify areas for collective development.
+
+## Why you should trust us
+
+This experimental site was created by [States of Change](states-of-change.org), a global collective of expert public innovators and experienced practitioners. We work for the public good both inside and with governments globally.
+
+Our recommendations are based on our exhaustive research and real world experience in creating the Competency Framework back in our days at the innovation foundation, [Nesta](https://www.nesta.org.uk/blog/what-are-skills-and-attitudes-successful-public-problem-solving/). A tool tested with and used by countless government agencies, innovation labs and experienced practitioners around the world, from Canada to Colombia. The app itself was designed and built by the awesome team at [FutureGov](https://wearefuturegov.com/).
+
+
 
 ![Nesta competency framework ](/images/uploads/nesta_competency_framework.jpg)
 
