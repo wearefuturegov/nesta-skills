@@ -1,3 +1,3 @@
-### Select your least strong skills
+### What are you less good at?
 
-We haven't met anyone who is good at everything. **Select two cards** that you or your colleagues might use to describe your **least strong** or **least well-practised skills.**
+Nobody's perfect, so tell us what your two least strong skills are.
