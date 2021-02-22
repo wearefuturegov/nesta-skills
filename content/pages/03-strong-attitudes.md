@@ -1,5 +1,5 @@
-### Choose your strongest attitudes
+### Attitude goes a long way
 
-It's not all about skills! Our research identified nine **key attitudes** for successful experimentation and problem-solving. These differ from skills because attitudes are shaped over a greater period of time and are harder to change or develop.
+Attitudes matter because they underpin everything we do, they make some things harder for us and other things easier. They are also more fixed than our skills; taking longer to develop and being slower to change.
 
-Select **three attitudes** that you think your colleagues would **most likely use to describe you.**
+Tell us what your three strongest attitudes are.
