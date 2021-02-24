@@ -2,7 +2,7 @@
 _1_strapline: Empowering public innovators.
 _2_paragraph_1: >-
   An experimental tool to help you learn about the skills and attitudes of
-  innovative teams and better understand your strengths for changing the world
+  innovative teams and to better understand your strengths in changing the world
   for good.
 
 
