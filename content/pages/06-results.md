@@ -27,10 +27,14 @@ body_5: We have created a list of resources that will help you develop your
   skills and take them to the next level. We suggest you focus on what's strong
   rather than what's wrong and build on what you are already good at. Time to
   excel.
-title_6: Why trust any of this?
+title_6: Why you can trust this
 body_6: >-
-  Our recommendations are based on our exhaustive research and real world
-  experience in creating the Competency Framework and its accompanying guide.
+  Our recommendations are based on exhaustive research and real world experience
+  in creating the Competency Framework and its accompanying guide back in our
+  days at the innovation foundation,
+  [Nesta](https://www.nesta.org.uk/blog/what-are-skills-and-attitudes-successful-public-problem-solving/).
+  A tool tested with and used by countless government agencies, innovation labs
+  and experienced practitioners around the world, from Canada to Colombia. 
 
 
   The Competency Framework visualises the skills and attitudes of innovative teams working in the public good. The practice guide explores in greater depth what those skills are as well as the behaviours that bring them to life. Use them. Explore them. See what resonates and takes your team up a level.
@@ -42,8 +46,8 @@ body_7: >-
   inside, and with, governments globally.
 
 
-  We help teams adapt to the uncertain world we all work in and hone the skills they need to face the grand challenges of our age. If that sounds like something you're doing and you could do with support, email us at [hello@states-of-change.org](mailto:hello@states-of-change.org.) and let's see how we can be of service.
+  We help teams adapt to the uncertain world we all work in and hone the skills they need to face the grand challenges of our age. If that sounds like something you're doing and you could do with support, email us at [hello@states-of-change.org](mailto:hello@states-of-change.org.) and let's see how we can support you.
 ---
-There are 9 roles we've found across innovative teams. We've picked the ones below that we think you are best suited for, based on what you told us.
+We've picked the roles below that we think you are best suited for, based on what you told us.
 
 You might recognise a role here that you already do, other people find areas they hadn’t thought of before; their *untapped potential*. Explore the roles and see where they might show up in what you do now, and if they don't? Think about where they might be able to.
