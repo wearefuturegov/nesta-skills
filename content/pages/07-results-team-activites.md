@@ -1,7 +1,7 @@
 ---
-title: Starting a conversation in your team
+title: Running a team session
 pdf: /images/uploads/competency-framework-guide_team-activities.pdf
 ---
-There isn’t a single way to use the competency framework, there are many. We've seen it work well as a prompt for a team to reflect together. We think that's important because empowered and well-balanced teams are where the change happens.
+Empowered and well-balanced teams are where the change happens. You can be working in the same office, or spread across a region, it doesn’t matter. Use these exercises to make the most of this app and your results.
 
-Download our Activities PDF to find group exercises designed to spark meaningful conversations in your team. Whether that's choosing what areas to develop, or setting yourselves up for a new project.
+Below are some group exercises you can do together with your team to help start a conversation. That might be mapping your strengths; setting up a new project team; as an icebreaker; or to plan for what's next, whatever that might be. Remember, this tool is designed to empower you, don't think of it as an evaluator.
