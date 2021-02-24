@@ -13,7 +13,7 @@ body_2: The selections you made across this tool.
 title_3: What to do now
 body_3: >-
   You've identified your skills and attitudes, plus the roles they align with.
-  Now let's put it to action.
+  Now let's put it into action.
 
 
   Here are some ways to get the best from your results.
