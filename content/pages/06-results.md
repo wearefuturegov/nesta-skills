@@ -11,13 +11,17 @@ not_signed_up_title: No account? No problem
 title_2: The skills you chose
 body_2: The selections you made across this tool.
 title_3: What to do now
-body_3: You've identified your skills, and the roles they align with. Now let's
-  put it to action. Here are some ways to get the best from your results.
+body_3: >-
+  You've identified your skills and attitudes, plus the roles they align with.
+  Now let's put it to action.
+
+
+  Here are some ways to get the best from your results.
 title_4: Run a team session
 body_4: Individuals - like you - are important. But teams can be truly special.
-  Find out how to run an activity with your team to develop a picture of your
-  skills as a whole. An excellent reflective exercise and great success with
-  both new teams and old ones.
+  Find out how to run an activity with your team to develop a picture of all
+  your skills as a whole. An excellent reflective exercise and great success
+  with both new teams and old ones.
 title_5: Develop your skills
 body_5: We have created a list of resources that will help you develop your
   skills and take them to the next level. We suggest you focus on what's strong
@@ -40,4 +44,6 @@ body_7: >-
 
   We help teams adapt to the uncertain world we all work in and hone the skills they need to face the grand challenges of our age. If that sounds like something you're doing and you could do with support, email us at [hello@states-of-change.org](mailto:hello@states-of-change.org.) and let's see how we can be of service.
 ---
-The results of what you told us. These are the roles we thought you'd be best suited to play in your work. You might recognise a role you already do, some people also find areas they hadn’t thought of; their untapped potential.
+There are 9 roles we've found across innovative teams. We've picked the ones below that we think you are best suited for, based on what you told us.
+
+You might recognise a role here that you already do, other people find areas they hadn’t thought of before; their *untapped potential*. Explore the roles and see where they might show up in what you do now, and if they don't? Think about where they might be able to.
