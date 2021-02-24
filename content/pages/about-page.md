@@ -1,43 +1,37 @@
 ---
 title: Empowering public innovators
 file_link: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
-about_title: About States of Change
+about_title: Everything else
 about_content: content needed...
 about_body: >-
-  States of Change brings together the world’s best public innovation
-  practitioners and experts. Together, we work to enhance the quality, coherence
-  and reach of public innovation learning to improve lives for citizens across
-  the world.
+  We help teams adapt to the uncertain world we all work in and hone the skills
+  they need to face the grand challenges of our age. Let’s work together. To
+  talk about how we can support your team [get in
+  touch](mailto:hello@states-of-change.org).
 
 
-  We were initiated by Nesta, and are now an independent non-profit that works as a collective. It is brought to life by our [international network of fellows](https://states-of-change.org/about), our government and delivery partners and the wider community of practice.
+  For other tools and resources we create or think are great [subscribe to our newsletter](http://eepurl.com/gU_QZr).
+
+
+  Feedback on the app? [Send us an email](mailto:hello@states-of-change.org) and tell us what you think.
+
+
+  This is our [privacy policy](https://states-of-change.org/privacy-policy).
 ---
 Revealing the skills and attitudes of innovative teams changing the world for good.
 
 ## Why we built this
 
-We believe in the power of teams and when the chemistry is right, small groups of people can do amazing things. Government competencies regularly overlook the core ingredients of what made the most innovative teams, innovative, experimental and groundbreaking. We wanted to name them and help people excel at them; that’s why we’ve created this beta app. The app is designed to help you unearth your team's strengths and identify areas for collective development.
+We believe in the power of teams and when the chemistry is right, small groups of people can do amazing things. Our skills and attitudes are the core ingredients of what makes the most innovative teams, innovative, experimental and groundbreaking. We wanted to name and help people excel at them. That’s why we’ve created this beta app, designed to help you unearth your team's strengths and identify areas for collective development.
 
 ## Why you should trust us
 
-This experimental site was created by [States of Change](states-of-change.org), a global collective of expert public innovators and experienced practitioners. We work for the public good both inside and with governments globally.
+This experimental site was created by [States of Change](https://states-of-change.org/), a global collective of expert public innovators and experienced practitioners. We work for the public good both inside, and with, governments globally.
 
-Our recommendations are based on our exhaustive research and real world experience in creating the Competency Framework back in our days at the innovation foundation, [Nesta](https://www.nesta.org.uk/blog/what-are-skills-and-attitudes-successful-public-problem-solving/). A tool tested with and used by countless government agencies, innovation labs and experienced practitioners around the world, from Canada to Colombia. The app itself was designed and built by the awesome team at [FutureGov](https://wearefuturegov.com/).
+Our recommendations are based on our exhaustive research and real world experience in creating the [Competency Framework](https://states-of-change.org/resources/competency-framework-for-experimental-problem-solving-1) back in our days at the innovation foundation, [Nesta](https://www.nesta.org.uk/). A tool tested with and used by countless government agencies, innovation labs and experienced practitioners around the world, from Canada to Colombia. The app itself was designed and built by the awesome team at [FutureGov](https://wearefuturegov.com/).
 
+## Built on solid foundations
 
+The Competency Framework outlining the key skills, attitudes and behaviours that public innovators combine in order to solve public problems. [Explore the framework further](https://states-of-change.org/resources/competency-framework-for-experimental-problem-solving-1).
 
-![Nesta competency framework ](/images/uploads/nesta_competency_framework.jpg)
-
-There are three parts to the framework:
-
-1. **The central circle:** this contains the core aim of innovative teams: to solve public problems through experimenting. 
-2. **Attitudes:** These surround the core aim, and create the fertile ground for experimenting and public problem solving. Attitudes *can* change, but they tend to be deeply ingrained so they don’t change easily. It takes a significant amount of time to develop certain attitudes (we’re talking about years, not weeks or months). That’s why we believe it’s important to take attitudes into account when hiring people for roles.
-3. **Skills:** These are three distinct skill areas: Work Together, Accelerating Learning and Leading Change. They enable our key aim of experimenting and public problem solving, and feature crucial skills that make up each area. Skills are easier to learn and develop than attitudes. Obviously, you recruit for skills as well but think of them as things that can be developed, learned or taught.
-
-For more detail on the framework, download our full guide which includes behaviours and reflection questions for each skill.
-
-## How we created the framework
-
-What started as a project in Nesta’s Innovation Skills team grew into a global research project with a diverse range of partners, from governments to leading innovation practitioners. 
-
-We interviewed over 30 people experienced in making innovation happen in government, and since then we’ve tested the framework with governments and innovation experts, from Portugal and Colombia to Canada and Australia.
+![The Competency Framework ](/images/uploads/nesta_competency_framework.jpg)
