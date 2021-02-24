@@ -1,7 +1,7 @@
 ---
-title: Skills development
+title: Developing your skills
 resources_pdf: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
 ---
-No individual will have all the skills that feature in the competency framework, but there might be some skills you’re eager to develop further. These might be connected to the roles you already play, the skills you picked as less strong or building on what you are already good at. Below you’ll find resources for each of the skills in the framework.
+No-one is skilled at everything but we're all good at *something*.  Use the resources we've collected together below to learn something new, develop a strength of yours further, or explore the nuances of your role. We've organised it by the skills included in this app.
 
-We’ve divided these into something you can:
+There are things you can:
