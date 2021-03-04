@@ -260,6 +260,6 @@ const LandingPageCTA = ({authUser, currentStep}) =>
     <Button to={`/step_${currentStep}`} background={theme.accessibleRed}>Continue</Button>
   </>
   :
-  <Button to={ROUTES.START} background={theme.accessibleRed}>Get started</Button>
+  <Button to={ROUTES.START} background={theme.purple}>Get started</Button>
 
 export default Landing;
