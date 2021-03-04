@@ -187,7 +187,7 @@ const Landing = ({verified = false, fields}) => {
             
               <LandingPageCTA authUser={authUser} currentStep={currentStep} />
             </Section>
-            <CenteredSection>
+            {/* <CenteredSection>
               <StyledH2>{_3_sub_title}</StyledH2>
               <CirclesContainer>
                 <Circle bg={orangeCircle}>
@@ -213,7 +213,7 @@ const Landing = ({verified = false, fields}) => {
               <br />
               <br />
               <LandingPageCTA authUser={authUser} currentStep={currentStep} />
-            </CenteredSection>
+            </CenteredSection> */}
             <br />
             <CenteredSection>
               <StyledH2>{_4_about_title}</StyledH2>
