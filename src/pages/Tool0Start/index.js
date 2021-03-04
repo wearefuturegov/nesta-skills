@@ -111,11 +111,10 @@ const StartPage = ({restart, fields}, props) => {
         </Block>
       </BlockContainer>
 
-
       {/* <Content source={bottom_content} /> */}
 
       <CenteredText>
-        <Button to={ROUTES.STEP1} background={theme.purple}>Explore your skills</Button>
+        <Button to={ROUTES.STEP1}>Explore your skills</Button>
       </CenteredText>
 
       <Circles src={blackCircles} alt="" />
