@@ -214,7 +214,7 @@ const Landing = ({verified = false, fields}) => {
               <br />
               <LandingPageCTA authUser={authUser} currentStep={currentStep} />
             </CenteredSection> */}
-            <br />
+            {/* <br />
             <CenteredSection>
               <StyledH2>{_4_about_title}</StyledH2>
               <LeadP>
@@ -222,7 +222,7 @@ const Landing = ({verified = false, fields}) => {
               </LeadP>
 
               <Button to={ROUTES.ABOUT} title="Open about page" reverse="true">{_4_about_button}</Button>
-            </CenteredSection>
+            </CenteredSection> */}
           </MainWrapper>
         </>
       )}
@@ -249,7 +249,7 @@ const LandingPageCTA = ({authUser, currentStep}) =>
           <Button to={`/step_${currentStep}`} background={theme.accessibleRed}>Continue</Button>
         </>
         :
-        <Button to={ROUTES.START} background={theme.accessibleRed}>Get started</Button>
+        <Button to={ROUTES.START} background={theme.purple}>Get started</Button>
     }
     </div>
   :

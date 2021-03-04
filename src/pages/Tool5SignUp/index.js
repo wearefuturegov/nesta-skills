@@ -39,16 +39,15 @@ const Tool5 = ({fields}) => {
 
               <Section>
                 <h1>{title}</h1>
+                <SignInAnonButton />
                 <Content source={body} />
+
+                <SignInAnonButton />
               </Section>
               <Section>
               
                 <SignUpForm />
                 <SignInLink />
-
-                <SubTitle>See your results without signing up</SubTitle>
-                <SignInAnonButton />
-
               </Section>
             </>
           )

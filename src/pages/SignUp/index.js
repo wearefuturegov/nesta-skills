@@ -246,8 +246,11 @@ class SignUpFormBase extends Component {
             autoComplete="new-password"
           />
         </Label>
+
+        <p>These questions are optional</p>
+
         <Label>
-          What ‘level’ of government would you use to describe where you work (optional)
+          What ‘level’ of government would you use to describe where you work
           <select
             name="orgType"
             id="orgType"
@@ -280,7 +283,7 @@ class SignUpFormBase extends Component {
           </div>
         </Label>
         <Label>
-          Your position (optional)
+          Your position
           <select 
             name="position"
             id="position"
@@ -312,7 +315,7 @@ class SignUpFormBase extends Component {
           </div>
         </Label>
         <Label>
-          Your location (optional)
+          Your location
           <select 
             name="location"
             value={location}

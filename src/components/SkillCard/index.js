@@ -89,7 +89,7 @@ export const SkillCard = ({skill, selectSkill, chosenSkills, maxSelectionNo}) =>
                     <ModalLead>{skill.text}</ModalLead>
                     <Content source={skill.content} />
                     <ModalActions>
-                        <CloseModal onClick={() => setShowModal(false)}>Close Modal</CloseModal>
+                        <CloseModal onClick={() => setShowModal(false)}>Close</CloseModal>
                         {chosenSkills.length === maxSelectionNo && !isActive ? 
                             <span>You cannot select more than {maxSelectionNo} skills</span>
                             :
@@ -217,7 +217,7 @@ export const SkillCardDevelopment = ({skill}) => {
                     <h3>{`About ${skill.title}`}</h3>
                     <Content source={skill.content} />
                     <ModalActions>
-                        <CloseModal onClick={() => setShowModal(false)}>Close Modal</CloseModal>
+                        <CloseModal onClick={() => setShowModal(false)}>Close</CloseModal>
                     </ModalActions>
                 </Modal>
             }

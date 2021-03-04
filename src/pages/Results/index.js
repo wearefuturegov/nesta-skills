@@ -356,7 +356,7 @@ const ResultsPage = ({skills, rolesContent, attitudes, fields}) => {
                         </Half>
                       </RowContainer>
                       <ModalActions>
-                          <CloseModal onClick={closeModal}>Close Modal</CloseModal>
+                          <CloseModal onClick={closeModal}>Close</CloseModal>
                       </ModalActions>
                     </Modal>
                   </Section>

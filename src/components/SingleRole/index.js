@@ -129,7 +129,7 @@ export const SingleRole = ({role}) => {
                     </SWContainer>
                 </RoleInformation>
                 <ModalActions>
-                    <CloseModal onClick={closeModal}>Close Modal</CloseModal>
+                    <CloseModal onClick={closeModal}>Close</CloseModal>
                 </ModalActions>
             </Modal>
         </Outer>

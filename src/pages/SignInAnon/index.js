@@ -48,8 +48,8 @@ const SignInAnonButtonBase = (props) => {
  
 return (
   <React.Fragment>
-    <Button onClick={signInAnon}>Continue without registration</Button> 
-    <Small>(You can choose to register an account later)</Small>
+    <Button onClick={signInAnon}>View your results</Button> 
+    {/* <Small>(You can choose to register an account later)</Small> */}
   </React.Fragment>
 )
 
