@@ -2,7 +2,6 @@
 title: Empowering public innovators
 file_link: /images/uploads/nesta_competencyframework_guide_july2019-1-.pdf
 about_title: Everything else
-about_content: content needed...
 about_body: >-
   We help you respond wisely to the challenges of our time. Supporting teams as
   they adapt to the uncertain world we all work in and hone the skills they need

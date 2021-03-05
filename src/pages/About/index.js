@@ -6,7 +6,7 @@ import Content from '../../components/Content';
 import BodyClassName from 'react-body-classname';
 
 const AboutPage = ({fields}) => {
-  const { title, body, file_link, about_title, about_content } = fields;
+  const { title, body, file_link, about_title, about_body } = fields;
   return(
     <BodyClassName className="about_page">
     <section>
@@ -17,7 +17,7 @@ const AboutPage = ({fields}) => {
       <Button to={file_link} external>Download the framework</Button>
 
       <h2>{about_title}</h2>
-      <Content source={about_content} />
+      <Content source={about_body} />
     </section>
     </BodyClassName>
   )

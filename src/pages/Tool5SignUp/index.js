@@ -39,6 +39,8 @@ const Tool5 = ({fields}) => {
 
               <Section>
                 <h1>{title}</h1>
+                <Content source={`<p>Our research found that there are 9 distinct roles we've found across innovative teams. We're using what you’ve told us to create the roles we think you'd be good at.</p>`} />
+
                 <SignInAnonButton />
                 <Content source={body} />
 
