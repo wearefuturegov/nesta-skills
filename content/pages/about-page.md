@@ -33,4 +33,4 @@ Our recommendations are based on and our own real world experience in government
 
 We felt something was missing when innovators in government were seen as the people comfortable with creative thinking, sticky notes and brainstorming. Those are a part of the picture. But it didn't capture the full range of competencies and team effort needed to systematically create, authorise, test and improve on ideas. We call those the skills, attitudes and behaviours necessary to solve public problems. [Explore the framework further](https://states-of-change.org/resources/competency-framework-for-experimental-problem-solving-1). 
 
-![The Competency Framework ](public/images/uploads/nesta_pps_competency_framework_jpeg.jpg)
+![](public/images/uploads/nesta_pps_competency_framework_jpeg.jpg)
