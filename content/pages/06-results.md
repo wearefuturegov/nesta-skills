@@ -38,15 +38,16 @@ body_6: >-
 
 
   The Competency Framework visualises the skills and attitudes of innovative teams working in the public good. The practice guide explores in greater depth what those skills are as well as the behaviours that bring them to life. Use them. Explore them. See what resonates and takes your team up a level.
-title_7: We can help
+title_7: Who built this
 body_7: >-
   This experimental site was created by [States of
-  Change](https://states-of-change.org/), a global collective of expert public
-  innovators and experienced practitioners. We work for the public good both
-  inside, and with, governments globally.
+  Change](https://states-of-change.org/), a not-for-profit of accomplished
+  public innovators and experienced practitioners. We help large organisations
+  and governments become more experimental, participatory and agile so they can
+  respond to the challenges of our age. 
 
 
-  We help teams adapt to the uncertain world we all work in and hone the skills they need to face the grand challenges of our age. If that sounds like something you're doing and you could do with support, email us at [hello@states-of-change.org](mailto:hello@states-of-change.org.) and let's see how we can support you.
+  If that sounds like something you're doing and you could do with support, see [what we do](https://states-of-change.org/what-we-do) or email us at [hello@states-of-change.org](mailto:hello@states-of-change.org.) and let's see how we can help.
 ---
 We've picked the roles below that we think you are best suited for, based on what you told us.
 
