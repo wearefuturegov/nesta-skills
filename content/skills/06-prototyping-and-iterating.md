@@ -23,4 +23,4 @@ use:
   - url: https://media.nesta.org.uk/documents/Resources_2017_version_05.pdf
     text: Prototype testing plan
 ---
-needs content
+You test ideas before you put them into practice and you learn from those tests to make what you are doing better. You test those ideas again and again. That helps you avoid 'big bang' implementation of expensive ideas before you know if they will work. That saves a lot of time and money. Prototyping doesn’t deliver a perfect solution right out of the gate. So you see ‘not getting it right first time’ as an opportunity to learn rather than a failure.
